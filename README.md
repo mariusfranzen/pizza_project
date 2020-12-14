@@ -1,4 +1,5 @@
 # Pizza Project
+Team 2: Marius, Rickard, Björn, Abdel
 
 ## Rules
 __NEVER__ commit to master. These are the different branches:
