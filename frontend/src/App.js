@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Router, Route } from 'express';
+import History from "./components/common/history";
+import { HomePage, LoginPage } from "./pages/index";
+import { CheckoutPage, CustomPizzaPage, ProfilePage, RegisterPage, ShoppingCartPage } from "./pages/Customer/index";
+import { AddIngredientPage, AddMenuItemPage, OrderConfirmationPage, OwnerMenuPage, PriceGroupPage } from "./pages/Owner/index";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  render() {
+    return (
+      <Router history = {History}>
+        <Route exact path="/" component={homePage}/>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default App
