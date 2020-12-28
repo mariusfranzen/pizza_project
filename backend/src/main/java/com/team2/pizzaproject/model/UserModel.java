@@ -3,6 +3,7 @@ package com.team2.pizzaproject.model;
 import com.team2.pizzaproject.enums.AuthorizationEnum;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.UUID;
@@ -10,22 +11,40 @@ import java.util.UUID;
 public class UserModel {
 
     @Id
-    private UUID id;
+    @Field("_id")
+    private String id;
+
+    @Field("password")
     private String password;
+
+    @Field("firstName")
     private String firstName;
+
+    @Field("lastName")
     private String lastName;
+
+    @Field("dateOfBirth")
     private Date dateOfBirth;
+
+    @Field("phoneNumber")
     private String phoneNumber;
+
+    @Field("email")
     private String email;
+
+    @Field("address")
     private Address address;
+
+    @Field("authorization")
     private AuthorizationEnum authorization;
+
+    @Field("dateOfRegistration")
     private Date dateOfRegistration;
 
     public UserModel() {
     }
 
     public UserModel(String password, String firstName, String lastName, Date dateOfBirth, String phoneNumber, String email, Address address, AuthorizationEnum authorization) {
-        this.id = UUID.randomUUID();
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,11 +56,11 @@ public class UserModel {
         this.dateOfRegistration = new Date(System.currentTimeMillis());
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

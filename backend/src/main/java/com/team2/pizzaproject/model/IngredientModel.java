@@ -2,32 +2,41 @@ package com.team2.pizzaproject.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.UUID;
 
+@Document("ingredients")
 public class IngredientModel {
 
     @Id
-    private UUID id;
+    @Field("_id")
+    private String id;
+
+    @Field("name")
     private String name;
+
+    @Field("priceGroup")
     private String priceGroup;
+
+    @Field("description")
     private String description;
 
     public IngredientModel() {
     }
 
     public IngredientModel(String name, String priceGroup, String description) {
-        this.id = UUID.randomUUID();
         this.name = name;
         this.priceGroup = priceGroup;
         this.description = description;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
