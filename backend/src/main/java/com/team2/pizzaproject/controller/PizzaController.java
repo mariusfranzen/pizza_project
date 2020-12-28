@@ -4,23 +4,46 @@ import com.team2.pizzaproject.model.PizzaModel;
 import com.team2.pizzaproject.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/pizza")
+@CrossOrigin(origins = { "http://localhost:3000" })
 public class PizzaController {
+
+    private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
 
     @Autowired
     private PizzaRepository pizzaRepository;
-    
-    // localhost:8080/api/pizza/name&name=pizzanamn
+
+    @GetMapping(path = "")
+    @ResponseBody
+    public Iterable<PizzaModel> getAllPizzas() {
+        return pizzaRepository.findAll();
+    }
+
     @GetMapping(path = "/name")
+    @ResponseBody
     public Optional<PizzaModel> getPizzaByName(@RequestParam String name) {
         return pizzaRepository.findByName(name);
+    }
+
+    @PostMapping(path = "/new")
+    @ResponseBody
+    public String newPizza(@RequestBody PizzaModel pizza ) {
+        try {
+            pizzaRepository.save(pizza);
+            LOGGER.log(Level.INFO, "Saved pizza to database!");
+            return "Saved pizza to database!";
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "FAILED SAVING TO DATABASE. Error: " + e.getMessage());
+            return "Failed saving to database. Error in log.";
+        }
     }
 
 }

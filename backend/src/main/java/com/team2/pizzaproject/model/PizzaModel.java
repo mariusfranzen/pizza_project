@@ -3,12 +3,11 @@ package com.team2.pizzaproject.model;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
-import java.util.UUID;
 
 public class PizzaModel {
 
     @Id
-    private UUID id;
+    private String id;
     private String name;
     private float price;
     private List<IngredientModel> ingredientModels;
@@ -18,19 +17,46 @@ public class PizzaModel {
     public PizzaModel() {
     }
 
+    public PizzaModel(String name) {
+        this.name = name;
+        this.price = 0f;
+        this.ingredientModels = null;
+        this.description = "";
+    }
+
+    public PizzaModel(List<IngredientModel> ingredientModels) {
+        this.name = "";
+        this.price = 0f;
+        this.ingredientModels = ingredientModels;
+        this.description = "";
+    }
+
+    public PizzaModel(float price, List<IngredientModel> ingredientModels) {
+        this.name = "";
+        this.price = price;
+        this.ingredientModels = ingredientModels;
+        this.description = "";
+    }
+
+    public PizzaModel(float price, List<IngredientModel> ingredientModels, String description) {
+        this.name = "";
+        this.price = price;
+        this.ingredientModels = ingredientModels;
+        this.description = description;
+    }
+
     public PizzaModel(String name, float price, List<IngredientModel> ingredientModels, String description) {
-        this.id = UUID.randomUUID();
         this.name = name;
         this.price = price;
         this.ingredientModels = ingredientModels;
         this.description = description;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

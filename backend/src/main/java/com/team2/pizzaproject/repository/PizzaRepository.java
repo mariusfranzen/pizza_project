@@ -10,9 +10,10 @@ import java.util.UUID;
 
 public interface PizzaRepository extends MongoRepository<PizzaModel, UUID> {
 
+    List<PizzaModel> findAll();
     Optional<PizzaModel> findById(UUID id);
     Optional<PizzaModel> findByName(String name);
     List<PizzaModel> findByPrice(float price);
-    List<PizzaModel> findByIngredients(List<IngredientModel> ingredient);
+    List<PizzaModel> findByIngredientModels(List<IngredientModel> ingredients);
 
 }
