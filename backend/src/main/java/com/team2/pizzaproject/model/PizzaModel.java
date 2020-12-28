@@ -1,16 +1,28 @@
 package com.team2.pizzaproject.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
+@Document("pizzas")
 public class PizzaModel {
 
     @Id
+    @Field("_id")
     private String id;
+
+    @Field("name")
     private String name;
+
+    @Field("price")
     private float price;
+
+    @Field("ingredientList")
     private List<IngredientModel> ingredientModels;
+
+    @Field("description")
     private String description;
     //Size?
 
