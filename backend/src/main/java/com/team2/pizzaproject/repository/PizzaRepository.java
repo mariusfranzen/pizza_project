@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface PizzaRepository extends MongoRepository<PizzaModel, UUID> {
+public interface PizzaRepository extends MongoRepository<PizzaModel, String> {
 
     List<PizzaModel> findAll();
-    Optional<PizzaModel> findById(UUID id);
-    Optional<PizzaModel> findByName(String name);
+    Optional<PizzaModel> findById(String id);
+    List<PizzaModel> findByName(String name);
     List<PizzaModel> findByPrice(float price);
     List<PizzaModel> findByIngredientModels(List<IngredientModel> ingredients);
 

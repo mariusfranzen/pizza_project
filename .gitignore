@@ -27,6 +27,8 @@
 /backend/!**/src/main/**/target/
 /backend/!**/src/test/**/target/
 
+application.properties
+
 ### STS ###
 .apt_generated
 .classpath

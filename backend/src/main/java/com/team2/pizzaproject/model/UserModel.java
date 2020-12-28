@@ -3,11 +3,13 @@ package com.team2.pizzaproject.model;
 import com.team2.pizzaproject.enums.AuthorizationEnum;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.UUID;
 
+@Document("users")
 public class UserModel {
 
     @Id

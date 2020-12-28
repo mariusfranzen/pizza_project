@@ -37,21 +37,21 @@ public class PizzaModel {
     }
 
     public PizzaModel(List<IngredientModel> ingredientModels) {
-        this.name = "";
+        this.name = "no name specified";
         this.price = 0f;
         this.ingredientModels = ingredientModels;
         this.description = "";
     }
 
     public PizzaModel(float price, List<IngredientModel> ingredientModels) {
-        this.name = "";
+        this.name = "no name specified";
         this.price = price;
         this.ingredientModels = ingredientModels;
         this.description = "";
     }
 
     public PizzaModel(float price, List<IngredientModel> ingredientModels, String description) {
-        this.name = "";
+        this.name = "no name specified";
         this.price = price;
         this.ingredientModels = ingredientModels;
         this.description = description;

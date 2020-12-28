@@ -28,5 +28,4 @@ public class SpringConfiguration {
                 .codecRegistry(codecRegistry)
                 .build());
     }
-
 }
