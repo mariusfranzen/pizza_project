@@ -6,4 +6,4 @@ import MenuPage from "./MenuPage";
 import RegisterPage from "./RegisterPage";
 import UserPage from "./UserPage";
 
-export { AboutPage, MenuPage, RegisterPage, LoginPage, HomePage, CheckoutPage };
+export { AboutPage, MenuPage, RegisterPage, LoginPage, HomePage, CheckoutPage, UserPage };
