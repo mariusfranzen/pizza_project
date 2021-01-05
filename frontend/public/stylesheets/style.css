@@ -1,41 +1,23 @@
-.publicNav {
-  display: inline;
+.mainNav {
+  background-color: #333;
+}
+.mainNav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
-.publicNav li {
-  float: left;
-}
-.publicNav li a {
+.mainNav ul li a {
   display: block;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-.publicNav a {
-  display: block;
-  padding: 8px;
+.mainNav ul li :hover {
+  background-color: #111;
 }
-
-.adminNav {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-.adminNav li {
-  float: right;
-}
-.adminNav li a {
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.adminNav a {
+.mainNav ul a {
   display: block;
   padding: 8px;
 }
@@ -50,6 +32,10 @@
 
 .row {
   width: 100%;
+}
+
+body {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
