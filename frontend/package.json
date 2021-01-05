@@ -16,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "run-production-server": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "check-dependencies": "ncu",
