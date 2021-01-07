@@ -33,18 +33,15 @@ public class UserModel {
     private String phoneNumber;
 
     @Field("email")
-    @NotNull
     private String email;
 
     @Field("address")
     private Address address;
 
     @Field("authorization")
-    @NotNull
     private AuthorizationEnum authorization;
 
     @Field("dateOfRegistration")
-    @NotNull
     private Date dateOfRegistration;
 
     public UserModel() {
