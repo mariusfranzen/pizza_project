@@ -13,7 +13,7 @@ public interface UserRepository extends MongoRepository<UserModel, String> {
     List<UserModel> findAll();
     Optional<UserModel> findById(String id);
     Optional<UserModel> findByEmail(String email);
-    List<UserModel> findByAuthorizationEnum(AuthorizationEnum authorizationEnum);
+    List<UserModel> findByAuthorization(AuthorizationEnum authorizationEnum);
     Optional<UserModel> findByPhoneNumber(String phoneNumber);
     List<UserModel> findByDateOfRegistration(Date date);
 
