@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { useFormik } from 'formik';
 
 export class Form extends Component {
     constructor(props) {
@@ -12,7 +13,14 @@ export class Form extends Component {
         const fields = this.state.fields.map((field) => 
             <React.Fragment>
                 {field.label ? <label>{field.label}</label> : null}
-                <input type={field.type} id={field.id} name={field.id} className={field.className} placeholder={field.placeholder} />
+                <input 
+                key={field.id}
+                type={field.type} 
+                id={field.id} 
+                name={field.id} 
+                className={field.className} 
+                placeholder={field.placeholder}
+                />
             </React.Fragment>
         )
 
