@@ -30,38 +30,38 @@ public class UserController {
 
     @GetMapping(path = "/id")
     @ResponseBody
-    public Optional<UserModel> getUserById(String id) {
+    public Optional<UserModel> getUserById(@RequestParam String id) {
         return userRepository.findById(id);
     }
 
     @GetMapping(path = "/email")
     @ResponseBody
-    public Optional<UserModel> getUserByEmail(String email) {
+    public Optional<UserModel> getUserByEmail(@RequestParam String email) {
         return userRepository.findByEmail(email);
     }
 
     @GetMapping(path = "/authorization")
     @ResponseBody
-    public Iterable<UserModel> getUserByAuthorizationEnum(AuthorizationEnum authorizationEnum) {
-        return userRepository.findByAuthorizationEnum(authorizationEnum);
+    public Iterable<UserModel> getUserByAuthorizationEnum(@RequestParam AuthorizationEnum authorizationEnum) {
+        return userRepository.findByAuthorization(authorizationEnum);
     }
 
     @GetMapping(path = "/phone-number")
     @ResponseBody
-    public Optional<UserModel> getUserByPhoneNumber(String phoneNumber) {
+    public Optional<UserModel> getUserByPhoneNumber(@RequestParam String phoneNumber) {
         return userRepository.findByPhoneNumber(phoneNumber);
     }
 
     @GetMapping(path = "/date-of-registration")
     @ResponseBody
-    public Optional<UserModel> getUserByDateOfRegistration(String date) {
+    public Optional<UserModel> getUserByDateOfRegistration(@RequestParam String date) {
         //TODO: transform String of (ddMMyyyy) to an actual date
         return userRepository.findById(date);
     }
 
-    @PostMapping(path = "/new")
+    @PostMapping(path = "/add")
     @ResponseBody
-    public String newUser(UserModel userModel) {
+    public String newUser(@RequestBody UserModel userModel) {
         UserModel user = userModel;
         user.setDateOfRegistration(new Date(System.currentTimeMillis()));
 
@@ -78,5 +78,4 @@ public class UserController {
             return "Failed saving to database. Error in log.";
         }
     }
-
 }

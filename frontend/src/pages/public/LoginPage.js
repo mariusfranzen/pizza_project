@@ -44,7 +44,11 @@ const LoginForm = () => {
         },
         validate,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
+            let user = {
+                email: values.email,
+                password: values.password
+            }
+            UserApi.postUser(user);
         },
     });
 
