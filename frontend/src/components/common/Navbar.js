@@ -5,7 +5,7 @@ export class Navbar extends Component {
         const user = true;
 
 
-        if (user == true) {
+        if (user) {
             return (
                 <nav className="mainNav">
                     <ul>
@@ -19,16 +19,16 @@ export class Navbar extends Component {
                     </ul>
                 </nav>
             )
-        } if (user == false) {
+        } if (!user) {
             return (
                 <nav className="mainNav">
                     <ul>
-                        <li className="right"><a href="/admin">Admin</a></li>
-                        <li className="right"><a href="/admin/add-item">Add Item</a></li>
-                        <li className="right"><a href="/admin/edit-home">Edit Home</a></li>
-                        <li className="right"><a href="/admin/edit-menu">Edit Menu</a></li>
-                        <li className="right"><a href="/admin/print-info">Print Info</a></li>
-                        <li className="right"><a href="/admin/incomming-orders">Incomming Orders</a></li>
+                        <li className="left"><a href="/admin">Admin</a></li>
+                        <li className="left"><a href="/admin/add-item">Add Item</a></li>
+                        <li className="left"><a href="/admin/edit-home">Edit Home</a></li>
+                        <li className="left"><a href="/admin/edit-menu">Edit Menu</a></li>
+                        <li className="left"><a href="/admin/print-info">Print Info</a></li>
+                        <li className="left"><a href="/admin/incomming-orders">Incomming Orders</a></li>
                     </ul>
                 </nav>
 
