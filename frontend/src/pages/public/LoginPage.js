@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Form from "../../components/common/Form";
 import UserApi from "../../apis/UserApi";
 import { useFormik } from "formik";
 
@@ -48,7 +47,7 @@ const LoginForm = () => {
                 email: values.email,
                 password: values.password
             }
-            UserApi.postUser(user);
+            UserApi.validateUser(user);
         },
     });
 

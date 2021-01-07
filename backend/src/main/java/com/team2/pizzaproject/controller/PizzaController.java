@@ -1,6 +1,5 @@
 package com.team2.pizzaproject.controller;
 
-import com.team2.pizzaproject.model.IngredientModel;
 import com.team2.pizzaproject.model.PizzaModel;
 import com.team2.pizzaproject.repository.IngredientRepository;
 import com.team2.pizzaproject.repository.PizzaRepository;
@@ -9,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,16 +40,16 @@ public class PizzaController {
     public String newPizza(@RequestBody PizzaModel pizzaModel) {
         PizzaModel pizza = pizzaModel;
 
-        if (pizzaModel.getIngredientModels() != null) {
-            List<IngredientModel> ingredients = new ArrayList<>();
-            for (IngredientModel ingredient:pizzaModel.getIngredientModels()) {
-                if (ingredientRepository.findByName(ingredient.getName()).isPresent()) {
-                    ingredients.add(ingredientRepository.findByName(ingredient.getName()).get());
+        if (pizzaModel.getIngredientArray() != null) {
+            String[] ingredients = new String[pizzaModel.getIngredientArray().length];
+            for (int i = 0; i < pizzaModel.getIngredientArray().length; i++) {
+                if (ingredientRepository.findByName(pizzaModel.getIngredientArray()[i]).isPresent()) {
+                    ingredients[i] = ingredientRepository.findByName(pizzaModel.getIngredientArray()[i]).get().getId();
                 } else {
                     return "Failed saving to database. One or more ingredients does not exist in the database";
                 }
             }
-            pizza.setIngredientModels(ingredients);
+            pizza.setIngredientArray(ingredients);
         }
 
         try {
