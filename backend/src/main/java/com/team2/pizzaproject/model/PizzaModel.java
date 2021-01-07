@@ -29,34 +29,6 @@ public class PizzaModel {
     public PizzaModel() {
     }
 
-    public PizzaModel(String name) {
-        this.name = name;
-        this.price = 0f;
-        this.ingredientModels = null;
-        this.description = "";
-    }
-
-    public PizzaModel(List<IngredientModel> ingredientModels) {
-        this.name = "no name specified";
-        this.price = 0f;
-        this.ingredientModels = ingredientModels;
-        this.description = "";
-    }
-
-    public PizzaModel(float price, List<IngredientModel> ingredientModels) {
-        this.name = "no name specified";
-        this.price = price;
-        this.ingredientModels = ingredientModels;
-        this.description = "";
-    }
-
-    public PizzaModel(float price, List<IngredientModel> ingredientModels, String description) {
-        this.name = "no name specified";
-        this.price = price;
-        this.ingredientModels = ingredientModels;
-        this.description = description;
-    }
-
     public PizzaModel(String name, float price, List<IngredientModel> ingredientModels, String description) {
         this.name = name;
         this.price = price;
