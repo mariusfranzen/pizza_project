@@ -13,6 +13,9 @@ public class PizzaModel {
     @Field("_id")
     private String id;
 
+    @Field("menuId")
+    private int menuId;
+
     @Field("name")
     private String name;
 
@@ -29,35 +32,8 @@ public class PizzaModel {
     public PizzaModel() {
     }
 
-    public PizzaModel(String name) {
-        this.name = name;
-        this.price = 0f;
-        this.ingredientModels = null;
-        this.description = "";
-    }
-
-    public PizzaModel(List<IngredientModel> ingredientModels) {
-        this.name = "no name specified";
-        this.price = 0f;
-        this.ingredientModels = ingredientModels;
-        this.description = "";
-    }
-
-    public PizzaModel(float price, List<IngredientModel> ingredientModels) {
-        this.name = "no name specified";
-        this.price = price;
-        this.ingredientModels = ingredientModels;
-        this.description = "";
-    }
-
-    public PizzaModel(float price, List<IngredientModel> ingredientModels, String description) {
-        this.name = "no name specified";
-        this.price = price;
-        this.ingredientModels = ingredientModels;
-        this.description = description;
-    }
-
-    public PizzaModel(String name, float price, List<IngredientModel> ingredientModels, String description) {
+    public PizzaModel(int menuId, String name, float price, List<IngredientModel> ingredientModels, String description) {
+        this.menuId = menuId;
         this.name = name;
         this.price = price;
         this.ingredientModels = ingredientModels;
@@ -70,6 +46,14 @@ public class PizzaModel {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
     }
 
     public String getName() {
