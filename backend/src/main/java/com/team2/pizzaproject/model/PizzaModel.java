@@ -4,8 +4,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.List;
-
 @Document("pizzas")
 public class PizzaModel {
 
@@ -22,8 +20,8 @@ public class PizzaModel {
     @Field("price")
     private float price;
 
-    @Field("ingredientList")
-    private List<IngredientModel> ingredientModels;
+    @Field("ingredientArray")
+    private String[] ingredientArray;
 
     @Field("description")
     private String description;
@@ -32,11 +30,11 @@ public class PizzaModel {
     public PizzaModel() {
     }
 
-    public PizzaModel(int menuId, String name, float price, List<IngredientModel> ingredientModels, String description) {
+    public PizzaModel(int menuId, String name, float price, String[] ingredientModels, String description) {
         this.menuId = menuId;
         this.name = name;
         this.price = price;
-        this.ingredientModels = ingredientModels;
+        this.ingredientArray = ingredientModels;
         this.description = description;
     }
 
@@ -72,12 +70,12 @@ public class PizzaModel {
         this.price = price;
     }
 
-    public List<IngredientModel> getIngredientModels() {
-        return ingredientModels;
+    public String[] getIngredientArray() {
+        return ingredientArray;
     }
 
-    public void setIngredientModels(List<IngredientModel> ingredientModels) {
-        this.ingredientModels = ingredientModels;
+    public void setIngredientArray(String[] ingredientArray) {
+        this.ingredientArray = ingredientArray;
     }
 
     public String getDescription() {
@@ -94,7 +92,7 @@ public class PizzaModel {
                 .append("id", id)
                 .append("name", name)
                 .append("price", price)
-                .append("ingredients", ingredientModels)
+                .append("ingredients", ingredientArray)
                 .append("description", description)
                 .toString();
     }

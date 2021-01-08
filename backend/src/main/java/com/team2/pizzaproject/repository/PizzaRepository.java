@@ -13,6 +13,6 @@ public interface PizzaRepository extends MongoRepository<PizzaModel, String> {
     Optional<PizzaModel> findById(String id);
     List<PizzaModel> findByName(String name);
     List<PizzaModel> findByPrice(float price);
-    List<PizzaModel> findByIngredientModels(List<IngredientModel> ingredients);
+    List<PizzaModel> findByIngredientArray(String[] ingredients);
 
 }
