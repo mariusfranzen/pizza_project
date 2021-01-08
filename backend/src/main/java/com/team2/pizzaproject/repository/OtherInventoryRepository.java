@@ -10,7 +10,7 @@ public interface OtherInventoryRepository extends MongoRepository<OtherInventory
 
     List<OtherInventoryModel> findAll();
     Optional<OtherInventoryModel> findById(String id);
-    Optional<OtherInventoryModel> findByMenuId(String id);
+    Optional<OtherInventoryModel> findByMenuId(int id);
     List<OtherInventoryModel> findByCategory(String category);
     List<OtherInventoryModel> findByPrice(float price);
     Optional<OtherInventoryModel> findByName(String name);

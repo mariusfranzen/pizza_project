@@ -34,7 +34,7 @@ public class OtherInventoryController {
 
     @GetMapping(path = "/menu-id")
     @ResponseBody
-    public Optional<OtherInventoryModel> getOtherInventoryByMenuId(@RequestParam String id) {
+    public Optional<OtherInventoryModel> getOtherInventoryByMenuId(@RequestParam int id) {
         return otherInventoryRepository.findByMenuId(id);
     }
 

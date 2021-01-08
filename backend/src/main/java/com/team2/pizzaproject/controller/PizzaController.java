@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,6 +28,18 @@ public class PizzaController {
     @ResponseBody
     public Iterable<PizzaModel> getAllPizzas() {
         return pizzaRepository.findAll();
+    }
+
+    @GetMapping(path = "/id")
+    @ResponseBody
+    public Optional<PizzaModel> getPizzaById(String id) {
+        return pizzaRepository.findById(id);
+    }
+    
+    @GetMapping(path = "/menu-id")
+    @ResponseBody
+    public Optional<PizzaModel> getPizzaByMenuId(int id) {
+        return pizzaRepository.findByMenuId(id);
     }
 
     @GetMapping(path = "/name")

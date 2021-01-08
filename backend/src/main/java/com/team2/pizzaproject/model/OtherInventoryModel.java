@@ -12,6 +12,9 @@ public class OtherInventoryModel {
     @Field("_id")
     private String id;
 
+    @Field("menuId")
+    private int menuId;
+
     @Field("name")
     private String name;
 
@@ -24,13 +27,12 @@ public class OtherInventoryModel {
     @Field("category")
     private String category;
 
-    @Field("menuId")
-    private String menuId;
+
 
     public OtherInventoryModel() {
     }
 
-    public OtherInventoryModel(String name, float price, String description, String category, String menuId) {
+    public OtherInventoryModel(String name, float price, String description, String category, int menuId) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -78,11 +80,11 @@ public class OtherInventoryModel {
         this.category = category;
     }
 
-    public String getMenuId() {
+    public int getMenuId() {
         return menuId;
     }
 
-    public void setMenuId(String menuId) {
+    public void setMenuId(int menuId) {
         this.menuId = menuId;
     }
 
