@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Field, Form, Formik, FormikProps } from 'formik';
+import OtherInventoryApi from "../../apis/OtherInventoryApi"
 
 export class AddItemPage extends Component {
     render() {
@@ -13,72 +15,55 @@ const AddItemForm = () => {
     const validate = (values) => {
         const errors = {};
 
-        if (!values.email) {
-            errors.email = "Required";
-        } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-        ) {
-            errors.email = "Invalid email address";
+        if (!values.name) {
+            errors.name = "Required";
+        }
+        if (!values.price) {
+            errors.price = "Required";
+        } else if (!/^[0-9]+([\.\,]{1}[0-9]{2})?$/i.test(values.price)) {
+            errors.price = "Invalid price"
+        }
+        if (!values.category) {
+            errors.category = "Required";
         }
 
-        if (!values.password) {
-            errors.password = "Required";
-        }
-
-        //TODO: true if user was not found
-        if (false) {
-            errors.submit = "Email and/or password is incorrect";
-        }
 
         return errors;
     };
 
-    const formik = useFormik({
-        initialValues: {
-            email: "",
-            password: "",
-        },
-        validate,
-        onSubmit: (values) => {
-            let user = {
-                email: values.email,
-                password: values.password
+    return (<Formik
+        initialValues={{ name: "", price: "", category: "default", description: "" }}
+        onSubmit={(values) => {
+            let item = {
+                name: values.name,
+                price: values.price,
+                category: values.category,
+                description: values.description
             }
-            UserApi.validateUser(user);
-        },
-    });
+            OtherInventoryApi.postOtherInventory(item);
+        }}
+        validate={validate}>
 
-    return (
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="email">Email: </label>
-            <input
-                id="email"
-                name="email"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-            />
-            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+        {(props) => (
+            <Form>
+                <Field type="text" name="name" placeholder="name" />
+                {props.errors.name ? <div>{props.errors.name}</div> : null}
+                <Field
+                    type="text"
+                    name="price"
+                    placeholder="price"
+                />
+                {props.errors.price ? <div>{props.errors.price}</div> : null}
+                <Field as="select" name="category">
+                    <option value="default">Default</option>
+                    <option value="soda">Soda</option>
+                    <option value="iceCream">Ice Cream</option>
+                </Field>
+                <Field as="textarea" name="description" placeholder="Enter description" maxlength="255" />
+                <button type="submit">Add Item</button>
+            </Form>
+        )}
+    </Formik>)
 
-            <label htmlFor="password">Password: </label>
-            <input
-                id="password"
-                name="password"
-                type="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-            />
-            {formik.errors.password ? (
-                <div>{formik.errors.password}</div>
-            ) : null}
-
-            <button id="submit" name="submit" type="submit">
-                Login
-            </button>
-            {formik.errors.submit ? <div>{formik.errors.submit}</div> : null}
-        </form>
-    );
 };
 export default AddItemPage
