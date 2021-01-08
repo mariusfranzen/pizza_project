@@ -13,14 +13,14 @@ export class PizzaApi extends Component {
         return axios.get(`${PizzaUrl}/id?id=${id}`);
     }
 
-    getPizzaById(menuId) {
+    getPizzaByMenuId(menuId) {
         return axios.get(`${PizzaUrl}/menu-id`, menuId);
     }
 
     // also get pizza by ingredient array
-    // getPizzaByIngredient(ingredient) {
-    //     return axios.get(`${PizzaUrl}/ingredient`, ingredient);
-    // }
+    getPizzaByIngredient(ingredient) {
+        return axios.get(`${PizzaUrl}/ingredient`, ingredient);
+    }
 
     validatePizza(pizza) {
         console.log("log")
