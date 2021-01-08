@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
-
-export class AboutPage extends Component {
+export class MenuItem extends Component {
     render() {
         return (
             <div>
-                <h1>AboutPage</h1>
 
             </div>
         )
     }
 }
 
-export default AboutPage
+export default MenuItem
