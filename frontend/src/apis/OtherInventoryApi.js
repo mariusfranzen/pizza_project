@@ -17,6 +17,10 @@ export class OtherInventoryApi extends Component {
         return axios.get(`${OtherInventoryUrl}/menu-id`, menuId);
     }
 
+    getOtherInventoryByCategory(category) {
+        return axios.get(`${OtherInventoryUrl}/category`, category);
+    }
+
     getOtherInventoryByPrice(price) {
         return axios.get(`${OtherInventoryUrl}/price`, price);
     }
