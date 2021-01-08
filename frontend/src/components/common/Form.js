@@ -24,8 +24,6 @@ export class Form extends Component {
             </React.Fragment>
         )
 
-        // TODO: add default style, that can be overriden
-
         return (
             <form>
                 {fields}
