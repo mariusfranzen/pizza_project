@@ -14,7 +14,6 @@ export class UserApi extends Component {
     }
 
     validateUser(user) {
-        console.log("log")
         return axios.get(`${UserUrl}/validate`, user)
     }
 
