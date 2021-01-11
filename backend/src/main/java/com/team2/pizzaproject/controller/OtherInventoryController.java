@@ -20,7 +20,7 @@ public class OtherInventoryController {
     @Autowired
     private OtherInventoryRepository otherInventoryRepository;
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/")
     @ResponseBody
     public Iterable<OtherInventoryModel> getAllPizzas() {
         return otherInventoryRepository.findAll();
