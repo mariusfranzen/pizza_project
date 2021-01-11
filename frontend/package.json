@@ -6,18 +6,24 @@
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "axios": "^0.21.1",
+    "formik": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "sass": "^1.32.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "run-production-server": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "check-dependencies": "ncu",
-    "update-dependencies": "ncu -u"
+    "update-dependencies": "ncu -u",
+    "compile:sass": "sass --watch src/scss/stylesheet.scss:public/stylesheets/style.css"
   },
   "eslintConfig": {
     "extends": [

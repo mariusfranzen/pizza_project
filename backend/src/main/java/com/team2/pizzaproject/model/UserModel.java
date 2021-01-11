@@ -6,8 +6,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.UUID;
 
 @Document("users")
 public class UserModel {
@@ -17,6 +17,7 @@ public class UserModel {
     private String id;
 
     @Field("password")
+    @NotNull
     private String password;
 
     @Field("firstName")

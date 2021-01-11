@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface PizzaRepository extends MongoRepository<PizzaModel, String> {
 
@@ -14,6 +13,6 @@ public interface PizzaRepository extends MongoRepository<PizzaModel, String> {
     Optional<PizzaModel> findById(String id);
     List<PizzaModel> findByName(String name);
     List<PizzaModel> findByPrice(float price);
-    List<PizzaModel> findByIngredientModels(List<IngredientModel> ingredients);
+    List<PizzaModel> findByIngredientArray(String[] ingredients);
 
 }
