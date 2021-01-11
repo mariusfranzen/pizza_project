@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/pizza")
-@CrossOrigin(origins = { "http://localhost:3000" })
+@CrossOrigin(origins = { "localhost:3000", "localhost:8080" })
 public class PizzaController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
@@ -35,7 +35,7 @@ public class PizzaController {
         return pizzaRepository.findByName(name);
     }
 
-    @PostMapping(path = "/new")
+    @PostMapping(path = "/add")
     @ResponseBody
     public String newPizza(@RequestBody PizzaModel pizzaModel) {
         PizzaModel pizza = pizzaModel;

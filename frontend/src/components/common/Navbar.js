@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 export class Navbar extends Component {
     render() {
-        const user = false;
+        let user = true;
 
 
         if (user) {
+
             return (
                 <nav className="mainNav">
                     <ul>
@@ -18,6 +19,7 @@ export class Navbar extends Component {
                         <li className="left"><a href="/register">Register</a></li>
                     </ul>
                 </nav>
+
             )
         } if (!user) {
             return (

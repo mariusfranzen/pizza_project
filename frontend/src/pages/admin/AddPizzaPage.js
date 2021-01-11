@@ -15,9 +15,9 @@ const AddPizzaForm = () => {
     const validate = (values) => {
         const errors = {};
 
-        if (!values.menuId) {
-            errors.menuId = "Required";
-        }
+        // if (!values.menuId) {
+        //     errors.menuId = "Required";
+        // }
         if (!values.name) {
             errors.name = "Required";
         }
@@ -32,16 +32,18 @@ const AddPizzaForm = () => {
     };
 
     return (<Formik
-        initialValues={{ menuId: "", name: "", price: "", ingredientArray: [], description: "" }}
-        onSubmit={(values) => {
+        initialValues={{ name: "", price: "", ingredientArray: [], description: "" }}
+        onSubmit={(values, actions) => {
+            console.log(values)
             let item = {
-                menuId: values.menuId,
+                // menuId: values.menuId,
                 name: values.name,
                 price: values.price,
                 ingredientArray: values.ingredientArray,
                 description: values.description
             }
             PizzaApi.postPizza(item);
+            actions.setSubmitting(false);
         }}
         validate={validate}>
 
@@ -78,7 +80,7 @@ const AddPizzaForm = () => {
                         <Field type="checkbox" name="ingredientArray" value="oxfilé" />
                     </label>
                 </div>
-                <Field as="textarea" name="description" placeholder="Enter description" maxlength="255" />
+                <Field as="textarea" name="description" placeholder="Enter description" maxLength="255" />
                 <button type="submit">Add Pizza</button>
             </Form>
         )}
