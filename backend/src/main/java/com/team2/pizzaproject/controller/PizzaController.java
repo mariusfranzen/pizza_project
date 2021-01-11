@@ -32,13 +32,13 @@ public class PizzaController {
 
     @GetMapping(path = "/id")
     @ResponseBody
-    public Optional<PizzaModel> getPizzaById(String id) {
+    public Optional<PizzaModel> getPizzaById(@RequestParam String id) {
         return pizzaRepository.findById(id);
     }
     
     @GetMapping(path = "/menu-id")
     @ResponseBody
-    public Optional<PizzaModel> getPizzaByMenuId(int id) {
+    public Optional<PizzaModel> getPizzaByMenuId(@RequestParam int id) {
         return pizzaRepository.findByMenuId(id);
     }
 
@@ -48,7 +48,13 @@ public class PizzaController {
         return pizzaRepository.findByName(name);
     }
 
-    @PostMapping(path = "/new")
+    @GetMapping(path = "/ingredient")
+    @ResponseBody
+    public Iterable<PizzaModel> getPizzaByIngredient(@RequestParam String[] ingredients) {
+        return pizzaRepository.findByIngredientArray(ingredients);
+    }
+
+    @PostMapping(path = "/add")
     @ResponseBody
     public String newPizza(@RequestBody PizzaModel pizzaModel) {
         PizzaModel pizza = pizzaModel;

@@ -6,27 +6,24 @@ const PizzaUrl = "http://localhost:8080/api/pizzas";
 export class PizzaApi extends Component {
     //---GET FUNCTIONS---//
     getAllPizzas() {
-        return axios.get(`${PizzaUrl}/all`);
+        return axios.get(`${PizzaUrl}/`);
     }
 
     getPizzaById(id) {
-        return axios.get(`${PizzaUrl}/id?id=${id}`);
+        return axios.get(`${PizzaUrl}/id`, id);
     }
 
     getPizzaByMenuId(menuId) {
         return axios.get(`${PizzaUrl}/menu-id`, menuId);
     }
 
+    getPizzaByName(name) {
+        return axios.get(`${PizzaUrl}/name`, name);
+    }
+
     getPizzaByIngredient(ingredient) {
         return axios.get(`${PizzaUrl}/ingredient`, ingredient);
     }
-
-    validatePizza(pizza) {
-        console.log("log")
-        return axios.get(`${PizzaUrl}/validate`, pizza)
-    }
-
-
 
     //---POST FUNCTIONS---//
     postPizza(pizza) {
