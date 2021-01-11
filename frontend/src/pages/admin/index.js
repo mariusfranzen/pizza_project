@@ -5,5 +5,6 @@ import EditMenuPage from "./EditMenuPage";
 import InfoPrintPage from "./InfoPrintPage";
 import OrderConfirmPage from "./OrderConfirmPage";
 import AddIngredientPage from "./AddIngredientPage";
+import AddPizzaPage from "./AddPizzaPage";
 
-export { OrderConfirmPage, InfoPrintPage, EditMenuPage, EditHomePage, AdminPage, AddItemPage }
+export { OrderConfirmPage, InfoPrintPage, EditMenuPage, EditHomePage, AdminPage, AddItemPage, AddIngredientPage, AddPizzaPage }
