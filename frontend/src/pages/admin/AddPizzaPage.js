@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { Field, Form, Formik } from 'formik';
-import OtherInventoryApi from "../../apis/OtherInventoryApi"
+import PizzaApi from "../../apis/PizzaApi"
 
-export class AddItemPage extends Component {
+export class AddPizzaPage extends Component {
     render() {
         return (
             <div>
-                <AddItemForm />
+                <AddPizzaForm />
             </div>
         )
     }
 }
-const AddItemForm = () => {
+const AddPizzaForm = () => {
     const validate = (values) => {
         const errors = {};
 
@@ -23,16 +23,13 @@ const AddItemForm = () => {
         } else if (!/^[0-9]+([\.\,]{1}[0-9]{2})?$/i.test(values.price)) {
             errors.price = "Invalid price"
         }
-        if (!values.category) {
-            errors.category = "Required";
-        }
 
 
         return errors;
     };
 
     return (<Formik
-        initialValues={{ name: "", price: "", category: "default", description: "" }}
+        initialValues={{ name: "", price: "", checked: [], description: "" }}
         onSubmit={(values) => {
             let item = {
                 name: values.name,
@@ -40,7 +37,7 @@ const AddItemForm = () => {
                 category: values.category,
                 description: values.description
             }
-            OtherInventoryApi.postOtherInventory(item);
+            PizzaApi.postPizza(item);
         }}
         validate={validate}>
 
@@ -66,4 +63,4 @@ const AddItemForm = () => {
     </Formik>)
 
 };
-export default AddItemPage
+export default AddPizzaPage
