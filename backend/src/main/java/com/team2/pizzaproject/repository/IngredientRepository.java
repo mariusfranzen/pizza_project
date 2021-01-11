@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface IngredientRepository extends MongoRepository<IngredientModel, String> {
 
     Optional<IngredientModel> findById(String id);
-    Optional<IngredientModel> findByName(String name);
+    List<IngredientModel> findByName(String name);
     List<IngredientModel> findByPriceGroup(String priceGroup);
 
 }

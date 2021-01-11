@@ -11,6 +11,7 @@ public interface PizzaRepository extends MongoRepository<PizzaModel, String> {
 
     List<PizzaModel> findAll();
     Optional<PizzaModel> findById(String id);
+    Optional<PizzaModel> findByMenuId(int id);
     List<PizzaModel> findByName(String name);
     List<PizzaModel> findByPrice(float price);
     List<PizzaModel> findByIngredientArray(String[] ingredients);

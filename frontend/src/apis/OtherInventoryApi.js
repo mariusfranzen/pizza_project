@@ -6,11 +6,11 @@ const OtherInventoryUrl = "http://localhost:8080/api/other-inventory";
 export class OtherInventoryApi extends Component {
     //---GET FUNCTIONS---//
     getAllOtherInventory() {
-        return axios.get(`${OtherInventoryUrl}/all`);
+        return axios.get(`${OtherInventoryUrl}/`);
     }
 
     getOtherInventoryById(id) {
-        return axios.get(`${OtherInventoryUrl}/id?id=${id}`);
+        return axios.get(`${OtherInventoryUrl}/id`, id);
     }
 
     getOtherInventoryByMenuId(menuId) {
