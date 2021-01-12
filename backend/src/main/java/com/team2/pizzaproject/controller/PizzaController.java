@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/pizza")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PizzaController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
@@ -56,7 +57,6 @@ public class PizzaController {
     @PostMapping(path = "/add")
     @ResponseBody
     public String newPizza(@RequestBody PizzaModel pizzaModel) {
-
         if (pizzaModel.getIngredientArray() != null) {
             String[] ingredients = new String[pizzaModel.getIngredientArray().length];
             for (int i = 0; i < pizzaModel.getIngredientArray().length; i++) {
