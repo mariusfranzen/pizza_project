@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import { Navbar, Footer } from './index';
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
@@ -26,6 +26,7 @@ function App() {
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
 				</Router>
 			</div>
+			<Footer />
 		</div>
 	);
 }
