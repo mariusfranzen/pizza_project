@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/pizza")
-@CrossOrigin(origins = { "http://localhost:3000" })
 public class PizzaController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());

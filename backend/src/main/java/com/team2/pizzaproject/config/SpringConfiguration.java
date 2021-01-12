@@ -1,4 +1,4 @@
-package com.team2.pizzaproject;
+package com.team2.pizzaproject.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

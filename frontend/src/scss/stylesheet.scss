@@ -1,8 +1,8 @@
 @use "navbar";
 @use 'grid';
 @use 'button';
-@use "colors";
-@use "fonts";
+@import "./colors.scss";
+@import "./fonts.scss";
 
 html, body {
     margin: 0;

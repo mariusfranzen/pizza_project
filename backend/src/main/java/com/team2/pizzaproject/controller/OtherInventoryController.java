@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/other-inventory")
-@CrossOrigin(origins = { "http://localhost:3000" })
 public class OtherInventoryController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());

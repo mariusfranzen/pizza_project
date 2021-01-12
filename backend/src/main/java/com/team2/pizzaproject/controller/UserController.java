@@ -8,15 +8,11 @@ import com.team2.pizzaproject.model.UserModel;
 import com.team2.pizzaproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -24,7 +20,6 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/user")
-@CrossOrigin(origins = { "http://localhost:3000" })
 public class UserController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
