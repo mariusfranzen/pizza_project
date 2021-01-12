@@ -11,8 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping(path = "/api/other-inventory")
-@CrossOrigin(origins = { "http://localhost:3000" })
+@RequestMapping(path = "/api/ingredients")
+@CrossOrigin(origins = "http://localhost:3000")
 public class IngredientController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
@@ -40,7 +40,7 @@ public class IngredientController {
 
     @GetMapping(path = "/name")
     @ResponseBody
-    public Iterable<IngredientModel> getByName(@RequestParam String name) {
+    public Optional<IngredientModel> getByName(@RequestParam String name) {
         return ingredientRepository.findByName(name);
     }
 

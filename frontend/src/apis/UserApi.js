@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const UserUrl = "http://localhost:8080/api/users";
+const UserUrl = "http://localhost:8080/api/user";
 
 export class UserApi extends Component {
     //---GET FUNCTIONS---//
