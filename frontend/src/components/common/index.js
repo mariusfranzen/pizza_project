@@ -1,4 +1,7 @@
-import MenuItem from "./MenuItem";
-import Navbar from "./Navbar";
 
-export { MenuItem, Navbar }
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import MenuItem from "./MenuItem"
+
+export { MenuItem, Navbar, Footer }
+
