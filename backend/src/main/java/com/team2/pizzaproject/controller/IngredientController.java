@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping(path = "/api/other-inventory")
+@RequestMapping(path = "/api/ingredients")
 @CrossOrigin(origins = { "http://localhost:3000" })
 public class IngredientController {
 
@@ -40,7 +40,7 @@ public class IngredientController {
 
     @GetMapping(path = "/name")
     @ResponseBody
-    public Iterable<IngredientModel> getByName(@RequestParam String name) {
+    public Optional<IngredientModel> getByName(@RequestParam String name) {
         return ingredientRepository.findByName(name);
     }
 

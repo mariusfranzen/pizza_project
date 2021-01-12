@@ -22,7 +22,7 @@ public class OtherInventoryController {
 
     @GetMapping(path = "/")
     @ResponseBody
-    public Iterable<OtherInventoryModel> getAllPizzas() {
+    public Iterable<OtherInventoryModel> getAllOtherInventory() {
         return otherInventoryRepository.findAll();
     }
 

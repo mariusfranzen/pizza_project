@@ -1,7 +1,19 @@
 @use "navbar";
 @use 'grid';
 @use 'button';
+@use "colors";
+@use "fonts";
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    margin: 0;
+    align-items: center;
+    background: $colorWhite;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    text-rendering: optimizeLegibility;
 }

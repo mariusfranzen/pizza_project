@@ -1,29 +1,28 @@
-.mainNav {
-    background-color: #333;
+@use "colors";
+@use "fonts";
 
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+.hamburgerMenu {
+    position: absolute;
+    top: 5%;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
 
-        li {
-            a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-            :hover {
-                background-color: #111;
-            }
-        }
-
-        a {
-            display: block;
-            padding: 8px;
-        }
+    &:focus {
+        outline: none;
     }
 
+    div {
+        width: 2rem;
+        height: 0.25rem;
+        background: ;
+    }
 }

@@ -1,13 +1,23 @@
 package com.team2.pizzaproject.controller;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
 import com.team2.pizzaproject.enums.AuthorizationEnum;
 import com.team2.pizzaproject.model.UserModel;
 import com.team2.pizzaproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +30,11 @@ public class UserController {
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
 
     @Autowired
+    private Environment env;
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder encoder;
 
     @GetMapping(path = "")
     @ResponseBody
@@ -59,18 +73,42 @@ public class UserController {
         return userRepository.findById(date);
     }
 
+    @GetMapping(path = "/validate")
+    @ResponseBody
+    public String validateUser(@RequestParam UserModel user) {
+        try {
+            Optional<UserModel> dbUser = userRepository.findByEmail(user.getEmail());
+            if (dbUser.isPresent() && dbUser.get().getPassword().equals(encoder.encode(user.getPassword()))) {
+                Algorithm algorithm = Algorithm.HMAC512(Objects.requireNonNull(env.getProperty("secret")));
+                return JWT.create()
+                        .withIssuer(env.getProperty("issuer"))
+                        .withSubject(dbUser.get().getId())
+                        .withExpiresAt(new Date(System.currentTimeMillis() + 86400000)) // 1 day
+                        .withIssuedAt(new Date(System.currentTimeMillis()))
+                        .withClaim("auth", dbUser.get().getAuthorization().toString())
+                        .withClaim("email", dbUser.get().getEmail())
+                        .sign(algorithm);
+            } else {
+                return null;
+            }
+        } catch (JWTCreationException e) {
+            LOGGER.log(Level.SEVERE, "Validation failed! " + e.getMessage());
+            return "ERROR";
+        }
+    }
+
     @PostMapping(path = "/add")
     @ResponseBody
     public String newUser(@RequestBody UserModel userModel) {
-        UserModel user = userModel;
-        user.setDateOfRegistration(new Date(System.currentTimeMillis()));
+        userModel.setPassword(encoder.encode(userModel.getPassword()));
+        userModel.setDateOfRegistration(new Date(System.currentTimeMillis()));
 
-        if (user.getAuthorization() == null) {
-            user.setAuthorization(AuthorizationEnum.USER);
+        if (userModel.getAuthorization() == null) {
+            userModel.setAuthorization(AuthorizationEnum.USER);
         }
 
         try {
-            userRepository.save(user);
+            userRepository.save(userModel);
             LOGGER.log(Level.INFO, "Saved user to database!");
             return "Saved user to database!";
         } catch (Exception e) {
