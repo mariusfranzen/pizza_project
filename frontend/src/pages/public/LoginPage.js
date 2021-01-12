@@ -37,13 +37,23 @@ const LoginForm = () => {
                 email: "",
                 password: "",
             }}
-            onSubmit={(values) => {
+            onSubmit={async (values) => {
                 let user = {
                     email: values.email,
                     password: values.password,
                 };
-                console.log(user);
-                UserApi.validateUser(user);
+
+                let loginValidation = await UserApi.validateUser(user).catch((error) => {
+                    console.log(error);
+                })
+
+                if (!loginValidation) {
+                    console.log("Wrong email and/or password");
+                } else if (loginValidation === "ERROR") {
+                    console.log("Error. Check logs for more info");
+                } else {
+                    console.log("Success! " + loginValidation);
+                }
             }}
             validate={validate}
         >
@@ -58,6 +68,7 @@ const LoginForm = () => {
                     />
                     {props.errors.password ? <div>{props.errors.password}</div> : null}
                     <button type="submit">Login</button>
+                    {props.loginStatus ? <div>{props.loginStatus}</div> : null}
                 </Form>
             )}
         </Formik>

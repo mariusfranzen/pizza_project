@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/pizza")
-@CrossOrigin(origins = { "localhost:3000" })
+@CrossOrigin(origins = "http://localhost:3000")
 public class PizzaController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
@@ -57,8 +57,6 @@ public class PizzaController {
     @PostMapping(path = "/add")
     @ResponseBody
     public String newPizza(@RequestBody PizzaModel pizzaModel) {
-        PizzaModel pizza = pizzaModel;
-
         if (pizzaModel.getIngredientArray() != null) {
             String[] ingredients = new String[pizzaModel.getIngredientArray().length];
             for (int i = 0; i < pizzaModel.getIngredientArray().length; i++) {
@@ -68,11 +66,11 @@ public class PizzaController {
                     return "Failed saving to database. One or more ingredients does not exist in the database";
                 }
             }
-            pizza.setIngredientArray(ingredients);
+            pizzaModel.setIngredientArray(ingredients);
         }
 
         try {
-            pizzaRepository.save(pizza);
+            pizzaRepository.save(pizzaModel);
             LOGGER.log(Level.INFO, "Saved pizza to database!");
             return "Saved pizza to database!";
         } catch (Exception e) {

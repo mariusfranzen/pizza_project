@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+//import Navbar from './Navbar';
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
@@ -6,7 +6,6 @@ import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, Check
 function App() {
 	return (
 		<div className="container">
-			<Navbar />
 			<div>
 				<Router>
 					<Route path="/" exact component={HomePage} />

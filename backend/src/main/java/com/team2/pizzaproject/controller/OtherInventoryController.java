@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/api/other-inventory")
-@CrossOrigin(origins = { "http://localhost:3000" })
+@CrossOrigin(origins = "http://localhost:3000")
 public class OtherInventoryController {
 
     private static final Logger LOGGER = Logger.getLogger(PizzaController.class.getName());
@@ -22,7 +22,7 @@ public class OtherInventoryController {
 
     @GetMapping(path = "/")
     @ResponseBody
-    public Iterable<OtherInventoryModel> getAllPizzas() {
+    public Iterable<OtherInventoryModel> getAllOtherInventory() {
         return otherInventoryRepository.findAll();
     }
 
