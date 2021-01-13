@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class PizzaModel {
 
     @Id
-    @Field("_id")
     private String id;
 
     @Field("menuId")

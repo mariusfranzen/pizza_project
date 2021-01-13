@@ -30,7 +30,7 @@ export class UserApi extends Component {
     }
 
     validateUser(user) {
-        return axios.get(`${UserUrl}/validate`, user)
+        return axios.post(`${UserUrl}/validate`, user)
     }
 
     //---POST FUNCTIONS---//

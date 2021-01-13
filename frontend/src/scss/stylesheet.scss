@@ -11,11 +11,11 @@ html, body {
     padding: 0;
 }
 
-body {
+.container {
     align-items: center;
     background: $colorWhite;
     display: flex;
     height: 100vh;
-    justify-content: center;
     text-rendering: optimizeLegibility;
+    justify-content: center;
 }
