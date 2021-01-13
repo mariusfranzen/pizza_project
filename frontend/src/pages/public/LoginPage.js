@@ -45,6 +45,7 @@ const LoginForm = () => {
 
                 let loginValidation = await UserApi.validateUser(user).catch((error) => {
                     console.log(error);
+                    console.log(user);
                 })
 
                 if (!loginValidation) {
@@ -52,7 +53,7 @@ const LoginForm = () => {
                 } else if (loginValidation === "ERROR") {
                     console.log("Error. Check logs for more info");
                 } else {
-                    console.log("Success! " + loginValidation);
+                    console.log("Success! " + loginValidation.data);
                 }
             }}
             validate={validate}

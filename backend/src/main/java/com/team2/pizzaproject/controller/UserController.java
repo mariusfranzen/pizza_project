@@ -10,13 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,13 +69,14 @@ public class UserController {
         return userRepository.findById(date);
     }
 
-    @GetMapping(path = "/validate")
+    @PostMapping(path = "/validate")
     @ResponseBody
-    public String validateUser(@RequestParam UserModel user) {
+    public String validateUser(@RequestBody UserModel user) {
         try {
             Optional<UserModel> dbUser = userRepository.findByEmail(user.getEmail());
-            if (dbUser.isPresent() && dbUser.get().getPassword().equals(hashPassword(user.getPassword()))) {
+            if (dbUser.isPresent() && Arrays.equals(dbUser.get().getHashedPassword(), hashPassword(user.getPassword()))) {
                 Algorithm algorithm = Algorithm.HMAC512(Objects.requireNonNull(env.getProperty("secret")));
+                LOGGER.log(Level.INFO, "User logged in: " + dbUser.get().getId());
                 return JWT.create()
                         .withIssuer(env.getProperty("issuer"))
                         .withSubject(dbUser.get().getId())
@@ -90,7 +88,7 @@ public class UserController {
             } else {
                 return null;
             }
-        } catch (JWTCreationException | InvalidKeySpecException | NoSuchAlgorithmException e) {
+        } catch (JWTCreationException | NoSuchAlgorithmException e) {
             LOGGER.log(Level.SEVERE, "Validation failed! " + e.getMessage());
             return "ERROR";
         }
@@ -100,7 +98,8 @@ public class UserController {
     @ResponseBody
     public String newUser(@RequestBody UserModel userModel) {
         try {
-            userModel.setPassword(hashPassword(userModel.getPassword()));
+            userModel.setHashedPassword(hashPassword(userModel.getPassword()));
+            userModel.setPassword(null);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed hashing password. Error: " + e.getMessage());
             return "Failed creating user. Error in log.";
@@ -121,15 +120,9 @@ public class UserController {
         }
     }
 
-    private String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-
-        byte[] hash = factory.generateSecret(spec).getEncoded();
-        return new String(hash);
+    private byte[] hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(Objects.requireNonNull(env.getProperty("secret")).getBytes());
+        return md.digest(password.getBytes(StandardCharsets.UTF_8));
     }
 }
