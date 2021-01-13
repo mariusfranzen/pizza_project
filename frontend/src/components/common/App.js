@@ -6,8 +6,8 @@ import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, Check
 
 function App() {
 	return (
-		<div className="container">
-			<div>
+		<div>
+			<div className="container">
 				<Router>
 					<Route path="/" exact component={HomePage} />
 					<Route path="/menu" exact component={MenuPage} />
