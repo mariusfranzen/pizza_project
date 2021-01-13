@@ -7,7 +7,8 @@ export class MenuItem extends Component {
             menuId: props.menuId,
             name: props.name,
             price: props.price,
-            description: props.description
+            description: props.description,
+            ingredientArray: props.ingredientArray
         }
     }
     render() {
@@ -16,6 +17,7 @@ export class MenuItem extends Component {
             <div key={this.state.menuId}>
                 {this.state.menuId}
                 {this.state.name}
+                {this.state.ingredientArray}
                 {this.state.description}
                 <br />
                 {this.state.price}
