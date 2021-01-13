@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class OtherInventoryModel {
 
     @Id
-    @Field("_id")
     private String id;
 
     @Field("menuId")

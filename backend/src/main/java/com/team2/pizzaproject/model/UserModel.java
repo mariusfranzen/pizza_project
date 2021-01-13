@@ -13,7 +13,6 @@ import java.util.Date;
 public class UserModel {
 
     @Id
-    @Field("_id")
     private String id;
 
     private String password;
