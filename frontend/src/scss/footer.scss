@@ -1,0 +1,20 @@
+.footer{
+    overflow: hidden;
+    position: fixed;
+    display: inline;
+    background-color: #333;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    .contentFooter{
+        margin-top: 1.5vh;
+        bottom: 49%;
+        color: white;
+        .contactFooter{    
+        float: right;    
+        }
+        
+        
+    }
+}
+
