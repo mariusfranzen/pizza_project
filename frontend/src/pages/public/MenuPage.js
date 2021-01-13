@@ -37,6 +37,7 @@ export class MenuPage extends Component {
                         <MenuItem
                             menuId={pizza.menuId}
                             name={pizza.name}
+                            ingredientArray={pizza.ingredientArray}
                             price={pizza.price}
                             description={pizza.description} />
                     )
