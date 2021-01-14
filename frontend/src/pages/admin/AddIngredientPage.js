@@ -34,7 +34,7 @@ const AddIngredientForm = () => {
                 priceGroup: values.priceGroup,
                 description: values.description
             }
-            IngredientApi.postIngredients(item);
+            IngredientApi.postIngredient(item);
         }}
         validate={validate}>
 
