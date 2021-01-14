@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const PizzaUrl = "http://localhost:8080/api/pizzas";
+const PizzaUrl = "http://localhost:8080/api/pizza";
 
 export class PizzaApi extends Component {
     //---GET FUNCTIONS---//
