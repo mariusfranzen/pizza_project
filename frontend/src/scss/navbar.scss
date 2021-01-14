@@ -1,10 +1,19 @@
-@use "colors";
-@use "fonts";
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.mainNav {
+    background-color: $mainColor;
+    height: 5rem;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 100;
+}
 
 .hamburgerMenu {
-    position: absolute;
-    top: 5%;
-    left: 2rem;
+    margin: auto 24px;
+    right: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -23,5 +32,47 @@
     div {
         width: 2rem;
         height: 0.25rem;
+        background: $colorBright;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+        background-color: $colorBright;
+
+        :first-child {
+            transform: rotate(45deg);
+        }
+
+        :nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        :nth-child(3) {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: $colorBright;
+    height: 100vh;
+    text-align: right;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+
+    @media (max-width: 576px) {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    &:hover {
+        color: $colorBrightHover;
     }
 }

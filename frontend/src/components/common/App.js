@@ -1,5 +1,6 @@
 
-import { Navbar, Footer } from './index';
+import { Footer } from './index';
+import { NavBurger, NavMenu, Navbar } from './navbar/index'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
@@ -7,6 +8,7 @@ import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, Check
 function App() {
 	return (
 		<div>
+			<Navbar />
 			<div className="container">
 				<Router>
 					<Route path="/" exact component={HomePage} />
