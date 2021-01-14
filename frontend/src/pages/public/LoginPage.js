@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
-import { Field, Form, Formik, FormikProps } from "formik";
+import { Field, Form, Formik } from "formik";
 
 export class LoginPage extends Component {
     render() {
