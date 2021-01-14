@@ -36,6 +36,16 @@ const validate = (values) => {
     ) {
         errors.email = "Invalid email address";
     }
+    if (!values.password) {
+        errors.password = "Required";
+    }
+    if (values.newPassword) {
+        if (!values.passwordAgain) {
+            errors.passwordAgain = "Required";
+        } else if (values.newPassword !== values.passwordAgain) {
+            errors.passwordAgain = "Passwords does not match";
+        }
+    }
     if (!values.phoneNumber) {
         errors.phoneNumber = "Required";
     } else if (values.phoneNumber.replace(/[^0-9]$/, "").length !== 10) {
@@ -60,7 +70,9 @@ const EditUser = (props) => {
         <Formik
             initialValues={{
                 email: props.initialUser ? props.initialUser.email : "",
-                password: props.initialUser ? props.initialUser.password : "",
+                password: "",
+                newPassword: "",
+                passwordAgain: "",
                 phonenumber: props.initialUser ? props.initialUser.phonenumber : "",
                 firstName: props.initialUser ? props.initialUser.firstName : "",
                 lastName: props.initialUser ? props.initialUser.lastName : "",
@@ -71,6 +83,7 @@ const EditUser = (props) => {
                 let user = {
                     email: values.email,
                     password: values.password,
+                    newPassword: values.password,
                     phoneNumber: values.phoneNumber.replace(/[^0-9]$/, ""),
                     firstName: values.firstName,
                     lastName: values.lastName,
@@ -107,20 +120,20 @@ const EditUser = (props) => {
                         <div>{props.errors.password}</div>
                     ) : null}
 
-                    <label htmlFor="password">Password: </label>
+                    <label htmlFor="newPassword">New Password: </label>
                     <Field
-                        id="password"
-                        name="password"
+                        id="newPassword"
+                        name="newPassword"
                         type="password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.password}
+                        value={props.values.newPassword}
                     />
-                    {props.errors.password ? (
-                        <div>{props.errors.password}</div>
+                    {props.errors.newPassword ? (
+                        <div>{props.errors.newPassword}</div>
                     ) : null}
 
-                    <label htmlFor="passwordAgain">Password again: </label>
+                    <label htmlFor="passwordAgain">New Password again: </label>
                     <Field
                         id="passwordAgain"
                         name="passwordAgain"
