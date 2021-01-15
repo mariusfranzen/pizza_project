@@ -22,9 +22,9 @@ export class Burger extends Component {
     render() {
         return (
             <div className="hamburgerMenu" onClick={this.state.menuClick} >
-                <div className={this.state.isOpen ? "open" : ""} />
-                <div className={this.state.isOpen ? "open" : ""} />
-                <div className={this.state.isOpen ? "open" : ""} />
+                <div style={this.state.isOpen ? {transform: "rotate(45deg)", background: "#0c0c0c"} : {transform: "rotate(0deg)", background: "#ebebeb"}} />
+                <div style={this.state.isOpen ? {transform: "translateX(20px)", opacity: "0"} : {transform: "translateX(0px)", opacity: "1"}} />
+                <div style={this.state.isOpen ? {transform: "rotate(-45deg)", background: "#0c0c0c"} : {transform: "rotate(0deg)", background: "#ebebeb"}} />
             </div>
         )
     }
