@@ -4,7 +4,6 @@ export class Navbar extends Component {
     render() {
         let user = false;
 
-
         if (user) {
 
             return (

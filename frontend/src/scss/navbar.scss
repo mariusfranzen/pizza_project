@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: flex-end;
     z-index: 100;
+    
 }
 
 .hamburgerMenu {
@@ -61,4 +62,27 @@
     &:hover {
         color: $colorBrightHover;
     }
+        a{
+            background-color: $mainColor;
+            font-size:20px ;
+            margin-top: 20px;
+            color: $accentColor2;
+            text-decoration: none;
+            border-radius: 8px;
+            width: 150px;
+            height: 25px;
+            
+            min-width: 40px;
+            text-align: center;
+            font-style: italic;
+            
+            &:hover {
+                color: $mainHoverColor;
+                background-color: $accentColor1;
+            }
+            
+            
+        }
+
+
 }
