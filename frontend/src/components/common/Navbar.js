@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 
 export class Navbar extends Component {
     render() {
-        const user = false;
+        
+        let user = true;
 
 
         if (user) {
+
             return (
                 <nav className="mainNav">
                     <ul>
@@ -18,12 +20,15 @@ export class Navbar extends Component {
                         <li className="left"><a href="/register">Register</a></li>
                     </ul>
                 </nav>
+
             )
         } if (!user) {
             return (
                 <nav className="mainNav">
                     <ul>
                         <li className="left"><a href="/admin">Admin</a></li>
+                        <li className="left"><a href="/admin/add-pizza">Add Pizza</a></li>
+                        <li className="left"><a href="/admin/add-ingredient">Add Ingredient</a></li>
                         <li className="left"><a href="/admin/add-item">Add Item</a></li>
                         <li className="left"><a href="/admin/edit-home">Edit Home</a></li>
                         <li className="left"><a href="/admin/edit-menu">Edit Menu</a></li>

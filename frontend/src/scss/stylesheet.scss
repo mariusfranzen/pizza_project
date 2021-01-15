@@ -1,7 +1,24 @@
 @use "navbar";
 @use 'grid';
 @use 'button';
+@use "footer";
+@use"homepage";
+@import "./colors.scss";
+@import "./fonts.scss";
 
-body {
-    margin: 0;
+
+html, body {
+    background-color:#ffff;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    justify-content: center;
 }

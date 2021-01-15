@@ -1,16 +1,16 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-const PizzaUrl = "http://localhost:8080/api/pizzas";
+const PizzaUrl = "http://localhost:8080/api/pizza";
 
 export class PizzaApi extends Component {
     //---GET FUNCTIONS---//
     getAllPizzas() {
-        return axios.get(`${PizzaUrl}/all`);
+        return axios.get(`${PizzaUrl}/`);
     }
 
     getPizzaById(id) {
-        return axios.get(`${PizzaUrl}/id?id=${id}`);
+        return axios.get(`${PizzaUrl}/id`, id);
     }
 
     getPizzaByMenuId(menuId) {
@@ -18,14 +18,12 @@ export class PizzaApi extends Component {
     }
 
     getPizzaByName(name) {
-        return axios.get(`${PizzaUrl}/name`)
+        return axios.get(`${PizzaUrl}/name`, name);
     }
 
     getPizzaByIngredient(ingredient) {
         return axios.get(`${PizzaUrl}/ingredient`, ingredient);
     }
-
-
 
     //---POST FUNCTIONS---//
     postPizza(pizza) {

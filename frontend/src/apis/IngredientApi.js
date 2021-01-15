@@ -6,24 +6,24 @@ const IngredientUrl = "http://localhost:8080/api/ingredients";
 export class IngredientApi extends Component {
     //---GET FUNCTIONS---//
     getAllIngredients() {
-        return axios.get(`${IngredientUrl}/all`);
+        return axios.get(`${IngredientUrl}/`);
     }
 
-    getIngredientsById(id) {
-        return axios.get(`${IngredientUrl}/id?id=${id}`);
+    getIngredientById(id) {
+        return axios.get(`${IngredientUrl}/id`, id);
     }
 
     getIngredientsByPriceGroup(priceGroup) {
         return axios.get(`${IngredientUrl}/price-group`, priceGroup);
     }
 
-    getIngredientsByName(name) {
+    getIngredientByName(name) {
         return axios.get(`${IngredientUrl}/name`, name);
     }
 
     //---POST FUNCTIONS---//
-    postIngredients(ingredients) {
-        return axios.post(`${IngredientUrl}/add`, ingredients);
+    postIngredient(ingredient) {
+        return axios.post(`${IngredientUrl}/add`, ingredient);
     }
 }
 

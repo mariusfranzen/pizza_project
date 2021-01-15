@@ -11,7 +11,6 @@ import java.util.UUID;
 public class IngredientModel {
 
     @Id
-    @Field("_id")
     private String id;
 
     @Field("name")

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import OtherInventoryApi from "../../apis/OtherInventoryApi"
 
 export class AddItemPage extends Component {
@@ -59,7 +59,7 @@ const AddItemForm = () => {
                     <option value="soda">Soda</option>
                     <option value="iceCream">Ice Cream</option>
                 </Field>
-                <Field as="textarea" name="description" placeholder="Enter description" maxlength="255" />
+                <Field as="textarea" name="description" placeholder="Enter description" maxLength="255" />
                 <button type="submit">Add Item</button>
             </Form>
         )}

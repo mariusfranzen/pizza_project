@@ -13,12 +13,13 @@ import java.util.Date;
 public class UserModel {
 
     @Id
-    @Field("_id")
     private String id;
 
-    @Field("password")
-    @NotNull
     private String password;
+
+    @Field("hashedPassword")
+    @NotNull
+    private byte[] hashedPassword;
 
     @Field("firstName")
     private String firstName;
@@ -47,8 +48,9 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(String password, String firstName, String lastName, Date dateOfBirth, String phoneNumber, String email, Address address, AuthorizationEnum authorization) {
+    public UserModel(String password, byte[] hashedPassword, String firstName, String lastName, Date dateOfBirth, String phoneNumber, String email, Address address, AuthorizationEnum authorization) {
         this.password = password;
+        this.hashedPassword = hashedPassword;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -72,8 +74,15 @@ public class UserModel {
     }
 
     public void setPassword(String password) {
-        //TODO: Encrypt password
         this.password = password;
+    }
+
+    public byte[] getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(byte[] hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 
     public String getFirstName() {
@@ -144,7 +153,7 @@ public class UserModel {
     public String toString() {
         return new ToStringBuilder(this)
                 .append("id", id)
-                .append("password", password)
+                .append("hashedPassword", hashedPassword)
                 .append("firstName", firstName)
                 .append("lastName", lastName)
                 .append("dateOfBirth", dateOfBirth)
