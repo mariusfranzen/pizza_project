@@ -1,8 +1,8 @@
 
 import { Footer } from './index';
-import { NavBurger, NavMenu, Navbar } from './navbar/index'
+import { Navbar } from './navbar/index'
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 					<Route path="/admin/add-ingredient" exact component={AddIngredientPage} />
 					<Route path="/admin/add-item" exact component={AddItemPage} />
 					<Route path="/admin/edit-home" exact component={EditHomePage} />
-					<Route path="/admin/edit-menu" exact component={EditMenuPage} />
+					<Route path="/admin/edit-pizza" exact component={EditPizzaPage} />
 					<Route path="/admin/print-info" exact component={InfoPrintPage} />
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
 				</Router>
