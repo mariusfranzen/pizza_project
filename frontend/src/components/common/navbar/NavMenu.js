@@ -30,13 +30,13 @@ export class Menu extends Component {
                 <div className="bottomMenu">
                     {isLoggedIn ? 
                     <>
-                        <a href="/login">Logga in</a>
-                        <a href="/register">Registrera</a>
+                        <a href="/profile">Din profil</a>
+                        <a href="/logout">Logga ut</a>
                     </>
                     :
                     <>
-                        <a href="/profile">Din profil</a>
-                        <a href="/logout">Logga ut</a>
+                        <a href="/login">Logga in</a>
+                        <a href="/register">Registrera</a>
                     </>}
                 </div>
             </div>

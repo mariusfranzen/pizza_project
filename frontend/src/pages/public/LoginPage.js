@@ -48,9 +48,9 @@ const LoginForm = () => {
                     console.log(user);
                 })
 
-                if (!loginValidation) {
+                if (!loginValidation.data) {
                     console.log("Wrong email and/or password");
-                } else if (loginValidation === "ERROR") {
+                } else if (loginValidation.data === "ERROR") {
                     console.log("Error. Check logs for more info");
                 } else {
                     console.log("Success! " + loginValidation.data);
