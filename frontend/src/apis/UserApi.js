@@ -4,6 +4,7 @@ import axios from 'axios';
 const UserUrl = "http://localhost:8080/api/user";
 
 export class UserApi extends Component {
+
     //---GET FUNCTIONS---//
     getAllUsers() {
         return axios.get(`${UserUrl}/`);
@@ -29,17 +30,22 @@ export class UserApi extends Component {
         return axios.get(`${UserUrl}/date`, date);
     }
 
+    //---PUT FUNCTIONS---//
     updateUser(user) {
         return axios.put(`${UserUrl}/updateUser`, user)
-    }
-
-    validateUser(user) {
-        return axios.post(`${UserUrl}/validate`, user)
     }
 
     //---POST FUNCTIONS---//
     postUser(user) {
         return axios.post(`${UserUrl}/add`, user);
+    }
+
+    validateUser(user) {
+        return axios.post(`${UserUrl}/validate`, user);
+    }
+
+    validateJwt(jwt) {
+        return axios.post(`${UserUrl}/validate-jwt?jwt=` + jwt);
     }
 }
 

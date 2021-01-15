@@ -3,7 +3,7 @@ import { Footer } from './index';
 import { NavBurger, NavMenu, Navbar } from './navbar/index'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
-import { HomePage, MenuPage, LoginPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
+import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
 
 function App() {
 	return (
@@ -14,6 +14,7 @@ function App() {
 					<Route path="/" exact component={HomePage} />
 					<Route path="/menu" exact component={MenuPage} />
 					<Route path="/login" exact component={LoginPage} />
+					<Route path="/logout" exact component={LogoutPage} />
 					<Route path="/register" exact component={RegisterPage} />
 					<Route path="/user" exact component={UserPage} />
 					<Route path="/about" exact component={AboutPage} />

@@ -82,8 +82,7 @@ const EditUser = (props) => {
             onSubmit={(values) => {
                 let user = {
                     email: values.email,
-                    password: values.password,
-                    newPassword: values.password,
+                    password: values.newPassword,
                     phoneNumber: values.phoneNumber.replace(/[^0-9]$/, ""),
                     firstName: values.firstName,
                     lastName: values.lastName,
@@ -107,10 +106,10 @@ const EditUser = (props) => {
                     />
                     {props.errors.email ? <div>{props.errors.email}</div> : null}
 
-                    <label htmlFor="oldPassword">Old Password: </label>
+                    <label htmlFor="password">Old Password: </label>
                     <Field
-                        id="oldPassword"
-                        name="oldPassword"
+                        id="password"
+                        name="password"
                         type="password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}

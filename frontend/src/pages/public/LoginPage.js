@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Field, Form, Formik } from "formik";
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export class LoginPage extends Component {
     render() {
@@ -54,6 +57,9 @@ const LoginForm = () => {
                     console.log("Error. Check logs for more info");
                 } else {
                     console.log("Success! " + loginValidation.data);
+                    let date = new Date();
+                    date.setDate(date.getDate() + 1);
+                    cookies.set("auth", loginValidation.data, {expires: date});
                 }
             }}
             validate={validate}

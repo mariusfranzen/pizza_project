@@ -1,8 +1,11 @@
 package com.team2.pizzaproject.controller;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.team2.pizzaproject.enums.AuthorizationEnum;
 import com.team2.pizzaproject.model.UserModel;
 import com.team2.pizzaproject.repository.UserRepository;
@@ -91,6 +94,28 @@ public class UserController {
         } catch (JWTCreationException | NoSuchAlgorithmException e) {
             LOGGER.log(Level.SEVERE, "Validation failed! " + e.getMessage());
             return "ERROR";
+        }
+    }
+
+    @PostMapping(path = "/validate-jwt")
+    @ResponseBody
+    public UserModel validateJwt(@RequestParam String jwt) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC512(Objects.requireNonNull(env.getProperty("secret")));
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .withIssuer(env.getProperty("issuer"))
+                    .build();
+            UserModel user = new UserModel();
+            user.setId(JWT.decode(jwt).getSubject());
+            user.setEmail(JWT.decode(jwt).getClaim("email").asString());
+            user.setAuthorization(AuthorizationEnum.valueOf(JWT.decode(jwt).getClaim("auth").asString()));
+            return user;
+        } catch (JWTVerificationException e) {
+            LOGGER.log(Level.WARNING, "Invalid JWT token: " + e.getMessage());
+            return null;
+        } catch (NullPointerException e) {
+            LOGGER.log(Level.SEVERE, "NullPointerException! Message: " + e.getMessage());
+            return null;
         }
     }
 
