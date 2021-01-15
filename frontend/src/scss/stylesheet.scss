@@ -2,17 +2,14 @@
 @use 'grid';
 @use 'button';
 @use "footer";
-@use"homepage";
 @import "./colors.scss";
 @import "./fonts.scss";
 
 
 html, body {
-    background-color:#ffff;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     overflow-x: hidden;
-  
 }
 
 .container {

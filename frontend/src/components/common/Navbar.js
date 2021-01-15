@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 export class Navbar extends Component {
     render() {
-        
-        let user = true;
+        let user = false;
 
 
         if (user) {

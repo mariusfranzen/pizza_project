@@ -10,7 +10,7 @@ export class UserApi extends Component {
     }
 
     getUserById(id) {
-        return axios.get(`${UserUrl}/id`, id);
+        return axios.get(`${UserUrl}/id?id=` + id);
     }
 
     getUserByEmail(email) {
@@ -27,6 +27,13 @@ export class UserApi extends Component {
 
     getUserByDateOfRegistration(date) {
         return axios.get(`${UserUrl}/date`, date);
+<<<<<<< HEAD
+=======
+    }
+
+    updateUser(user) {
+        return axios.put(`${UserUrl}/updateUser`, user)
+>>>>>>> dev
     }
 
     validateUser(user) {

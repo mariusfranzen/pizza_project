@@ -5,7 +5,7 @@ export class Navbar extends Component {
     constructor(){
         super();
         this.state = {
-            isOpen:false
+            isOpen: false
         }
     }
 
