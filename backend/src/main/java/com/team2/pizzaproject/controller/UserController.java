@@ -127,7 +127,7 @@ public class UserController {
             userModel.setPassword(null);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Failed hashing password. Error: " + e.getMessage());
-            return "Failed creating user. Error in log.";
+            return null;
         }
         userModel.setDateOfRegistration(new Date(System.currentTimeMillis()));
 
@@ -138,10 +138,10 @@ public class UserController {
         try {
             userRepository.save(userModel);
             LOGGER.log(Level.INFO, "Saved user to database!");
-            return "Saved user to database!";
+            return "SUCCESS";
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "FAILED SAVING TO DATABASE. Error: " + e.getMessage());
-            return "Failed saving to database. Error in log.";
+            return null;
         }
     }
 
