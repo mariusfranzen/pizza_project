@@ -20,7 +20,7 @@ const AddItemForm = () => {
         }
         if (!values.price) {
             errors.price = "Required";
-        } else if (!/^[0-9]+([\.\,]{1}[0-9]{2})?$/i.test(values.price)) {
+        } else if (!/^[0-9]+([.,]{1}[0-9]{2})?$/i.test(values.price)) {
             errors.price = "Invalid price"
         }
         if (!values.category) {

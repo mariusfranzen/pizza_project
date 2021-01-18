@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Field, Form, Formik } from "formik";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export class LoginPage extends Component {
     render() {
         return (
-            <div>
+            <div className="form">
                 <LoginForm />
             </div>
         );
@@ -43,17 +46,24 @@ const LoginForm = () => {
                     password: values.password,
                 };
 
-                let loginValidation = await UserApi.validateUser(user).catch((error) => {
-                    console.log(error);
-                    console.log(user);
-                })
+                let loginValidation = await UserApi.validateUser(user).catch(
+                    (error) => {
+                        console.log(error);
+                        console.log(user);
+                    }
+                );
 
-                if (!loginValidation) {
+                if (!loginValidation.data) {
                     console.log("Wrong email and/or password");
-                } else if (loginValidation === "ERROR") {
+                } else if (loginValidation.data === "ERROR") {
                     console.log("Error. Check logs for more info");
                 } else {
                     console.log("Success! " + loginValidation.data);
+                    let date = new Date();
+                    date.setDate(date.getDate() + 1);
+                    cookies.set("auth", loginValidation.data, {
+                        expires: date,
+                    });
                 }
             }}
             validate={validate}
@@ -61,6 +71,7 @@ const LoginForm = () => {
             {(props) => (
                 <div className='login'>
                 <Form>
+<<<<<<< HEAD
                     <Field className='field' type="text" name="email" placeholder="Email" />
                     {props.errors.email ? <div className='errors'>{props.errors.email}</div> : null}
                     <Field
@@ -70,6 +81,26 @@ const LoginForm = () => {
                         placeholder="Password"
                     />
                     {props.errors.password ? <div className='errors'>{props.errors.password}</div> : null}
+=======
+                    <div className="formGroup">
+                        <label htmlFor="email">Email:</label>
+                        <Field type="text" name="email" placeholder="Email" />
+                        {props.errors.email ? (
+                            <div>{props.errors.email}</div>
+                        ) : null}
+                    </div>
+                    <div className="formGroup">
+                    <label htmlFor="password">Password:</label>
+                        <Field
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                        />
+                        {props.errors.password ? (
+                            <div>{props.errors.password}</div>
+                        ) : null}
+                    </div>
+>>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
                     <button type="submit">Login</button>
                     {props.loginStatus ? <div className='errors'>{props.loginStatus}</div> : null}
                 </Form>

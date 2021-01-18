@@ -2,10 +2,14 @@
 @use 'grid';
 @use 'button';
 @use "footer";
+<<<<<<< HEAD
 @use "userPage";
 @use 'homepage';
 @use 'addpizzapage';
 @use'login';
+=======
+@use "forms";
+>>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
 @import "./colors.scss";
 @import "./fonts.scss";
 
