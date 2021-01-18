@@ -7,8 +7,14 @@
     top: 0;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     z-index: 100;
+
+    img {
+        height: 50px;
+        width: 50px;
+        margin: 15px;
+    }
 }
 
 .hamburgerMenu {
@@ -43,22 +49,60 @@
 .navMenu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     background: $colorBright;
     height: 100vh;
     text-align: right;
-    padding: 2rem;
+    padding: 3rem;
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     transition: transform 0.3s ease-in-out;
 
     @media (max-width: 576px) {
         font-size: 1.5rem;
         text-align: center;
+
+        img {
+            height: 20px;
+            width: 20px;
+        }
     }
 
     &:hover {
         color: $colorBrightHover;
     }
+
+    a {
+        font-family: $nav-font;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 24px;
+        text-decoration: none;
+        margin: 20px 0;
+        color: $colorDark;
+    }
+
+    .topMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .bottomMenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        a {
+            font-family: $nav-font;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 20px 0;
+            color: $colorDark;
+        }
+    }
 }
+
