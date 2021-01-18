@@ -71,17 +71,6 @@ const LoginForm = () => {
             {(props) => (
                 <div className='login'>
                 <Form>
-<<<<<<< HEAD
-                    <Field className='field' type="text" name="email" placeholder="Email" />
-                    {props.errors.email ? <div className='errors'>{props.errors.email}</div> : null}
-                    <Field
-                        className='field'
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                    />
-                    {props.errors.password ? <div className='errors'>{props.errors.password}</div> : null}
-=======
                     <div className="formGroup">
                         <label htmlFor="email">Email:</label>
                         <Field type="text" name="email" placeholder="Email" />
@@ -100,7 +89,6 @@ const LoginForm = () => {
                             <div>{props.errors.password}</div>
                         ) : null}
                     </div>
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
                     <button type="submit">Login</button>
                     {props.loginStatus ? <div className='errors'>{props.loginStatus}</div> : null}
                 </Form>
