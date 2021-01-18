@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavBurger, NavMenu } from './index';
 import Logo from '../../../images/pizza-logo.jpg';
+import CartIcon from '../../../images/icons/icons8-shopping-cart-96.png';
 import Cookies from 'universal-cookie';
 import UserApi from '../../../apis/UserApi';
 
@@ -33,6 +34,10 @@ export class Navbar extends Component {
         }
     }
 
+    cartClick() {
+        
+    }
+
     render() {
         const menuClick = () => {
             if (this.state.isOpen) {
@@ -44,8 +49,11 @@ export class Navbar extends Component {
 
         return(
             <nav className="mainNav">
-                <img src={Logo} alt="logo" />
-                <NavBurger isOpen={this.state.isOpen} isLoggedIn={this.state.isLoggedIn} menuClick={menuClick} />
+                <img src={Logo} alt="logo" className="logo" />
+                <nav className="rightGroup">
+                    <img src={CartIcon} alt="cart" className="cart" onClick={}/>
+                    <NavBurger isOpen={this.state.isOpen} isLoggedIn={this.state.isLoggedIn} menuClick={menuClick} />
+                </nav>
                 <NavMenu isOpen={this.state.isOpen} isLoggedIn={this.state.isLoggedIn} menuClick={menuClick} />
             </nav>
         )
