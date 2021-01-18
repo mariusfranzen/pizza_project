@@ -2,7 +2,7 @@
 import { Footer } from './index';
 import { Navbar } from './navbar/index'
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditPizzaPage, EditHomePage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
 
 function App() {
