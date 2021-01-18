@@ -112,131 +112,111 @@ const EditUser = (props) => {
         >
             {(props) => (
                 <Form>
-                    <div className="formGroup">
-                        <label htmlFor="email">Email: </label>
-                        <Field
-                            id="email"
-                            name="email"
-                            type="text"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.email}
-                        />
-                        {props.errors.email ? (
-                            <div>{props.errors.email}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="password">Old Password: </label>
-                        <Field
-                            id="password"
-                            name="password"
-                            type="password"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.password}
-                        />
-                        {props.errors.password ? (
-                            <div>{props.errors.password}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="newPassword">New Password: </label>
-                        <Field
-                            id="newPassword"
-                            name="newPassword"
-                            type="password"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.newPassword}
-                        />
-                        {props.errors.newPassword ? (
-                            <div>{props.errors.newPassword}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="passwordAgain">
-                            New Password again:{" "}
-                        </label>
-                        <Field
-                            id="passwordAgain"
-                            name="passwordAgain"
-                            type="password"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.passwordAgain}
-                        />
-                        {props.errors.passwordAgain ? (
-                            <div>{props.errors.passwordAgain}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="phoneNumber">Phone number: </label>
-                        <Field
-                            id="phoneNumber"
-                            name="phoneNumber"
-                            type="text"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.phoneNumber}
-                        />
-                        {props.errors.phoneNumber ? (
-                            <div>{props.errors.phoneNumber}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="firstName">First Name: </label>
-                        <Field
-                            id="firstName"
-                            name="firstName"
-                            type="text"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.firstName}
-                        />
-                        {props.errors.firstName ? (
-                            <div>{props.errors.firstName}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="lastName">Last Name: </label>
-                        <Field
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.lastName}
-                        />
-                        {props.errors.lastName ? (
-                            <div>{props.errors.lastName}</div>
-                        ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="dateOfBirth">Date of Birth: </label>
-                        <Field
-                            id="dateOfBirth"
-                            name="dateOfBirth"
-                            type="date"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.dateOfBirth}
-                        />
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="adress">Adress: </label>
-                        <Field
-                            id="adress"
-                            name="adress"
-                            type="text"
-                            onChange={props.handleChange}
-                            onBlur={props.handleBlur}
-                            value={props.values.adress}
-                        />
-                        {props.errors.adress ? (
-                            <div>{props.errors.adress}</div>
-                        ) : null}
-                    </div>
+                    <label htmlFor="email">Email: </label>
+                    <Field
+                        id="email"
+                        name="email"
+                        type="text"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.email}
+                    />
+                    {props.errors.email ? <div>{props.errors.email}</div> : null}
+
+                    <label htmlFor="password">Old Password: </label>
+                    <Field
+                        id="password"
+                        name="password"
+                        type="password"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.password}
+                    />
+                    {props.errors.password ? (
+                        <div>{props.errors.password}</div>
+                    ) : null}
+
+                    <label htmlFor="newPassword">New Password: </label>
+                    <Field
+                        id="newPassword"
+                        name="newPassword"
+                        type="password"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.newPassword}
+                    />
+                    {props.errors.newPassword ? (
+                        <div>{props.errors.newPassword}</div>
+                    ) : null}
+
+                    <label htmlFor="passwordAgain">New Password again: </label>
+                    <Field
+                        id="passwordAgain"
+                        name="passwordAgain"
+                        type="password"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.passwordAgain}
+                    />
+                    {props.errors.passwordAgain ? (
+                        <div>{props.errors.passwordAgain}</div>
+                    ) : null}
+
+                    <label htmlFor="phoneNumber">Phone number: </label>
+                    <Field
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        type="text"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.phoneNumber}
+                    />
+                    {props.errors.phoneNumber ? (
+                        <div>{props.errors.phoneNumber}</div>
+                    ) : null}
+
+                    <label htmlFor="firstName">First Name: </label>
+                    <Field
+                        id="firstName"
+                        name="firstName"
+                        type="text"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.firstName}
+                    />
+                    {props.errors.firstName ? <div>{props.errors.firstName}</div> : null}
+
+                    <label htmlFor="lastName">Last Name: </label>
+                    <Field
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.lastName}
+                    />
+                    {props.errors.lastName ? <div>{props.errors.lastName}</div> : null}
+
+                    <label htmlFor="dateOfBirth">Date of Birth: </label>
+                    <Field
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        type="date"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.dateOfBirth}
+                    />
+
+                    <label htmlFor="adress">Adress: </label>
+                    <Field
+                        id="adress"
+                        name="adress"
+                        type="text"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}
+                        value={props.values.adress}
+                    />
+                    {props.errors.adress ? <div>{props.errors.adress}</div> : null}
                     <button id="submit" name="submit" type="submit">
                         Update Account
                     </button>

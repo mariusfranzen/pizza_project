@@ -25,6 +25,10 @@ export class PizzaApi extends Component {
         return axios.get(`${PizzaUrl}/ingredient`, ingredient);
     }
 
+    updatePizza(pizza) {
+        return axios.put(`${PizzaUrl}/updatePizza`, pizza)
+    }
+
     //---POST FUNCTIONS---//
     postPizza(pizza) {
         return axios.post(`${PizzaUrl}/add`, pizza);
