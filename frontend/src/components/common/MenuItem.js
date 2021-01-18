@@ -39,12 +39,14 @@ export class MenuItem extends Component {
 
         return (
 
-            <div key={this.state.menuId}>
-                <p>{this.state.menuId}</p>
-                <h2>{this.state.name}</h2>
-                <p>{this.state.ingredientNameString}</p>
-                <p>{this.state.description}</p>
-                <p>{this.state.price}</p>
+            <div key={this.state.menuId} className="menuItem">
+                <div className="rowGroup">
+                    <p className="id">{this.state.menuId}</p>
+                    <h2 className="name">{this.state.name}</h2>
+                </div>
+                <p className="ingredients">{this.state.ingredientNameString}</p>
+                <p className="description">{this.state.description}</p>
+                {this.state.price ? <p className="price">{this.state.price}</p> : null}
             </div>
         )
     }

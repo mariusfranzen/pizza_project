@@ -9,3 +9,10 @@
 .row {
     width: 100%;
 }
+
+.rowGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

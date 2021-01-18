@@ -23,11 +23,15 @@ export class MenuPage extends Component {
         let date = new Date();
         date.setDate(date.getDate() + 1);
 
-        let cartArray = [];
-        cartArray.push(pizza);
-        cartArray = cartArray.concat(cookies.get("cart"));
+        let cartCookie = cookies.get("cart");
+        let cartString = cartCookie ? cartCookie : "";
+        if (!cartCookie) {
+            cartString += pizza;
+        } else {
+            cartString += " " + pizza;
+        }
 
-        cookies.set("cart", cartArray, {
+        cookies.set("cart", cartString, {
             expires: date,
         });
     }
