@@ -1,0 +1,109 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.userpage{
+
+    background-color:$accentColor2;
+    box-sizing: content-box;
+
+
+    width: 590px;
+    height: 490px;
+   
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 11px;
+    
+    .errors{
+
+        color: red;
+        padding-left:85px ;
+
+    }
+    .div1{
+        
+        
+        box-sizing: content-box;
+        border-radius: 20px;
+        width: 290px;
+        height: 390px;
+     
+        float: left;
+        margin-top: 30px;
+        
+        label {
+           
+            font-style: italic;
+            font-size: 15px ;
+            color: rgb(15, 15, 15);
+            padding-left:85px ;
+            font-weight: bold;
+            vertical-align: -11px;
+        
+        
+            
+        }
+        .Field{
+            background-color:#ffffff;
+            text-align: center;
+            width: 280px;
+            margin-top: 20px;
+            border-radius: 20px;
+        
+        }
+    
+    
+    }
+
+    .div2{
+    
+        
+        box-sizing: content-box;
+        border-radius: 20px;
+        width: 290px;
+        height: 390px;
+        
+        float: right;
+        margin-top: 30px;
+
+        label {
+        
+            font-style: italic;
+            font-size: 15px ;
+            padding-left:85px ;
+            color: rgb(14, 12, 12);
+            margin-top: 11px;
+            font-weight: bold;
+            line-height: 12px;
+            vertical-align: -14px;
+            
+        
+            
+        }
+        .Field{
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            width: 280px;
+            margin-top: 20px;
+            border-radius: 20px;
+        
+
+        }
+        
+        
+    }
+    button{
+        background-color: rgb(6, 105, 32);
+        margin-bottom: 10px;
+        width: 190px;
+        margin-left: 35%;
+        margin-top: 20px;
+        border-radius: 20px;
+        color: seashell;
+        height: 40px;
+        font-weight: bold;
+    }
+
+}
+

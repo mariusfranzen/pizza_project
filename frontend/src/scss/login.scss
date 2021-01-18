@@ -1,0 +1,42 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.login{
+    background-color: rgb(239, 239, 243);
+    width: 590px;
+    height: 220px;
+   
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 11px;
+    
+
+    .errors{
+        color: firebrick;
+        margin-left: 68px;
+    }
+
+    .field{
+        background-color: forestgreen;
+        background-color:#ffffff;
+        text-align: center;
+        width: 480px;
+        margin-top: 20px;
+        border-radius: 20px;
+        display: block;
+        margin-left: 48px;
+        height: 30px;
+    }
+    button{
+        background-color: rgb(6, 105, 32);
+        margin-bottom: 10px;
+        width: 190px;
+        margin-left: 35%;
+        margin-top: 20px;
+        border-radius: 20px;
+        color: seashell;
+        height: 40px;
+        font-weight: bold;
+    }
+}

@@ -64,15 +64,16 @@ const RegisterForm = () => {
     });
 
     return (
+        
         <form onSubmit={formik.handleSubmit}>
             <label htmlFor="email">Email: </label>
-            <input
-                id="email"
-                name="email"
-                type="text"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
+            <input 
+                    id="email"
+                    name="email"
+                    type="text"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
             />
             {formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
@@ -120,6 +121,7 @@ const RegisterForm = () => {
             </button>
             {formik.errors.submit ? <div>{formik.errors.submit}</div> : null}
         </form>
+       
     );
 };
 

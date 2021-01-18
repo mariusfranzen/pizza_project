@@ -48,17 +48,20 @@ const AddPizzaForm = () => {
         validate={validate}>
 
         {(props) => (
+            <div className='addpizzapage'>
             <Form>
-                <Field type="text" name="name" placeholder="name" />
-                {props.errors.name ? <div>{props.errors.name}</div> : null}
+                
+                <Field className='field1' type="text" name="name" placeholder="name" />
+                {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
                 <Field
+                    className='field1'
                     type="text"
                     name="price"
                     placeholder="price"
                 />
-                {props.errors.price ? <div>{props.errors.price}</div> : null}
-                <div>Ingredients</div>
-                <div role="group">
+                {props.errors.price ? <div className='errors'>{props.errors.price}</div> : null}
+                <div className='div1'>Ingredients</div>
+                <div className='div2' role="group">
                     <label>
                         Ost
                         <Field type="checkbox" name="ingredientArray" value="ost" />
@@ -80,9 +83,10 @@ const AddPizzaForm = () => {
                         <Field type="checkbox" name="ingredientArray" value="oxfilé" />
                     </label>
                 </div>
-                <Field as="textarea" name="description" placeholder="Enter description" maxLength="255" />
+                <Field className='field2' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
                 <button type="submit">Add Pizza</button>
             </Form>
+            </div>
         )}
     </Formik>)
 

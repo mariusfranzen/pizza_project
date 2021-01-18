@@ -59,18 +59,21 @@ const LoginForm = () => {
             validate={validate}
         >
             {(props) => (
+                <div className='login'>
                 <Form>
-                    <Field type="text" name="email" placeholder="Email" />
-                    {props.errors.email ? <div>{props.errors.email}</div> : null}
+                    <Field className='field' type="text" name="email" placeholder="Email" />
+                    {props.errors.email ? <div className='errors'>{props.errors.email}</div> : null}
                     <Field
+                        className='field'
                         type="password"
                         name="password"
                         placeholder="Password"
                     />
-                    {props.errors.password ? <div>{props.errors.password}</div> : null}
+                    {props.errors.password ? <div className='errors'>{props.errors.password}</div> : null}
                     <button type="submit">Login</button>
-                    {props.loginStatus ? <div>{props.loginStatus}</div> : null}
+                    {props.loginStatus ? <div className='errors'>{props.loginStatus}</div> : null}
                 </Form>
+                </div>
             )}
         </Formik>
     );

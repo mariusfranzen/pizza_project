@@ -1,0 +1,91 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.addpizzapage{
+
+    background-color:$accentColor2;
+    box-sizing: content-box;
+    width: 490px;
+    height: 390px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 11px;
+
+
+
+    .errors{
+        color: red;
+        margin-left: 60px;
+
+    
+    }
+
+        .field1{
+            width: 350px;
+            margin: 10px ;
+            margin-left: 60px;
+            border-radius:6px;
+
+
+            
+
+        }
+
+        .div1{
+            
+            font-size: x-large;
+            font-style: italic;
+            margin-left: 60px;
+
+            
+
+
+        }
+        .div2{
+            
+            display: block;
+            font-size: 17px;
+            margin-left: 45px;
+            padding: 10px;
+
+
+        }
+        .field2{
+            
+            box-sizing: content-box;
+            width: 397px;
+            height: 100px;
+            padding: 5px;   
+            margin-left: 35px;
+            border-radius:6px;
+
+
+
+            
+        
+        
+        }
+        button{
+            
+                background-color: rgb(87, 158, 16);
+                margin: 30px ;
+                height: 60px;
+                width: 250px;
+                border-radius:6px;
+                font-size: x-large;
+                cursor: pointer;
+                color: floralwhite;
+                margin-left: 120px;
+                
+                :hover:active{
+                    box-shadow:0px 0px #666;
+                    transform: translateY(5px);
+                    }
+                
+        }
+
+        
+    }  
+    
+    
