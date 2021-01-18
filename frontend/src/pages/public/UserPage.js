@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Formik, Field, Form } from "formik";
 
@@ -6,23 +6,25 @@ export class UserPage extends Component {
     constructor() {
         super();
         this.state = {
-            initialUser: {}
-        }
+            initialUser: {},
+        };
     }
     async componentDidMount() {
-        console.log("asd")
-        await UserApi.getUserById("5ffeb12a95a55750db3378a5").then(async (result) => {
-            await this.setState({ initialUser: result.data })
-            console.log(result)
-        });
+        console.log("asd");
+        await UserApi.getUserById("5ffeb12a95a55750db3378a5").then(
+            async (result) => {
+                await this.setState({ initialUser: result.data });
+                console.log(result);
+            }
+        );
     }
 
     render() {
         return (
-            <div>
+            <div className="form">
                 <EditUser initialUser={this.state.initialUser} />
             </div>
-        )
+        );
     }
 }
 
@@ -51,21 +53,32 @@ const validate = (values) => {
     } else if (values.phoneNumber.replace(/[^0-9]$/, "").length !== 10) {
         errors.phoneNumber = "Phone number must be 10 numbers long";
     }
-    if (values.firstName && values.firstName.length < 1 && values.firstName.length > 20) {
+    if (
+        values.firstName &&
+        values.firstName.length < 1 &&
+        values.firstName.length > 20
+    ) {
         errors.firstName = "Namn måste vara mellan 1 och 20 tecken långt";
     }
 
-    if (values.lastName && values.lastName.length < 1 && values.lastName.length > 20) {
+    if (
+        values.lastName &&
+        values.lastName.length < 1 &&
+        values.lastName.length > 20
+    ) {
         errors.lastName = "Namn måste vara mellan 1 och 20 tecken långt";
     }
-    if (values.adress && values.adress.length < 1 && values.adress.length > 30) {
+    if (
+        values.adress &&
+        values.adress.length < 1 &&
+        values.adress.length > 30
+    ) {
         errors.adress = "Namn måste vara mellan 1 och 30 tecken långt";
     }
     return errors;
 };
 
 const EditUser = (props) => {
-
     return (
         <Formik
             initialValues={{
@@ -73,11 +86,15 @@ const EditUser = (props) => {
                 password: "",
                 newPassword: "",
                 passwordAgain: "",
-                phonenumber: props.initialUser ? props.initialUser.phonenumber : "",
+                phonenumber: props.initialUser
+                    ? props.initialUser.phonenumber
+                    : "",
                 firstName: props.initialUser ? props.initialUser.firstName : "",
                 lastName: props.initialUser ? props.initialUser.lastName : "",
-                dateOfBirth: props.initialUser ? props.initialUser.dateOfBirth : "",
-                adress: props.initialUser ? props.initialUser.adress : ""
+                dateOfBirth: props.initialUser
+                    ? props.initialUser.dateOfBirth
+                    : "",
+                adress: props.initialUser ? props.initialUser.adress : "",
             }}
             onSubmit={(values) => {
                 let user = {
@@ -88,7 +105,7 @@ const EditUser = (props) => {
                     lastName: values.lastName,
                     dateOfBirth: values.dateOfBirth,
                     adress: values.adress,
-                }
+                };
                 UserApi.updateUser(user);
             }}
             validate={validate}
@@ -200,14 +217,15 @@ const EditUser = (props) => {
                         value={props.values.adress}
                     />
                     {props.errors.adress ? <div>{props.errors.adress}</div> : null}
-
                     <button id="submit" name="submit" type="submit">
                         Update Account
-                </button>
-                    {props.errors.submit ? <div>{props.errors.submit}</div> : null}
+                    </button>
+                    {props.errors.submit ? (
+                        <div>{props.errors.submit}</div>
+                    ) : null}
                 </Form>
             )}
         </Formik>
     );
-}
-export default UserPage
+};
+export default UserPage;
