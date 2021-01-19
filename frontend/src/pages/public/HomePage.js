@@ -5,14 +5,16 @@ export class HomePage extends Component {
     render() {
         return (
                 <div className='homepage'>
+
+                <div className='div1'>
                     
                     <img  className='homepic' src="profilepic.jpg" alt="profilepic" ></img>
-                    
-                    <div className='welcometitle'>
+                </div>   
+                 <div className='welcometitle'>
                         <h1>Welcome to mindfullness pizzeria</h1>
                         <p>"we will send it to the ranch"-dr Phill</p>
                         <h2>De populäraste pizzorna : </h2>
-                    </div>
+                 </div>
 
                     <div className='homeItem'>
                         <h3>85</h3>

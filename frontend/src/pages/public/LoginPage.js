@@ -71,28 +71,26 @@ const LoginForm = () => {
             {(props) => (
                 <div className='login'>
                 <Form>
-                    <div className="formGroup">
-                        <label htmlFor="email">Email:</label>
-                        <Field type="text" name="email" placeholder="Email" />
+                    <div className="div1">
+                        <label htmlFor="email"></label>
+                        <Field className="Field" type="text" name="email" placeholder="Email" />
                         {props.errors.email ? (
-                            <div>{props.errors.email}</div>
+                            <div className='errors'>{props.errors.email}</div>
                         ) : null}
                     </div>
-                    <div className="formGroup">
-                    <label htmlFor="password">Password:</label>
-                        <Field
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                        />
+
+                    <div className="div1">
+                    <label htmlFor="password"></label>
+                    <Field className="Field" type="password" name="password" placeholder="Password"/>
                         {props.errors.password ? (
-                            <div>{props.errors.password}</div>
+                            <div className='errors'>{props.errors.password}</div>
                         ) : null}
+
                     </div>
                     <button type="submit">Login</button>
                     {props.loginStatus ? <div className='errors'>{props.loginStatus}</div> : null}
-                </Form>
-                </div>
+                    </Form>
+                    </div>
             )}
         </Formik>
     );

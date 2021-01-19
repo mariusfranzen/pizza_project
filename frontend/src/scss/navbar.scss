@@ -9,16 +9,12 @@
     flex-direction: row;
     justify-content: space-between;
     z-index: 100;
-<<<<<<< HEAD
-    
-=======
 
     img {
         height: 50px;
         width: 50px;
         margin: 15px;
     }
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
 }
 
 .hamburgerMenu {
@@ -76,31 +72,6 @@
     &:hover {
         color: $colorBrightHover;
     }
-<<<<<<< HEAD
-        a{
-            background-color: $mainColor;
-            font-size:20px ;
-            margin-top: 20px;
-            color: $accentColor2;
-            text-decoration: none;
-            border-radius: 8px;
-            width: 150px;
-            height: 25px;
-            min-width: 40px;
-            text-align: center;
-            font-style: italic;
-            
-            &:hover {
-                color: $mainHoverColor;
-                background-color: $accentColor1;
-            }
-            
-            
-        }
-
-
-}
-=======
 
     a {
         font-family: $nav-font;
@@ -135,4 +106,3 @@
     }
 }
 
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d

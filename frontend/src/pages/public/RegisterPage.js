@@ -47,46 +47,6 @@ const validate = (values) => {
 
 const RegisterForm = () => {
     return (
-<<<<<<< HEAD
-        
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="email">Email: </label>
-            <input 
-                    id="email"
-                    name="email"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email}
-            />
-            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-
-            <label htmlFor="password">Password: </label>
-            <input
-                id="password"
-                name="password"
-                type="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-            />
-            {formik.errors.password ? (
-                <div>{formik.errors.password}</div>
-            ) : null}
-
-            <label htmlFor="passwordAgain">Password again: </label>
-            <input
-                id="passwordAgain"
-                name="passwordAgain"
-                type="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.passwordAgain}
-            />
-            {formik.errors.passwordAgain ? (
-                <div>{formik.errors.passwordAgain}</div>
-            ) : null}
-=======
         <Formik
             initialValues={{
                 email: "",
@@ -100,18 +60,9 @@ const RegisterForm = () => {
                     phoneNumber: values.phoneNumber,
                     password: values.password,
                 };
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
 
                 let postUser = await UserApi.postUser(user);
 
-<<<<<<< HEAD
-            <button id="submit" name="submit" type="submit">
-                Register
-            </button>
-            {formik.errors.submit ? <div>{formik.errors.submit}</div> : null}
-        </form>
-       
-=======
                 if (!postUser.data) {
                     console.log("Error. Check log for more details.");
                 } else if (postUser.data === "SUCCESS") {
@@ -121,10 +72,12 @@ const RegisterForm = () => {
             validate={validate}
         >
             {(props) => (
+                <div className='registerPage'>
                 <Form>
                     <div className="formGroup">
                         <label htmlFor="email">Email:</label>
                         <Field
+                            
                             type="text"
                             name="email"
                             placeholder="email@email.com"
@@ -135,7 +88,8 @@ const RegisterForm = () => {
                     </div>
                     <div className="formGroup">
                         <label htmlFor="phoneNumber">Phone number:</label>
-                        <Field
+                        <Field 
+                          
                             type="text"
                             name="phoneNumber"
                             placeholder="070-1234567"
@@ -147,6 +101,7 @@ const RegisterForm = () => {
                     <div className="formGroup">
                         <label htmlFor="password">Password:</label>
                         <Field
+                        
                             type="password"
                             name="password"
                             placeholder="Password. At least 8 characters."
@@ -157,7 +112,8 @@ const RegisterForm = () => {
                     </div>
                     <div className="formGroup">
                         <label htmlFor="passwordAgain">Repeat password:</label>
-                        <Field
+                        <Field 
+                        
                             type="password"
                             name="passwordAgain"
                             placeholder="Repeat password"
@@ -168,9 +124,9 @@ const RegisterForm = () => {
                     </div>
                     <button type="submit">Register</button>
                 </Form>
+                </div>
             )}
         </Formik>
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
     );
 };
 

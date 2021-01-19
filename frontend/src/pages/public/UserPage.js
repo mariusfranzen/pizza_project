@@ -179,18 +179,10 @@ const EditUser = (props) => {
                     />
                     {props.errors.adress ? <div className='errors'>{props.errors.adress}</div> : null}
 
-<<<<<<< HEAD
-                    <label htmlFor="oldPassword" >Old Password: </label>
-                    <Field
-                        className='Field'
-                        id="oldPassword"
-                        name="oldPassword"
-=======
                     <label htmlFor="password">Old Password: </label>
                     <Field
                         id="password"
                         name="password"
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
                         type="password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
@@ -239,14 +231,7 @@ const EditUser = (props) => {
                         onBlur={props.handleBlur}
                         value={props.values.dateOfBirth}
                     />
-<<<<<<< HEAD
-                    </div>
-                    <button id="submit" name="submit" type="submit">
-                        Update Account
-                    </button>
-                    {props.errors.submit ? <div className='errors'>{props.errors.submit}</div> : null}
-=======
-
+                        </div>
                     <label htmlFor="adress">Adress: </label>
                     <Field
                         id="adress"
@@ -256,14 +241,13 @@ const EditUser = (props) => {
                         onBlur={props.handleBlur}
                         value={props.values.adress}
                     />
-                    {props.errors.adress ? <div>{props.errors.adress}</div> : null}
+                    {props.errors.adress ? <div div className='errors'>{props.errors.adress}</div> : null}
                     <button id="submit" name="submit" type="submit">
                         Update Account
                     </button>
                     {props.errors.submit ? (
                         <div>{props.errors.submit}</div>
                     ) : null}
->>>>>>> 6d1f46a11624a3511f92977803ead8d90f7aeb5d
                 </Form>
             </div>
             
