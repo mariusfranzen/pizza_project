@@ -1,0 +1,27 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.checkoutMenu {
+    .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            width: 2rem;
+        }
+
+        .checkoutMenuButton {
+            width: 1rem;
+            height: 1rem;
+            cursor: pointer;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 1rem;
+        }
+    }
+}
+

@@ -3,6 +3,8 @@
 @use 'button';
 @use "footer";
 @use "forms";
+@use "checkoutPage";
+@use "menuPage";
 @import "./colors.scss";
 @import "./fonts.scss";
 
@@ -11,6 +13,16 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .container {

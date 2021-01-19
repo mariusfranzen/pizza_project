@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Field, Form, Formik } from "formik";
-import Cookies from "universal-cookie";
 
 export class RegisterPage extends Component {
     render() {
