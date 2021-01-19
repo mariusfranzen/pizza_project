@@ -7,7 +7,7 @@ export class CheckoutMenuItem extends Component {
         super(props);
         this.state = {
             pizza: props.pizza,
-            amount: 1
+            amount: props.amount ? props.amount : 1
         };
     }
 

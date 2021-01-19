@@ -16,15 +16,24 @@ export class CheckoutPage extends Component {
 
     async componentDidMount() {
         let cookie = cookies.get("cart") ? cookies.get("cart") : null;
-
-        let idArray = [];
         let pizzaArray = [];
 
         if (cookie) {
-            idArray = cookie.split(" ");
+            let idArray = cookie.split(" ");
+            let realIdArray = [];
+            
             for (const id of idArray) {
-                pizzaArray.push(await PizzaApi.getPizzaById(id))
+                if (!realIdArray.includes(id)) {
+                    realIdArray.push(id);
+                    console.log("found")
+                    pizzaArray.push({ pizza: await PizzaApi.getPizzaById(id), amount: 1 });
+                } else {
+                    let index = pizzaArray.findIndex(pizza => pizza.pizza.data.id === id);
+                    console.log("adding")
+                    pizzaArray[index].amount += 1
+                }
             }
+
             this.setState({pizzaArray: pizzaArray});
         }
     }
@@ -34,7 +43,7 @@ export class CheckoutPage extends Component {
             <>
                 {this.state.pizzaArray.map((pizza, index) => {
                     return (
-                        <CheckoutMenuItem pizza={pizza} />
+                        <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
                     )
                 })}
             </>
