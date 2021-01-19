@@ -24,6 +24,9 @@ export class PizzaApi extends Component {
     getPizzaByIngredient(ingredient) {
         return axios.get(`${PizzaUrl}/ingredient`, ingredient);
     }
+    getPizzaRandom(amount) {
+        return axios.get(`${PizzaUrl}/random`, amount);
+    }
 
     updatePizza(pizza) {
         return axios.put(`${PizzaUrl}/updatePizza`, pizza)
