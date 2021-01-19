@@ -1,16 +1,17 @@
 
 import { Footer } from './index';
 import { Navbar } from './navbar/index'
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditMenuPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
+import { Route, Router } from "react-router-dom";
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
+import history from './history';
 
 function App() {
 	return (
 		<div>
 			<Navbar />
 			<div className="container">
-				<Router>
+				<Router history={history}>
 					<Route path="/" exact component={HomePage} />
 					<Route path="/menu" exact component={MenuPage} />
 					<Route path="/login" exact component={LoginPage} />

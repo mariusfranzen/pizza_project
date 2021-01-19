@@ -10,7 +10,7 @@ export class PizzaApi extends Component {
     }
 
     getPizzaById(id) {
-        return axios.get(`${PizzaUrl}/id`, id);
+        return axios.get(`${PizzaUrl}/id?id=` + id);
     }
 
     getPizzaByMenuId(menuId) {
@@ -23,6 +23,9 @@ export class PizzaApi extends Component {
 
     getPizzaByIngredient(ingredient) {
         return axios.get(`${PizzaUrl}/ingredient`, ingredient);
+    }
+    getPizzaRandom(amount) {
+        return axios.get(`${PizzaUrl}/random`, amount);
     }
 
     updatePizza(pizza) {
