@@ -113,7 +113,9 @@ const EditUser = (props) => {
             {(props) => (
             <div className='userpage'>
                 <Form  >
+
                 <div className='div1'>
+
                 <label htmlFor="firstName" >First Name: </label>
                     <Field
                         className='Field'
@@ -181,6 +183,7 @@ const EditUser = (props) => {
 
                     <label htmlFor="password">Old Password: </label>
                     <Field
+                        className='Field'
                         id="password"
                         name="password"
                         type="password"
@@ -231,17 +234,10 @@ const EditUser = (props) => {
                         onBlur={props.handleBlur}
                         value={props.values.dateOfBirth}
                     />
-                        </div>
-                    <label htmlFor="adress">Adress: </label>
-                    <Field
-                        id="adress"
-                        name="adress"
-                        type="text"
-                        onChange={props.handleChange}
-                        onBlur={props.handleBlur}
-                        value={props.values.adress}
-                    />
-                    {props.errors.adress ? <div div className='errors'>{props.errors.adress}</div> : null}
+                    
+                
+                    </div>
+                    
                     <button id="submit" name="submit" type="submit">
                         Update Account
                     </button>

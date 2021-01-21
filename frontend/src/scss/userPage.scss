@@ -3,16 +3,13 @@
 
 .userpage{
 
-    background-color:$accentColor2;
-    box-sizing: content-box;
 
-
-    width: 590px;
-    height: 490px;
-   
+    display: flex;
+    width: 690px;
+    height: 500px;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 10px;
+   
     padding: 11px;
     
     .errors{
@@ -21,9 +18,17 @@
         padding-left:85px ;
 
     }
+
+    form{
+
+       
+        display: flex;
+        height: 30rem;
+        width: 0rem;
+        margin-top: -18px;
     .div1{
         
-        
+      
         box-sizing: content-box;
         border-radius: 20px;
         width: 290px;
@@ -41,15 +46,16 @@
             font-weight: bold;
             vertical-align: -11px;
         
-        
             
         }
         .Field{
-            background-color:#ffffff;
+            background-color:$accentColor2;
             text-align: center;
             width: 280px;
+            height:30px;
             margin-top: 20px;
             border-radius: 20px;
+            border: none;
         
         }
     
@@ -58,12 +64,11 @@
 
     .div2{
     
-        
+      
         box-sizing: content-box;
         border-radius: 20px;
         width: 290px;
         height: 390px;
-        
         float: right;
         margin-top: 30px;
 
@@ -82,28 +87,42 @@
             
         }
         .Field{
-            background-color: rgb(255, 255, 255);
+            background-color: darkblue;
+            background-color:$accentColor2;
             text-align: center;
             width: 280px;
+            height:30px;
             margin-top: 20px;
             border-radius: 20px;
-        
-
+            border: none;
         }
         
         
     }
+
     button{
-        background-color: rgb(6, 105, 32);
-        margin-bottom: 10px;
-        width: 190px;
-        margin-left: 35%;
-        margin-top: 20px;
-        border-radius: 20px;
-        color: seashell;
-        height: 40px;
+        display: flex;
+        background-color: #4CAF50; /* Green */
+        color: rgb(248, 244, 244);
+        text-decoration: none;       
+        font-size: 12px;
+        margin-top: 31rem ;
+        margin-left: -23rem;
+        border-radius: 10px;
+        width: 14rem;
+        height: 3rem;
+        padding: 10px 63px ;
         font-weight: bold;
+        border: none;
+        cursor: pointer;
     }
+    button:hover {
+        box-shadow: 0 12px 16px 0 
+        rgba(0,0,0,0.24),0 17px 50px 0 
+        rgba(0,0,0,0.19);
+      }
+    
 
 }
 
+}
