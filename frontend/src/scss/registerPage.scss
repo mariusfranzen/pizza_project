@@ -1,41 +1,74 @@
+@import "./colors.scss";
+@import "./fonts.scss";
 .registerPage{
-    background-color: rgb(239, 239, 243);
+    
     width: 590px;
-    height: 300px;
-    border-radius: 20px;
+    height: 500px;
+    display: flex;
     overflow: hidden;
-    margin-bottom: 10px;
-    padding: 11px;
 
-    .formGroup{
-
-        label{
-            background-color: crimson;
-
-            
-        }
-        .field {
-            background-color: cyan;
-        }
-       
+    .errors{
+        
+        color: firebrick;
+        margin-left: 7rem;
+        margin-top: 12px;
+          
+    }
+    
+    Form{       
+        margin-left: 8rem;
+        margin-top: 2rem;
+        height: 20rem;
         
 
+    }
+    label{
+        font-style: italic;
+        display: block;
+        width: 190px;
+        height: 30;
+        margin-left: 4rem;
+        font-size: 20px;
+        padding-top: 12px;
         
-        }
+    }
+
+    .field{
         
+        background-color: rgb(218, 212, 221);
+        border-radius: 10px;
+        width: 300px;
+        height: 30px;
+        padding: 3px ;
+        margin-top: 10px;
+        border: none;
+
+
+    }
+    
  
 
     button{
-        background-color: rgb(8, 65, 23);
-        margin-bottom: 10px;
-        width: 190px;
-        margin-left: 35%;
-        margin-top: 30px;
-        border-radius: 20px;
-        color: seashell;
-        height: 40px;
+        display: flex;
+        background-color:$secondaryColor; /* Green */
+        color: rgb(248, 244, 244);
+        text-align: center;
+        text-decoration: none;       
+        font-size: 16px;
+        margin-top: 2rem ;
+        margin-left: 4rem;
+        border-radius: 10px;
+        width: 12rem;
+        padding: 20px 63px ;
         font-weight: bold;
+        border: none;
+        cursor: pointer;
     }
+    button:hover {
+        box-shadow: 0 12px 16px 0 
+        rgba(0,0,0,0.24),0 17px 50px 0 
+        rgba(0,0,0,0.19);
+      }
   
     
 }

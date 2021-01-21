@@ -51,17 +51,13 @@ const AddPizzaForm = () => {
             <div className='addpizzapage'>
             <Form>
                 
-                <Field className='field1' type="text" name="name" placeholder="name" />
+                <Field className='input' type="text" name="name" placeholder="name" />
                 {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
-                <Field
-                    className='field1'
-                    type="text"
-                    name="price"
-                    placeholder="price"
-                />
+                <Field className='input'  type="text"  name="price" placeholder="price"/>
                 {props.errors.price ? <div className='errors'>{props.errors.price}</div> : null}
-                <div className='div1'>Ingredients</div>
-                <div className='div2' role="group">
+
+                <div className='ingredients'>Ingredients</div>
+                <div className='label' role="group">
                     <label>
                         Ost
                         <Field type="checkbox" name="ingredientArray" value="ost" />
@@ -83,7 +79,7 @@ const AddPizzaForm = () => {
                         <Field type="checkbox" name="ingredientArray" value="oxfilé" />
                     </label>
                 </div>
-                <Field className='field2' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
+                <Field className='description' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
                 <button type="submit">Add Pizza</button>
             </Form>
             </div>

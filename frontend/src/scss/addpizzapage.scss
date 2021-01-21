@@ -2,37 +2,40 @@
 @import "./fonts.scss";
 
 .addpizzapage{
-
-    background-color:$accentColor2;
+    
+    display: flex;
+    
     box-sizing: content-box;
     width: 490px;
-    height: 390px;
+    height: 450px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 10px;
     padding: 11px;
+    
 
 
 
     .errors{
         color: red;
         margin-left: 60px;
+        margin-left: 12rem;
 
     
     }
 
-        .field1{
-            width: 350px;
+        .input{
+            background-color:$accentColor2 ;
+            width: 22rem;
+            height:2rem ;
             margin: 10px ;
             margin-left: 60px;
             border-radius:6px;
-
-
-            
+            border: none;
 
         }
 
-        .div1{
+        .ingredients{
             
             font-size: x-large;
             font-style: italic;
@@ -42,48 +45,46 @@
 
 
         }
-        .div2{
+        .label{
             
             display: block;
             font-size: 17px;
-            margin-left: 45px;
+            margin-left: 32px;
             padding: 10px;
+            margin: 5px;
 
 
         }
-        .field2{
-            
+        .description{
+            background-color: $accentColor2;
             box-sizing: content-box;
             width: 397px;
             height: 100px;
             padding: 5px;   
             margin-left: 35px;
             border-radius:6px;
+            border: none;
 
-
-
-            
-        
-        
         }
         button{
-            
-                background-color: rgb(87, 158, 16);
-                margin: 30px ;
-                height: 60px;
-                width: 250px;
-                border-radius:6px;
-                font-size: x-large;
-                cursor: pointer;
-                color: floralwhite;
-                margin-left: 120px;
-                
-                :hover:active{
-                    box-shadow:0px 0px #666;
-                    transform: translateY(5px);
-                    }
-                
+            display: flex;
+            background-color:$secondaryColor; /* Green */
+            color: rgb(248, 244, 244);     
+            font-size: 16px;
+            margin-top: 2rem ;
+            margin-left: 6rem;
+            border-radius: 10px;
+            width: 18rem;
+            padding: 20px 100px ;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
         }
+        button:hover {
+            box-shadow: 0 12px 16px 0 
+            rgba(0,0,0,0.24),0 17px 50px 0 
+            rgba(0,0,0,0.19);
+          }
 
         
     }  

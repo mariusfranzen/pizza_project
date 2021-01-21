@@ -6,8 +6,9 @@ import PizzaApi from "../../apis/PizzaApi"
 export class HomePage extends Component {
     render() {
         return (
-            <div>
-                <HomeInfo />
+            <div className='homepage'>
+                
+                <HomeInfo className='textHomePage'/>
 
             </div>
         )

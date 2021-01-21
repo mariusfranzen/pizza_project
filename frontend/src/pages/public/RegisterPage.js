@@ -73,54 +73,54 @@ const RegisterForm = () => {
             {(props) => (
                 <div className='registerPage'>
                 <Form>
-                    <div className="formGroup">
-                        <label htmlFor="email">Email:</label>
+                   
+                        <label htmlFor="email"></label>
                         <Field
-                            
+                            className='field'
                             type="text"
                             name="email"
                             placeholder="email@email.com"
                         />
                         {props.errors.email ? (
-                            <div>{props.errors.email}</div>
+                            <div className='errors'>{props.errors.email}</div>
                         ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="phoneNumber">Phone number:</label>
+                    
+                    
+                        <label htmlFor="phoneNumber"></label>
                         <Field 
-                          
+                            className='field'
                             type="text"
                             name="phoneNumber"
                             placeholder="070-1234567"
                         />
                         {props.errors.phoneNumber ? (
-                            <div>{props.errors.phoneNumber}</div>
+                            <div className='errors'>{props.errors.phoneNumber}</div>
                         ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="password">Password:</label>
+                    
+                    
+                        <label htmlFor="password"></label>
                         <Field
-                        
+                            className='field'
                             type="password"
                             name="password"
                             placeholder="Password. At least 8 characters."
                         />
                         {props.errors.password ? (
-                            <div>{props.errors.password}</div>
+                            <div className='errors'>{props.errors.password}</div>
                         ) : null}
-                    </div>
-                    <div className="formGroup">
-                        <label htmlFor="passwordAgain">Repeat password:</label>
+                    
+                    
+                        <label htmlFor="passwordAgain"></label>
                         <Field 
-                        
+                            className='field'
                             type="password"
                             name="passwordAgain"
                             placeholder="Repeat password"
                         />
                         {props.errors.passwordAgain ? (
-                            <div>{props.errors.passwordAgain}</div>
+                            <div className='errors'>{props.errors.passwordAgain}</div>
                         ) : null}
-                    </div>
+                   
                     <button type="submit">Register</button>
                 </Form>
                 </div>

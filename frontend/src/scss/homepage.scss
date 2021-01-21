@@ -1,135 +1,56 @@
 .homepage{
-    box-sizing: content-box;
-    background: rgb(247, 246, 246);
-    font-size: 90%;  
-    margin:  auto;
     
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    width: 100%;
     
-    
-
-.homepic {
-    background-color: rgb(75, 68, 72);
-    box-sizing: content-box;
-    border: 1px solid #ddd;
-    border-radius: 264px;
-    padding: 45px;
-    width: 100px;
-    
-}   
-.welcometitle{
-    box-sizing: content-box;
-    margin: 0px 60px 2px 0;
-    margin-left: 160px;
-    height: 100px;
-    margin: 30px
-
-
-    h1{ 
+    svg{
+        display: flex;
+        margin-left: 10rem;
+        padding-top: -20rem;
         
-        box-sizing: content-box;
-        font-size: x-small;
-        margin: 0px 100px 2px 0;
-        height: 50px;
-        margin-left: 90px;
-        font-size: 30px;
-        font-style: oblique;
-        margin-top: 10px;
-        margin-top: 140px;
     }
+
+    .textHomePage{
+      
+        display: block;
+        height: 30rem;
+        width: 70rem;
+        
+    }
+       
+    h1{
+
+
+        font-size: 2rem;
+        margin-left: 25rem;
+        margin-top: -90px;
+
+
+    }
+       
+    
     p{
         
-        margin: 0px 160px 2px 0;
-        height: 30px;
-        margin-left: 180px;
-        font-size: 20px;
+        font-size: 1rem;
+        margin: 0px;
+        padding: 16px;
+        width: 28rem;
+        margin-left: 25rem;
+        display: flex;  
+        flex-flow: row wrap;
+        font-weight: bold;
+        text-align: left;
 
     }
 
-    h2{
-        box-sizing: content-box;
-        margin: 0px 210px 2px 0;
-        height: 30px;
-        margin-left: 210px;
-        font-size: 20px;
-    }
-
-
-
-
-}    
-.homeItem{
-        box-sizing: content-box;
-        background-color:#ffff;
-        width: 300px;
-        height: 40px;
-        border-radius: 15px;
-        margin-top: 100px ;
-        margin: 0px 10px;
-        width: 60%;
-        margin-top: 30px;
-        margin-left: 150px;
-        padding: 10px;
-
-            h1{
-                box-sizing: content-box;
-                color: rgb(16, 16, 17);
-                font-size: 12px;
-                line-height: 0.5;
-                margin: 0px 500px 2px 0;
-                margin-left: 100px;
-                margin-top: -15px;
-                font-size: 16px  ;
-
-             
-                
-                
-                
-                }
-            p{
-                color: rgb(14, 13, 12);
-                box-sizing: content-box;
-                text-indent: 5px;
-                font-size: 15px;
-                font-style: italic;
-                margin: 1px 300px 2px 0;
-                margin-right: 100px;
-                margin-top: -6px;
-               
-                
-                }
-            h3{ 
-            
-                background-color: rgb(228, 233, 235);
-                margin: 0px 12px 1px 30px;
-                border-radius: 8px;
-                height: 15px;
-                width: 20px;
-                padding: 3px 16px;
-                font-size: 16px;
-
-               
-          
-                }
-            button{
-                float: right;
-                background-color: #117809;
-                font-size: 12px;
-                border-radius: 5px;
-                color: rgb(243, 241, 241);
-                margin-top:-39px;
-                margin-right: 10px;
-                height: 29px;
-                
-                }
-            h2{
-                background-color: limegreen;
-                margin: 0px 450px 3px 0px ;
-                margin-left: 350px;
-                margin-top: -8px;
-                font-size:medium;
-
-            }
-        }
-
+    
 
 }
+
+
+
+
+
+

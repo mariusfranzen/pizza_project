@@ -49,7 +49,7 @@ export class Navbar extends Component {
 
         return(
             <nav className="mainNav">
-                <img src={Logo} alt="logo" className="logo" />
+                <img src={Logo} alt="logo" className="logo"   />
                 <nav className="rightGroup">
                     <img src={Icons8ShoppingCart} alt="cart" className="cart" onClick={this.cartClick}/>
                     <NavBurger isOpen={this.state.isOpen} isLoggedIn={this.state.isLoggedIn} menuClick={menuClick} />
