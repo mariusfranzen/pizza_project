@@ -74,9 +74,9 @@ const LoginForm = () => {
                     
                         <label  htmlFor="email"></label>
                         <Field className="Field" type="text" name="email" placeholder="Email" />
-                        {props.errors.email ? (
-                            <div className='errors'>{props.errors.email}</div>
-                        ) : null}
+                        {props.errors.email ? ( <div className='errors'>{props.errors.email}</div> ) : null}
+                           
+                       
                     
                         <label  htmlFor="password"></label>
                         <Field className="Field"  type="password" name="password" placeholder="Password"/>

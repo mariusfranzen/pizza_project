@@ -5,8 +5,6 @@ export class HomeInfo extends Component {
     render() {
         return (
             <div className='textHomePage'>
-           
-
                 <svg width="200" height="190">
                 <circle cx="92" cy="70" r="90" stroke="#8a0407" stroke-width="4" fill="images/homepic/profilpic.jpg" />
                 </svg>
