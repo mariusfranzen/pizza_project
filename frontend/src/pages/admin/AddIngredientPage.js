@@ -11,6 +11,7 @@ export class AddIngredientPage extends Component {
         )
     }
 }
+
 const AddIngredientForm = () => {
     const validate = (values) => {
         const errors = {};
@@ -25,8 +26,8 @@ const AddIngredientForm = () => {
 
         return errors;
     };
-
     return (<Formik
+
         initialValues={{ name: "", priceGroup: "", description: "" }}
         onSubmit={(values) => {
             let item = {
