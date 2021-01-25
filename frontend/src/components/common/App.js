@@ -2,7 +2,7 @@ import { Footer } from "./index";
 import { Navbar } from "./navbar/index";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
-import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage, PaymentPage } from "../../pages/public/index";
+import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage, PaymentPage, OrderWaitPage } from "../../pages/public/index";
 
 function App() {
 	return (
@@ -19,6 +19,7 @@ function App() {
 					<Route path="/about" exact component={AboutPage} />
 					<Route path="/checkout" exact component={CheckoutPage} />
 					<Route path="/payment" exact component={PaymentPage} />
+					<Route path="/order-wait" exact component={OrderWaitPage} />
 					<Route path="/admin" exact component={AdminPage} />
 					<Route path="/admin/add-pizza" exact component={AddPizzaPage} />
 					<Route path="/admin/add-ingredient" exact component={AddIngredientPage} />

@@ -1,6 +1,11 @@
 import React from 'react';
 import Cards from 'react-credit-cards';
+import PaymentApi from "../../apis/PaymentApi";
 import "react-credit-cards/lib/styles.scss";
+
+// async function validateJwtCookie(jwt) {
+//     await PaymentApi.validateJwt(jwt);
+// }
 
 export default class PaymentForm extends React.Component {
     state = {
@@ -9,7 +14,9 @@ export default class PaymentForm extends React.Component {
         focus: '',
         name: '',
         number: '',
-    };
+    }
+
+
 
     handleInputFocus = (e) => {
         this.setState({ focus: e.target.name });
@@ -70,6 +77,7 @@ export default class PaymentForm extends React.Component {
                     />
           ...
         </form>
+                <button type="submit" onClick={this.props.onSubmit}>Pay</button>
             </div>
         );
     }
