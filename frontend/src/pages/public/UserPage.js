@@ -233,9 +233,6 @@ const EditUser = (props) => {
                                 <div className='errors'>{props.errors.passwordAgain}</div>
                             ) : null}
 
-
-
-
                             <label htmlFor="dateOfBirth">Date of Birth: </label>
                             <Field
                                 className='Field'
@@ -247,15 +244,13 @@ const EditUser = (props) => {
                                 value={props.values.dateOfBirth}
                             />
 
-                            <label htmlFor="adress">Adress: </label>
-
-                            <button id="submit" name="submit" type="submit">
-                                Edit profile
-                    </button>
-                            {props.errors.submit ? (
-                                <div>{props.errors.submit}</div>
-                            ) : null}
                         </div>
+                        <button id="submit" className="button" name="submit" type="submit">
+                            Edit profile
+                             </button>
+                        {props.errors.submit ? (
+                            <div>{props.errors.submit}</div>
+                        ) : null}
                     </Form>
                 </div>
 
