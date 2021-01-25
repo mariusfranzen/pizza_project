@@ -1,45 +1,39 @@
-import React, { Component } from 'react'
-import { Button, history } from "../../components/common/index";
+import React from 'react'
+import { Button } from "../../components/common/index";
+import { useHistory } from "react-router-dom";
 
 
 
+function AdminPage() {
+    let history = useHistory();
 
-export class AdminPage extends Component {
-
-    reloadPage() {
-        window.location.reload();
-    }
-
-    redirectToOrders() {
+    function redirectToOrders() {
         history.push("/admin/incomming-orders")
     }
-    redirectToPizzas() {
+    function redirectToPizzas() {
         history.push("/admin/add-pizza")
     }
-    redirectToIngredients() {
+    function redirectToIngredients() {
         history.push("/admin/add-ingredient")
     }
-    redirectToItems() {
+    function redirectToItems() {
         history.push("/admin/add-item")
     }
-    redirectToStatistics() {
+    function redirectToStatistics() {
         history.push("/admin/print-info")
     }
 
+    return (
+        <div>
+            <Button clicked={redirectToOrders} title="Inkommande Beställningar" />
+            <Button title="Accepterade Beställningar" />
+            <Button clicked={redirectToPizzas} title="Lägg till Pizza" />
+            <Button clicked={redirectToIngredients} title="Lägg till Ingrediens" />
+            <Button clicked={redirectToItems} title="Lägg till Annat" />
+            <Button clicked={redirectToStatistics} title="Statistik" />
+        </div>
+    )
 
-
-    render() {
-        return (
-            <div>
-                <Button clicked={this.redirectToOrders} title="Inkommande Beställningar" />
-                <Button title="Accepterade Beställningar" />
-                <Button clicked={this.redirectToPizzas} title="Lägg till Pizza" />
-                <Button clicked={this.redirectToIngredients} title="Lägg till Ingrediens" />
-                <Button clicked={this.redirectToItems} title="Lägg till Annat" />
-                <Button clicked={this.redirectToStatistics} title="Statistik" />
-            </div>
-        )
-    }
 }
 
 export default AdminPage
