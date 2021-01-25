@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import PizzaApi from '../../apis/PizzaApi';
@@ -27,7 +27,7 @@ function CheckoutPage() {
                 idArray.push(cookie);
             }
             let realIdArray = [];
-            
+
             for (const id of idArray) {
                 if (!realIdArray.includes(id)) {
                     realIdArray.push(id);
@@ -41,7 +41,7 @@ function CheckoutPage() {
             setPizzaArray(localArray);
         }
     }, [pizzaArray]);
-    
+
     const pizzaList = () => {
         if (pizzaArray.length > 0) {
             console.log(pizzaArray)
