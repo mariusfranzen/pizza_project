@@ -11,64 +11,57 @@ function CheckoutPage() {
 
     const [pizzaArray, setPizzaArray] = useState([]);
     useEffect(() => {
-        async function getPizzaById(id) {
-            let data = (await PizzaApi.getPizzaById(id)).data
-            return data
-        }
-
-        let cookie = cookies.get("cart");
         let localArray = [];
+        async function pizzaSorting() {
+            let cookie = cookies.get("cart");
 
-        if (cookie) {
-            let idArray = [];
-            if (cookie.indexOf(" ") >= 0) {
-                idArray = cookie.split(" ");
-            } else {
-                idArray.push(cookie);
-            }
-            let realIdArray = [];
-
-            for (const id of idArray) {
-                if (!realIdArray.includes(id)) {
-                    realIdArray.push(id);
-                    localArray.push({ pizza: getPizzaById(id), amount: 1 });
+            if (cookie) {
+                let idArray = [];
+                if (cookie.indexOf(" ") >= 0) {
+                    idArray = cookie.split(" ");
                 } else {
-                    let index = localArray.findIndex(pizza => pizza.pizza.data.id === id);
-                    localArray[index].amount += 1
+                    idArray.push(cookie);
                 }
+    
+                let realIdArray = [];
+                for (const id of idArray) {
+                    if (!realIdArray.includes(id)) {
+                        realIdArray.push(id);
+                        localArray.push({ pizza: (await PizzaApi.getPizzaById(id)).data, amount: 1 });
+                    } else {
+                        let index = localArray.findIndex(pizza => pizza.pizza.data.id === id);
+                        localArray[index].amount += 1
+                    }
+                }
+                setPizzaArray(localArray);
             }
-
-            setPizzaArray(localArray);
         }
-    }, [pizzaArray]);
 
-    const pizzaList = () => {
-        if (pizzaArray.length > 0) {
-            console.log(pizzaArray)
-            return (
-                <>
-                    {pizzaArray.map((pizza, index) => {
-                        return (
-                            <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
-                        )
-                    })}
-                    <button>Bekräfta köp</button>
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <p>Your cart is empty!</p>
-                </>
-            )
-        }
+        pizzaSorting();
+    }, []);
+
+    function submitPurchase() {
+        
     }
 
-    return (
-        <div className="checkoutMenu">
-            {pizzaList()}
-        </div>
-    )
+    if (pizzaArray.length > 0) {
+        return (
+            <div className="checkoutMenu">
+                {pizzaArray.map((pizza, index) => {
+                    return (
+                        <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
+                    )
+                })}
+                <button onClick={submitPurchase}>Bekräfta köp</button>
+            </div>
+        )
+    } else {
+        return (
+            <div className="checkoutMenu">
+                <p>Your cart is empty!</p>
+            </div>
+        )
+    }
 }
 
 export default CheckoutPage;

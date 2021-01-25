@@ -17,7 +17,6 @@ export class MenuItem extends Component {
 
     async componentDidMount() {
         let allIngredients = await IngredientApi.getAllIngredients()
-        console.log(allIngredients)
         let names = []
         let nameString = ""
         this.state.ingredientArray.forEach(ingredient => {
