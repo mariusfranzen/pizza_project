@@ -2,9 +2,16 @@
 @use 'grid';
 @use 'button';
 @use "footer";
+@use "userPage";
+@use 'homepage';
+@use 'addpizzapage';
+@use 'login';
+@use 'registerPage';
 @use "forms";
 @use "checkoutPage";
 @use "menuPage";
+@use "addItemPage";
+@use "addingredientPage";
 @import "./colors.scss";
 @import "./fonts.scss";
 

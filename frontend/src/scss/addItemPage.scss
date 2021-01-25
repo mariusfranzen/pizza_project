@@ -1,0 +1,103 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.addItemPage{
+    
+
+
+height: 30rem;
+width: 40rem;
+display: flex;
+overflow: hidden;
+
+.errors{
+        
+    color: firebrick;
+    margin-left: 11rem;
+    margin-top: 12px;
+
+      
+}
+
+form{
+    
+    margin-left: 8rem;
+    margin-top: 2rem;
+    height: 20rem;
+    width: 12rem;
+}
+
+.Field{
+
+    background-color: blue;
+    border-radius: 10px;
+    width: 300px;
+    height: 30px;
+    padding: 3px ;
+    margin-top: 10px;
+    border: none;
+}
+
+.field1{
+    background-color: $accentColor1;
+    border-radius: 10px;
+    width: 25rem;
+    height: 30px;
+    padding: 3px ;
+    margin-top: 10px;
+    border: none;
+    margin-left: 1rem;
+}
+.field2{
+    background-color:$secondaryColor;
+    color: #ffff;
+    border-radius: 10px;
+    width: 300px;
+    height: 30px;
+    padding: 3px ;
+    margin-top: 2rem;
+    border: none;
+    margin-left: 4rem;
+     
+}
+.field3{
+    background-color:$accentColor1;
+    border-radius: 10px;
+    width: 29rem;
+    height: 6rem;
+    padding: 6px ;
+    margin-top: 2rem;
+    border: none;
+    margin-left: -1.5rem;
+     
+
+    
+}
+
+
+button{
+    display: flex;
+    background-color:$secondaryColor; /* Green */
+    color: rgb(248, 244, 244);
+    text-align: center;
+    text-decoration: none;       
+    font-size: 14px;
+    margin-top: 2rem ;
+    margin-left:7.5rem;
+    border-radius: 10px;
+    width: 12rem;
+    
+    padding: 21px 63px ;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 
+    rgba(0,0,0,0.24),0 17px 50px 0 
+    rgba(0,0,0,0.19);
+}
+
+
+
+}
