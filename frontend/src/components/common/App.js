@@ -4,7 +4,7 @@ import { Navbar } from './navbar/index'
 import { Route, Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
-import history from './history';
+import { history } from './index';
 
 function App() {
 	return (
