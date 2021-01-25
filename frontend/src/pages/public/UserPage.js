@@ -117,6 +117,7 @@ const EditUser = (props) => {
                         id="email"
                         name="email"
                         type="text"
+                        placeholder="E-mail"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.email}
@@ -128,6 +129,7 @@ const EditUser = (props) => {
                         id="password"
                         name="password"
                         type="password"
+                        placeholder="Old Password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.password}
@@ -141,6 +143,7 @@ const EditUser = (props) => {
                         id="newPassword"
                         name="newPassword"
                         type="password"
+                        placeholder="New Password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.newPassword}
@@ -154,6 +157,7 @@ const EditUser = (props) => {
                         id="passwordAgain"
                         name="passwordAgain"
                         type="password"
+                        placeholder="Repeat New Password"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.passwordAgain}
@@ -167,6 +171,7 @@ const EditUser = (props) => {
                         id="phoneNumber"
                         name="phoneNumber"
                         type="text"
+                        placeholder="Phonenumber"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.phoneNumber}
@@ -180,6 +185,7 @@ const EditUser = (props) => {
                         id="firstName"
                         name="firstName"
                         type="text"
+                        placeholder="First Name"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.firstName}
@@ -191,6 +197,7 @@ const EditUser = (props) => {
                         id="lastName"
                         name="lastName"
                         type="text"
+                        placeholder="Last Name"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.lastName}
@@ -212,6 +219,7 @@ const EditUser = (props) => {
                         id="adress"
                         name="adress"
                         type="text"
+                        placeholder="adress"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
                         value={props.values.adress}
