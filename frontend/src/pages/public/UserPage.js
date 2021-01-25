@@ -123,6 +123,7 @@ const EditUser = (props) => {
                                 id="firstName"
                                 name="firstName"
                                 type="text"
+                                placeholder="First Name"
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                                 value={props.values.firstName}
@@ -135,6 +136,7 @@ const EditUser = (props) => {
                                 id="lastName"
                                 name="lastName"
                                 type="text"
+                                placeholder="Last Name"
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                                 value={props.values.lastName}
@@ -147,6 +149,7 @@ const EditUser = (props) => {
                                 id="phoneNumber"
                                 name="phoneNumber"
                                 type="text"
+                                placeholder="Phonenumber"
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                                 value={props.values.phoneNumber}
@@ -177,6 +180,7 @@ const EditUser = (props) => {
                                 id="adress"
                                 name="adress"
                                 type="text"
+                                placeholder="Adress"
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                                 value={props.values.adress}
@@ -230,43 +234,7 @@ const EditUser = (props) => {
                             ) : null}
 
 
-                            <label htmlFor="phoneNumber">Phone number: </label>
-                            <Field
-                                id="phoneNumber"
-                                name="phoneNumber"
-                                type="text"
-                                placeholder="Phonenumber"
-                                onChange={props.handleChange}
-                                onBlur={props.handleBlur}
-                                value={props.values.phoneNumber}
-                            />
-                            {props.errors.phoneNumber ? (
-                                <div>{props.errors.phoneNumber}</div>
-                            ) : null}
 
-                            <label htmlFor="firstName">First Name: </label>
-                            <Field
-                                id="firstName"
-                                name="firstName"
-                                type="text"
-                                placeholder="First Name"
-                                onChange={props.handleChange}
-                                onBlur={props.handleBlur}
-                                value={props.values.firstName}
-                            />
-                            {props.errors.firstName ? <div>{props.errors.firstName}</div> : null}
-
-                            <label htmlFor="lastName">Last Name: </label>
-                            <Field
-                                id="lastName"
-                                name="lastName"
-                                type="text"
-                                placeholder="Last Name"
-                                onChange={props.handleChange}
-                                onBlur={props.handleBlur}
-                                value={props.values.lastName}
-                            />
-                            {props.errors.lastName ? <div>{props.errors.lastName}</div> : null}
 
                             <label htmlFor="dateOfBirth">Date of Birth: </label>
                             <Field
@@ -280,16 +248,7 @@ const EditUser = (props) => {
                             />
 
                             <label htmlFor="adress">Adress: </label>
-                            <Field
-                                id="adress"
-                                name="adress"
-                                type="text"
-                                placeholder="adress"
-                                onChange={props.handleChange}
-                                onBlur={props.handleBlur}
-                                value={props.values.adress}
-                            />
-                            {props.errors.adress ? <div>{props.errors.adress}</div> : null}
+
                             <button id="submit" name="submit" type="submit">
                                 Edit profile
                     </button>
