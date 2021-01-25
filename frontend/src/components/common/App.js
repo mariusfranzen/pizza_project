@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { Footer } from './index';
 import { Navbar } from './navbar/index'
@@ -5,13 +6,20 @@ import { Route, Router } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
 import { history } from './index';
+=======
+import { Footer } from "./index";
+import { Navbar } from "./navbar/index";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
+import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from "../../pages/public/index";
+>>>>>>> dev
 
 function App() {
 	return (
-		<div>
+		<Router>
 			<Navbar />
 			<div className="container">
-				<Router history={history}>
+				<Switch>
 					<Route path="/" exact component={HomePage} />
 					<Route path="/menu" exact component={MenuPage} />
 					<Route path="/login" exact component={LoginPage} />
@@ -28,10 +36,10 @@ function App() {
 					<Route path="/admin/edit-pizza" exact component={EditPizzaPage} />
 					<Route path="/admin/print-info" exact component={InfoPrintPage} />
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
-				</Router>
+				</Switch>
 			</div>
 			<Footer />
-		</div>
+		</Router>
 	);
 }
 

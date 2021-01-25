@@ -1,62 +1,74 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import PizzaApi from '../../apis/PizzaApi';
 import CheckoutMenuItem from '../../components/checkout/CheckoutMenuItem';
 
 const cookies = new Cookies();
 
-export class CheckoutPage extends Component {
-    constructor(props) {
-        super(props);
+function CheckoutPage() {
+    let history = useHistory();
 
-        this.state = {
-            pizzaArray: []
+    const [pizzaArray, setPizzaArray] = useState([]);
+    useEffect(() => {
+        async function getPizzaById(id) {
+            let data = (await PizzaApi.getPizzaById(id)).data
+            return data
         }
-    }
 
-    async componentDidMount() {
-        let cookie = cookies.get("cart") ? cookies.get("cart") : null;
-        let pizzaArray = [];
+        let cookie = cookies.get("cart");
+        let localArray = [];
 
         if (cookie) {
-            let idArray = cookie.split(" ");
+            let idArray = [];
+            if (cookie.indexOf(" ") >= 0) {
+                idArray = cookie.split(" ");
+            } else {
+                idArray.push(cookie);
+            }
             let realIdArray = [];
             
             for (const id of idArray) {
                 if (!realIdArray.includes(id)) {
                     realIdArray.push(id);
-                    console.log("found")
-                    pizzaArray.push({ pizza: await PizzaApi.getPizzaById(id), amount: 1 });
+                    localArray.push({ pizza: getPizzaById(id), amount: 1 });
                 } else {
-                    let index = pizzaArray.findIndex(pizza => pizza.pizza.data.id === id);
-                    console.log("adding")
-                    pizzaArray[index].amount += 1
+                    let index = localArray.findIndex(pizza => pizza.pizza.data.id === id);
+                    localArray[index].amount += 1
                 }
             }
 
-            this.setState({pizzaArray: pizzaArray});
+            setPizzaArray(localArray);
+        }
+    }, [pizzaArray]);
+    
+    const pizzaList = () => {
+        if (pizzaArray.length > 0) {
+            console.log(pizzaArray)
+            return (
+                <>
+                    {pizzaArray.map((pizza, index) => {
+                        return (
+                            <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
+                        )
+                    })}
+                    <button>Bekräfta köp</button>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <p>Your cart is empty!</p>
+                </>
+            )
         }
     }
 
-    pizzaList = () => {
-        return (
-            <>
-                {this.state.pizzaArray.map((pizza, index) => {
-                    return (
-                        <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
-                    )
-                })}
-            </>
-        )
-    }
-
-    render() {
-        return (
-            <div className="checkoutMenu">
-                {this.pizzaList()}
-            </div>
-        )
-    }
+    return (
+        <div className="checkoutMenu">
+            {pizzaList()}
+        </div>
+    )
 }
 
-export default CheckoutPage
+export default CheckoutPage;
