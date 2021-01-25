@@ -1,18 +1,8 @@
-<<<<<<< HEAD
-
-import { Footer } from './index';
-import { Navbar } from './navbar/index'
-import { Route, Router } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from '../../pages/admin/index';
-import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from '../../pages/public/index';
-import { history } from './index';
-=======
 import { Footer } from "./index";
 import { Navbar } from "./navbar/index";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage } from "../../pages/public/index";
->>>>>>> dev
 
 function App() {
 	return (
