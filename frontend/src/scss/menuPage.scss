@@ -1,8 +1,16 @@
 @import "./colors.scss";
 @import "./fonts.scss";
 
+.pizzaMenu {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 0 auto;
+}
+
 .menuItem {
     margin-right: 2rem;
+    justify-content: space-between;
     .id {
         color: white;
         background-color: lightgray;
