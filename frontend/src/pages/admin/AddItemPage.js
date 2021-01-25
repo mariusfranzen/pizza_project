@@ -45,23 +45,21 @@ const AddItemForm = () => {
         validate={validate}>
 
         {(props) => (
+            <div className="addItemPage">
             <Form>
-                <Field type="text" name="name" placeholder="name" />
-                {props.errors.name ? <div>{props.errors.name}</div> : null}
-                <Field
-                    type="text"
-                    name="price"
-                    placeholder="price"
-                />
-                {props.errors.price ? <div>{props.errors.price}</div> : null}
-                <Field as="select" name="category">
+                <Field className='field1' type="text" name="name" placeholder="name" />
+                {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
+                <Field className='field1' type="text" name="price" placeholder="price"/>
+                {props.errors.price ? <div className='errors'>{props.errors.price}</div> : null}
+                <Field className='field2' as="select" name="category">
                     <option value="default">Default</option>
                     <option value="soda">Soda</option>
                     <option value="iceCream">Ice Cream</option>
                 </Field>
-                <Field as="textarea" name="description" placeholder="Enter description" maxLength="255" />
+                <Field className='field3' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
                 <button type="submit">Add Item</button>
             </Form>
+            </div>
         )}
     </Formik>)
 

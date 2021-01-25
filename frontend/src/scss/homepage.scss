@@ -1,0 +1,56 @@
+.homepage{
+    
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    width: 100%;
+    
+    svg{
+        display: flex;
+        margin-left: 10rem;
+        padding-top: -20rem;
+        
+    }
+
+    .textHomePage{
+      
+        display: block;
+        height: 30rem;
+        width: 70rem;
+        
+    }
+       
+    h1{
+
+
+        font-size: 2rem;
+        margin-left: 25rem;
+        margin-top: -90px;
+
+
+    }
+       
+    
+    p{
+        
+        font-size: 1rem;
+        margin: 0px;
+        padding: 16px;
+        width: 28rem;
+        margin-left: 25rem;
+        display: flex;  
+        flex-flow: row wrap;
+        font-weight: bold;
+        text-align: left;
+
+    }
+
+    
+
+}
+
+
+
+
+
+
