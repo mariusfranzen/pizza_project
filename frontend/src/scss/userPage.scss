@@ -3,13 +3,12 @@
 
 .userpage{
 
-
+  
     display: flex;
-    width: 690px;
-    height: 500px;
+    width: 70rem;
+    
     border-radius: 20px;
     overflow: hidden;
-   
     padding: 11px;
     
     .errors{
@@ -21,41 +20,44 @@
 
     form{
 
-       
+        background-color: rgb(143, 143, 155);
         display: flex;
-        height: 30rem;
-        width: 0rem;
-        margin-top: -18px;
-    .div1{
+        width: 2px;
+        margin-left: 34rem;
         
-      
+        
+        
+    .div1{
+    
         box-sizing: content-box;
         border-radius: 20px;
-        width: 290px;
         height: 390px;
-     
-        float: left;
-        margin-top: 30px;
+        float: right;
+        margin-left: 80px;
+
+        
         
         label {
            
+          
             font-style: italic;
-            font-size: 15px ;
-            color: rgb(15, 15, 15);
-            padding-left:85px ;
-            font-weight: bold;
-            vertical-align: -11px;
-        
+            font-size: 15px ;            
+            color: rgb(14, 12, 12);
+            line-height: 12px;
+            vertical-align: -14px;
+            margin-left: 4px;
             
         }
         .Field{
+           
             background-color:$accentColor2;
             text-align: center;
-            width: 280px;
-            height:30px;
-            margin-top: 20px;
-            border-radius: 20px;
+            width: 200px;
+            height:35px;
+            margin-top: 10px;
+            border-radius: 2px;
             border: none;
+            margin-left: 2px;
         
         }
     
@@ -64,54 +66,55 @@
 
     .div2{
     
-      
+        
         box-sizing: content-box;
         border-radius: 20px;
-        width: 290px;
         height: 390px;
         float: right;
-        margin-top: 30px;
+        margin-left: 26px;
+        
+        
 
         label {
-        
+          
             font-style: italic;
             font-size: 15px ;
-            padding-left:85px ;
             color: rgb(14, 12, 12);
-            margin-top: 11px;
-            font-weight: bold;
+            margin-top: 6px;
             line-height: 12px;
             vertical-align: -14px;
+            margin-left: 4px;
             
         
             
         }
         .Field{
-            background-color: darkblue;
+
+            
             background-color:$accentColor2;
             text-align: center;
-            width: 280px;
-            height:30px;
-            margin-top: 20px;
-            border-radius: 20px;
+            width: 200px;
+            height:35px;
+            margin-top: 10px;
+            border-radius: 2px;
             border: none;
+            margin-left: 2px;
+            margin-left: 2px;
         }
         
         
     }
 
     button{
-        display: flex;
+        display: inline-block;
         background-color: #4CAF50; /* Green */
         color: rgb(248, 244, 244);
-        text-decoration: none;       
-        font-size: 12px;
-        margin-top: 31rem ;
-        margin-left: -23rem;
-        border-radius: 10px;
-        width: 14rem;
-        height: 3rem;
-        padding: 10px 63px ;
+        text-decoration: none;
+        font-size: 16px; 
+        margin-top: 27rem ;
+        margin-left: -19rem;
+        padding: 10px 70px;
+        border-radius: 3px;
         font-weight: bold;
         border: none;
         cursor: pointer;

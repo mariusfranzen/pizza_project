@@ -111,6 +111,7 @@ const EditUser = (props) => {
             validate={validate}
         >
             {(props) => (
+
             <div className='userpage'>
                 <Form  >
 
@@ -183,6 +184,7 @@ const EditUser = (props) => {
 
                     <label htmlFor="password">Old Password: </label>
                     <Field
+                        
                         className='Field'
                         id="password"
                         name="password"
@@ -235,11 +237,10 @@ const EditUser = (props) => {
                         value={props.values.dateOfBirth}
                     />
                     
-                
                     </div>
                     
                     <button id="submit" name="submit" type="submit">
-                        Update Account
+                        Edit profile
                     </button>
                     {props.errors.submit ? (
                         <div>{props.errors.submit}</div>
