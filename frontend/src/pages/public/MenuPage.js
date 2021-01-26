@@ -8,32 +8,16 @@ const cookies = new Cookies();
 export class MenuPage extends Component {
     constructor() {
         super();
+        this.buttonRef = React.createRef();
         this.state = {
-            pizzaArray: []
+            pizzaArray: [],
+            isDisabled: false
         }
     }
 
-    componentDidMount() {
-        PizzaApi.getAllPizzas().then(async (result) => {
-            await this.setState({ pizzaArray: result.data })
-        });
-    }
-
-    addToCart(pizza) {
-        let date = new Date();
-        date.setDate(date.getDate() + 1);
-
-        let cartCookie = cookies.get("cart");
-        let cartString = cartCookie ? cartCookie : "";
-        if (!cartCookie) {
-            cartString += pizza;
-        } else {
-            cartString += " " + pizza;
-        }
-
-        cookies.set("cart", cartString, {
-            expires: date,
-        });
+    async componentDidMount() {
+        let pizzas = PizzaApi.getAllPizzas();
+        this.setState({pizzaArray: (await pizzas).data})
     }
 
     pizzaList = () => {
@@ -43,12 +27,13 @@ export class MenuPage extends Component {
                     return (
                         <>
                         <MenuItem
+                            key={index}
+                            id={pizza.id}
                             menuId={pizza.menuId}
                             name={pizza.name}
                             ingredientArray={pizza.ingredientArray}
                             price={pizza.price}
                             description={pizza.description} />
-                        <button onClick={() => { this.addToCart(pizza.id) }}>Add</button>
                         </>
                     )
                 })}
