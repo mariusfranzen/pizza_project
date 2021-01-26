@@ -23,11 +23,13 @@ export class PizzaMenu extends Component {
 
     pizzaList = () => {
         return(
+            
             <>
                 {this.state.pizzaArray.map((pizza, index) => {
                     console.log(pizza)
                     return(
-                        <MenuItem
+                        <MenuItem 
+                          
                             key={index}
                             menuId={pizza.menuId}
                             name={pizza.name}
@@ -37,6 +39,7 @@ export class PizzaMenu extends Component {
                     )
                 })}
             </>
+            
         )
     }
 
