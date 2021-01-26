@@ -30,6 +30,7 @@ function CheckoutMenuItem(props) {
                 name={pizza.name}
                 ingredientArray={pizza.ingredientArray}
                 description={pizza.description}
+                hasButton={false}
             />
             <div className="item">
                 <div className="rowGroup">

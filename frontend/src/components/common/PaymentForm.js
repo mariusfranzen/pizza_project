@@ -1,6 +1,6 @@
 import React from 'react';
 import Cards from 'react-credit-cards';
-import PaymentApi from "../../apis/PaymentApi";
+import PaymentApi from "../../apis/OrderApi";
 import "react-credit-cards/lib/styles.scss";
 
 // async function validateJwtCookie(jwt) {

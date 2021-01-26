@@ -1,21 +1,31 @@
-import React, { Component } from 'react'
-import IngredientApi from "../../apis/IngredientApi"
+import React, { Component } from 'react';
+import IngredientApi from "../../apis/IngredientApi";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export class MenuItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: props.id,
             menuId: props.menuId,
             name: props.name,
             price: props.price,
             description: props.description,
             ingredientArray: props.ingredientArray,
             ingredientNameArray: [],
-            ingredientNameString: ""
+            ingredientNameString: "",
+            onClick: props.onClick,
+            isDisabled: false,
+            hasButton: props.hasButton
         }
     }
 
     async componentDidMount() {
+        if (!this.state.hasButton) {
+            this.setState({hasButton: true});
+        }
         let allIngredients = await IngredientApi.getAllIngredients()
         let names = []
         let nameString = ""
@@ -32,6 +42,24 @@ export class MenuItem extends Component {
         this.setState({ ingredientNameString: nameString })
     }
 
+    addToCart = () => {
+        let pizza = this.state.id
+        let date = new Date();
+        date.setDate(date.getDate() + 1);
+
+        let cartCookie = cookies.get("cart");
+        let cartString = cartCookie ? cartCookie : "";
+        if (!cartCookie) {
+            cartString += pizza;
+        } else {
+            cartString += " " + pizza;
+        }
+
+        cookies.set("cart", cartString, {
+            expires: date,
+        });
+        this.setState({isDisabled: true});
+    }
 
     render() {
         return (
@@ -47,6 +75,7 @@ export class MenuItem extends Component {
                 </div>
             {this.state.price ? <p className="price">{this.state.price}</p> : null}
             </div>
+            {this.state.hasButton ? <button disabled={this.state.isDisabled} onClick={this.addToCart}>Buy</button> : null}
             </>
         )
     }
