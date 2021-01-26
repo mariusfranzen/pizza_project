@@ -8,6 +8,7 @@ export class HomePage extends Component {
         return (
             <div>
                 <HomeInfo />
+                <PizzaMenu />
             </div>
         )
         // lägga till random meny ca 5 items.
