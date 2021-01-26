@@ -12,6 +12,7 @@
 @use "menuPage";
 @use "addItemPage";
 @use "addingredientPage";
+@use "paymentCardForm";    
 @import "./colors.scss";
 @import "./fonts.scss";
 
@@ -35,7 +36,7 @@ input::-webkit-outer-spin-button {
 .container {
     align-items: center;
     display: flex;
-    height: 100vh;
     text-rendering: optimizeLegibility;
     justify-content: center;
+    
 }
