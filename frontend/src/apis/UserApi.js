@@ -15,7 +15,7 @@ export class UserApi extends Component {
     }
 
     getUserByEmail(email) {
-        return axios.get(`${UserUrl}/email`, email);
+        return axios.get(`${UserUrl}/email?email=` + email);
     }
 
     getUserByAuthorizationEnum(authorization) {
