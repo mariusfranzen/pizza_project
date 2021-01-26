@@ -1,7 +1,7 @@
 import { Footer } from "./index";
 import { Navbar } from "./navbar/index";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, ProcessedOrdersPage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage, PaymentPage, OrderWaitPage } from "../../pages/public/index";
 
 function App() {
@@ -27,6 +27,9 @@ function App() {
 					<Route path="/admin/edit-home" exact component={EditHomePage} />
 					<Route path="/admin/print-info" exact component={InfoPrintPage} />
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
+					<Route path="/admin/processed-orders" exact component={ProcessedOrdersPage} />
+
+					ProcessedOrdersPage
 				</Switch>
 			</div>
 			<Footer />
