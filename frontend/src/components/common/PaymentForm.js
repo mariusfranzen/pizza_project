@@ -29,6 +29,7 @@ export default class PaymentForm extends React.Component {
 
     render() {
         return (
+            <div className='paymentCardForm'>
             <div id="PaymentForm">
                 <Cards
                     cvc={this.state.cvc}
@@ -37,7 +38,10 @@ export default class PaymentForm extends React.Component {
                     name={this.state.name}
                     number={this.state.number}
                 />
-                <form>
+
+                
+                
+                   <form >
                     <input
                         type="tel"
                         name="number"
@@ -45,19 +49,19 @@ export default class PaymentForm extends React.Component {
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
                     />
-          ...
+            
         </form>
-                <form>
-                    <input
+                <form className='paymentCardForm'>
+                    <input  
                         type="text"
                         name="name"
                         placeholder="Card Name"
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
                     />
-          ...
+          
         </form>
-                <form>
+                <form className='paymentCardForm'>
                     <input
                         type="tel"
                         name="expiry"
@@ -65,9 +69,9 @@ export default class PaymentForm extends React.Component {
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
                     />
-          ...
+          
         </form>
-                <form>
+                <form className='paymentCardForm'>
                     <input
                         type="tel"
                         name="cvc"
@@ -75,10 +79,12 @@ export default class PaymentForm extends React.Component {
                         onChange={this.handleInputChange}
                         onFocus={this.handleInputFocus}
                     />
-          ...
+          
         </form>
-                <button type="submit" onClick={this.props.onSubmit}>Pay</button>
-            </div>
+                <button className='buttonform' type="submit" onClick={this.props.onSubmit}>Pay</button>
+                </div>
+                </div>   
+            
         );
     }
 }
