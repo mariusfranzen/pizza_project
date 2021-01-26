@@ -1,7 +1,7 @@
 import React from 'react';
 import Cookies from "universal-cookie";
 import { useHistory } from 'react-router-dom';
-import PaymentApi from '../../apis/PaymentApi';
+import OrderApi from '../../apis/OrderApi';
 import PaymentForm from "../../components/common/PaymentForm";
 
 const cookies = new Cookies();
@@ -17,7 +17,7 @@ function PaymentPage() {
             name: e.name,
             number: e.number
         }
-        PaymentApi.getPaymentApprove(card);
+        OrderApi.getPaymentApprove(card);
         history.push("/order-wait")
     }
 

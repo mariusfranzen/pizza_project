@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import OrderApi from '../../apis/OrderApi';
 import PizzaApi from '../../apis/PizzaApi';
+import UserApi from '../../apis/UserApi';
 import CheckoutMenuItem from '../../components/checkout/CheckoutMenuItem';
 
 const cookies = new Cookies();
@@ -10,10 +12,11 @@ function CheckoutPage() {
     let history = useHistory();
 
     const [pizzaArray, setPizzaArray] = useState([]);
+    const [purchaseArray, setPurchaseArray] = useState([]);
     useEffect(() => {
-        let localArray = [];
         async function pizzaSorting() {
             let cookie = cookies.get("cart");
+            let localArray = [];
 
             if (cookie) {
                 let idArray = [];
@@ -22,7 +25,8 @@ function CheckoutPage() {
                 } else {
                     idArray.push(cookie);
                 }
-    
+
+                setPurchaseArray(idArray);
                 let realIdArray = [];
                 for (const id of idArray) {
                     if (!realIdArray.includes(id)) {
@@ -40,8 +44,18 @@ function CheckoutPage() {
         pizzaSorting();
     }, []);
 
-    function submitPurchase() {
+    async function submitPurchase() {
+        let decryptAuth = UserApi.validateJwt(cookies.get("auth"));
+        let user = UserApi.getUserByEmail((await decryptAuth).data.email)
+        let order = {
+            user: (await user).data,
+            purchaseArray: purchaseArray,
+            totalPrice: "0 kr"
+        }
         
+        order = (await OrderApi.postOrder(order));
+        console.log(order);
+        cookies.set("price-cookie", order.data.id);
     }
 
     if (pizzaArray.length > 0) {
