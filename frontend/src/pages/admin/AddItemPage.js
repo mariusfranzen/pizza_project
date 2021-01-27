@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Field, Form, Formik } from 'formik';
 import OtherInventoryApi from "../../apis/OtherInventoryApi"
+import { useHistory } from 'react-router-dom';
 
 export class AddItemPage extends Component {
     render() {
@@ -12,6 +13,7 @@ export class AddItemPage extends Component {
     }
 }
 const AddItemForm = () => {
+    let history = useHistory();
     const validate = (values) => {
         const errors = {};
 
@@ -33,14 +35,15 @@ const AddItemForm = () => {
 
     return (<Formik
         initialValues={{ name: "", price: "", category: "default", description: "" }}
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
             let item = {
                 name: values.name,
                 price: values.price,
                 category: values.category,
                 description: values.description
             }
-            OtherInventoryApi.postOtherInventory(item);
+            await OtherInventoryApi.postOtherInventory(item);
+            history.go(0);
         }}
         validate={validate}>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Field, Form, Formik } from 'formik';
 import PizzaApi from "../../apis/PizzaApi"
+import { useHistory } from 'react-router-dom';
 
 export class AddPizzaPage extends Component {
     render() {
@@ -12,6 +13,7 @@ export class AddPizzaPage extends Component {
     }
 }
 const AddPizzaForm = () => {
+    let history = useHistory();
     const validate = (values) => {
         const errors = {};
 
@@ -33,7 +35,7 @@ const AddPizzaForm = () => {
 
     return (<Formik
         initialValues={{ name: "", price: "", ingredientArray: [], description: "" }}
-        onSubmit={(values, actions) => {
+        onSubmit={async (values, actions) => {
             console.log(values)
             let item = {
                 // menuId: values.menuId,
@@ -42,8 +44,9 @@ const AddPizzaForm = () => {
                 ingredientArray: values.ingredientArray,
                 description: values.description
             }
-            PizzaApi.postPizza(item);
+            await PizzaApi.postPizza(item);
             actions.setSubmitting(false);
+            history.go(0);
         }}
         validate={validate}>
 

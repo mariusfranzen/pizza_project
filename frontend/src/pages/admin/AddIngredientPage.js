@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, Form, Formik } from 'formik';
 import IngredientApi from "../../apis/IngredientApi";
+import { useHistory } from 'react-router-dom';
 
 export class AddIngredientPage extends Component {
     render() {
@@ -12,12 +13,8 @@ export class AddIngredientPage extends Component {
     }
 }
 
-// const onSubmit = (values, onSubmitProps) => {
-//     onSubmitProps.setSubmitting(false)
-//     onSubmitProps.resetForm()
-// }
-
-const AddIngredientForm = () => {
+function AddIngredientForm() {
+    let history = useHistory();
     const validate = (values) => {
         const errors = {};
 
@@ -34,13 +31,14 @@ const AddIngredientForm = () => {
     return (<Formik
 
         initialValues={{ name: "", priceGroup: "", description: "" }}
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
             let item = {
                 name: values.name,
                 priceGroup: values.priceGroup,
                 description: values.description
             }
-            IngredientApi.postIngredient(item);
+            await IngredientApi.postIngredient(item);
+            history.go(0);
         }}
         validate={validate}>
 
