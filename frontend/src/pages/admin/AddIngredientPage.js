@@ -42,22 +42,24 @@ function AddIngredientForm() {
         }}
         validate={validate}>
 
+
         {(props) => (
             <div className='addingredientPage'>
-            <Form>
-                <Field className='Field' type="text" name="name" placeholder="name" />
-                {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
+                <Form>
+                    <Field className='Field' type="text" name="name" placeholder="name" />
+                    {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
 
-                <Field className='field1' as="select" name="priceGroup">
-                    <option value="undefined">Undefined</option>
-                    <option value="pg1">Pg-1</option>
-                    <option value="pg2">Pg-2</option>
-                    <option value="pg3">Pg-3</option>
-                </Field>
-                <Field className='Field2' as="textarea" name="description" placeholder="Enter description" maxlength="255" />
-                <button type="submit">Add Ingredient</button>
-            </Form>
+                    <Field className='field1' as="select" name="priceGroup">
+                        <option value="undefined">Undefined</option>
+                        <option value="pg1">Pg-1</option>
+                        <option value="pg2">Pg-2</option>
+                        <option value="pg3">Pg-3</option>
+                    </Field>
+                    <Field className='Field2' as="textarea" name="description" placeholder="Enter description" maxlength="255" />
+                    <button type="submit">Add Ingredient</button>
+                </Form>
             </div>
+
         )}
     </Formik>)
 

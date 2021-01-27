@@ -21,9 +21,10 @@ function PaymentPage() {
         history.push("/order-wait")
     }
 
-    function getPriceCookie() {
+    async function getPriceCookie() {
         if (cookies.get("price-cookie")) {
-            return cookies.get("price-cookie" + " :-");
+            let orderPrice = (await OrderApi.getById(cookies.get("price-cookie"))).data.totalPrice;
+
         }
         return ("0 :-");
     }

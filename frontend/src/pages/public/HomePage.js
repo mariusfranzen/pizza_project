@@ -8,13 +8,13 @@ export class HomePage extends Component {
         return (
 
             <div className="home">
-            <svg  width="100" height="100">
-            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-            </svg>
+                <svg width="100" height="100">
+                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+                </svg>
 
                 <HomeInfo />
                 <PizzaMenu />
-               
+
             </div>
         )
         // lägga till random meny ca 5 items.

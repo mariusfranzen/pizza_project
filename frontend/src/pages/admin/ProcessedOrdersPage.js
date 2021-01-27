@@ -1,6 +1,6 @@
 import React from 'react'
 
-function OrderConfirmPage() {
+function ProcessedOrdersPage() {
     return (
         <div>
 
@@ -8,5 +8,4 @@ function OrderConfirmPage() {
     )
 }
 
-export default OrderConfirmPage
-
+export default ProcessedOrdersPage

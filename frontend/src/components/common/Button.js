@@ -5,12 +5,13 @@ export class Button extends Component {
         super(props);
         this.state = {
             clicked: props.clicked,
-            title: props.title
+            title: props.title,
+            className: props.className
         }
     }
     render() {
         return (
-            <button onClick={this.state.clicked}>{this.state.title}</button>
+            <button clasName={this.state.className} onClick={this.state.clicked}>{this.state.title}</button>
         )
     }
 }
