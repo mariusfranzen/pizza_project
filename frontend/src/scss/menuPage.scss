@@ -5,36 +5,53 @@
     display: flex;
     flex-direction: column;
     width: 30vw;
-    margin: 0 auto;
 }
 
-.menuItem {
-    margin-right: 2rem;
+.menuGroup {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    .id {
-        color: white;
-        background-color: lightgray;
-        text-align: center;
-        padding: 1px 3px;
-        width: 2rem;
-        border-radius: 5px;
-        margin-right: 1rem;
+    align-items: center;
+
+    .menuItem {
+        margin-right: 2rem;
+        justify-content: space-between;
+        .id {
+            color: white;
+            background-color: lightgray;
+            text-align: center;
+            padding: 1px 3px;
+            width: 2rem;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+        .name{
+            text-transform: capitalize;
+        }
+        .ingredients {
+            font-size: small;
+            margin: 0;
+            text-transform: capitalize;
+        }
+        .description {
+            font-size: small;
+            margin: 0;
+            text-transform: capitalize;
+        }
     }
-    .name{
-        text-transform: capitalize;
-    }
-    .ingredients {
-        font-size: small;
-        margin: 0;
-        text-transform: capitalize;
-    }
-    .description {
-        font-size: small;
-        margin: 0;
-        text-transform: capitalize;
-    }
-    .price {
-        font-weight: bold;
-        margin: 1rem;
+
+    .priceAndButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        button {
+            height: 1.5rem;
+        }
+        .price {
+            font-weight: bold;
+            margin: 1rem;
+        }
     }
 }

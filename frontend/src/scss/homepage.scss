@@ -1,69 +1,45 @@
-
-.home{
-    background-color: rgb(47, 113, 255);
-    display: column;
-    height: 250vh;
-    
-
-.textHomePage{
-    background-color: hotpink;
-    font-style: italic;
+.home {
     display: flex;
-    flex-flow: row wrap;
-    width: 30%;
-    height: 60vh;
-    margin-left: 5rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
-    
-    .svg{
-        background-color: rgb(0, 255, 64);
+    .textHomePage {
+        background-color: hotpink;
+        font-style: italic;
         display: flex;
-        margin-left: 5rem;
-        padding-top: -20rem;
-        
-    }
-
-       
-    h1{
-
-        background-color: khaki;
-        font-size: 2rem;
-        display: flex;
-        height: 40px;
-        
-    }
-    
-    
-
-    p{
-        background-color: lightblue;
-        font-size: 1rem;
-        width: 29rem;
-        height: 250px;
-        display: flex;  
         flex-flow: row wrap;
-        font-weight: bold;
-        text-align: left;
-        
+        width: 30%;
+
+
+        .svg {
+            background-color: rgb(0, 255, 64);
+            display: flex;
+            margin-left: 5rem;
+            padding-top: -20rem;
+
+        }
+
+
+        h1 {
+
+            background-color: khaki;
+            font-size: 2rem;
+
+        }
+
+
+
+        p {
+            background-color: lightblue;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: left;
+
+        }
+
+
+
     }
 
-
-
 }
-.pizzaMenu{
-   
-    display: flex;
-    height: 350px;
-    margin-left: 430px;
-    margin-top: 6rem;
-     
-}
-
-
-}
-
-
-
-
-
-
