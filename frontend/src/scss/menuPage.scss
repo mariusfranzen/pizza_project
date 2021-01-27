@@ -8,6 +8,7 @@
 }
 
 .menuGroup {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,14 +30,18 @@
             text-transform: capitalize;
         }
         .ingredients {
+            
             font-size: small;
             margin: 0;
             text-transform: capitalize;
+            font-style: italic;
         }
         .description {
+           
             font-size: small;
             margin: 0;
             text-transform: capitalize;
+            
         }
     }
 
@@ -48,7 +53,17 @@
 
         button {
             height: 1.5rem;
+            background-color:$secondaryColor;
+            color: $colorBright;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
         }
+        button:hover {
+            box-shadow: 0 4px 6px 0 
+            rgba(0,0,0,0.24),0 17px 50px 0 
+            rgba(0,0,0,0.19);
+          }
         .price {
             font-weight: bold;
             margin: 1rem;
