@@ -54,8 +54,8 @@ function CheckoutPage() {
         }
         
         order = (await OrderApi.postOrder(order));
-        console.log(order);
         cookies.set("price-cookie", order.data.id);
+        history.push("/payment");
     }
 
     if (pizzaArray.length > 0) {
