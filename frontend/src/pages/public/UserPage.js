@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Formik, Field, Form } from "formik";
+import Cookies from "universal-cookie";
 
 export class UserPage extends Component {
     constructor() {
@@ -78,17 +79,21 @@ const validate = (values) => {
     return errors;
 };
 
+let cookies = new Cookies();
+
 const EditUser = (props) => {
+    let jwt = cookies.get("auth")
+    let user = UserApi.validateJwt(jwt)
     return (
         <Formik
             initialValues={{
-                email: props.initialUser ? props.initialUser.email : "",
+                email: props.initialUser ? props.initialUser.email : "user.email",
                 password: "",
                 newPassword: "",
                 passwordAgain: "",
                 phonenumber: props.initialUser
                     ? props.initialUser.phonenumber
-                    : "",
+                    : "user.phoneNumber",
                 firstName: props.initialUser ? props.initialUser.firstName : "",
                 lastName: props.initialUser ? props.initialUser.lastName : "",
                 dateOfBirth: props.initialUser
