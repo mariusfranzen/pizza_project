@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
@@ -10,7 +10,7 @@ function LogoutPage() {
     cookies.remove("auth");
     history.push("/");
 
-    return(
+    return (
         <div>
             You are being logged out...
         </div>

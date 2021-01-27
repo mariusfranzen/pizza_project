@@ -10,6 +10,9 @@ function AdminPage() {
     function redirectToOrders() {
         history.push("/admin/incomming-orders")
     }
+    function redirectToProccessedOrders() {
+        history.push("/admin/processed-orders")
+    }
     function redirectToPizzas() {
         history.push("/admin/add-pizza")
     }
@@ -26,7 +29,7 @@ function AdminPage() {
     return (
         <div>
             <Button clicked={redirectToOrders} title="Inkommande Beställningar" />
-            <Button title="Accepterade Beställningar" />
+            <Button clicked={redirectToProccessedOrders} title="Accepterade Beställningar" />
             <Button clicked={redirectToPizzas} title="Lägg till Pizza" />
             <Button clicked={redirectToIngredients} title="Lägg till Ingrediens" />
             <Button clicked={redirectToItems} title="Lägg till Annat" />
