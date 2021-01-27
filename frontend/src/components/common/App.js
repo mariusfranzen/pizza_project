@@ -1,7 +1,7 @@
 import { Footer } from "./index";
 import { Navbar } from "./navbar/index";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, ProcessedOrdersPage, EditPizzaPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
+import { AdminPage, AddPizzaPage, AddIngredientPage, AddItemPage, EditHomePage, ProcessedOrdersPage, InfoPrintPage, OrderConfirmPage } from "../../pages/admin/index";
 import { HomePage, MenuPage, LoginPage, LogoutPage, RegisterPage, UserPage, AboutPage, CheckoutPage, PaymentPage, OrderWaitPage } from "../../pages/public/index";
 
 function App() {

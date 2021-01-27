@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Menu(props) {
     const [isOpen, setOpen] = useState(props.isOpen);
@@ -7,17 +7,14 @@ function Menu(props) {
 
     useEffect(() => {
         setOpen(props.isOpen);
-        console.log("1")
     }, [props.isOpen])
 
     useEffect(() => {
         setLoggedIn(props.isLoggedIn);
-        console.log("2")
     }, [props.isLoggedIn])
 
     useEffect(() => {
         setAdmin(props.isAdmin)
-        console.log("3")
     }, [props.isAdmin])
 
     return(

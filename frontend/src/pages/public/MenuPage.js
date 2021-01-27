@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import MenuItem from "../../components/common/MenuItem";
 import PizzaApi from "../../apis/PizzaApi";
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
 
 export class MenuPage extends Component {
     constructor() {
