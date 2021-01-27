@@ -51,7 +51,7 @@ function Navbar() {
 				<img src={Icons8ShoppingCart} alt="cart" className="cart" onClick={cartClick} />
 				<NavBurger isOpen={isOpen} isLoggedIn={isLoggedIn} menuClick={toggleOpen} />
 			</nav>
-			<NavMenu isOpen={isOpen} isLoggedIn={isLoggedIn} menuClick={toggleOpen} />
+			<NavMenu isOpen={isOpen} isAdmin={isAdmin} isLoggedIn={isLoggedIn} menuClick={toggleOpen} />
 		</nav>
 	);
 }

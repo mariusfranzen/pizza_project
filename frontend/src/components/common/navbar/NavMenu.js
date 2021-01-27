@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 
-export class Menu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: props.isOpen,
-            isLoggedIn: props.isLoggedIn,
-            isAdmin: props.isAdmin
-        }
-    }
+function Menu(props) {
+    const [isOpen, setOpen] = useState(props.isOpen);
+    const [isLoggedIn, setLoggedIn] = useState(props.isLoggedIn);
+    const [isAdmin, setAdmin] = useState(props.isAdmin);
 
-    shouldComponentUpdate(nextProps) {
-        return nextProps.isOpen !== this.state.isOpen || nextProps.isLoggedIn !== this.state.isLoggedIn || nextProps.isAdmin !== this.state.isAdmin;
-    }
+    useEffect(() => {
+        setOpen(props.isOpen);
+        console.log("1")
+    }, [props.isOpen])
 
-    componentDidUpdate(props) {
-        this.setState({
-            isOpen: props.isOpen,
-            isLoggedIn: props.isLoggedIn,
-            isAdmin: props.isAdmin
-        })
-        this.render();
-    }
+    useEffect(() => {
+        setLoggedIn(props.isLoggedIn);
+        console.log("2")
+    }, [props.isLoggedIn])
 
-    render() {
-        
-        return (
-            <div className="navMenu" style={this.state.isOpen ? {transform: "translateX(0%)"} : {transform: "translateX(100%)"}}>
+    useEffect(() => {
+        setAdmin(props.isAdmin)
+        console.log("3")
+    }, [props.isAdmin])
+
+    return(
+        <div className="navMenu" style={isOpen ? {transform: "translateX(0%)"} : {transform: "translateX(100%)"}}>
                 <div className="topMenu">
                     <a href="/">Hem</a>
                     <a href="/menu">Meny</a>
@@ -34,7 +29,7 @@ export class Menu extends Component {
                     <a href="/contact">Kontakt</a>
                 </div>
                 <div className="bottomMenu">
-                    {this.state.isLoggedIn ? 
+                    {isLoggedIn ? 
                     <>
                         <a href="/user">Din profil</a>
                         <a href="/logout">Logga ut</a>
@@ -46,8 +41,7 @@ export class Menu extends Component {
                     </>}
                 </div>
             </div>
-        )
-    }
+    )
 }
 
 export default Menu
