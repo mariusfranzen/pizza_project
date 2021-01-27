@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cookies from "universal-cookie";
 import { useHistory } from 'react-router-dom';
 import OrderApi from '../../apis/OrderApi';
@@ -9,7 +9,19 @@ const cookies = new Cookies();
 function PaymentPage() {
     let history = useHistory();
 
-    function onSubmit(e) {
+    const [price, setPrice] = useState();
+    useEffect(() => {
+        async function getPriceCookie() {
+            if (cookies.get("price-cookie")) {
+                let orderPrice = (await OrderApi.getById(cookies.get("price-cookie"))).data.totalPrice;
+                console.log("orderPrice")
+                setPrice(orderPrice)
+            }
+        }
+        getPriceCookie();
+    })
+
+    async function onSubmit(e) {
         console.log("pay")
         let card = {
             cvc: e.cvc,
@@ -17,17 +29,12 @@ function PaymentPage() {
             name: e.name,
             number: e.number
         }
-        OrderApi.getPaymentApprove(card);
+        // await OrderApi.getPaymentApprove(card);
+        clearPriceCookie()
         history.push("/order-wait")
     }
 
-    async function getPriceCookie() {
-        if (cookies.get("price-cookie")) {
-            let orderPrice = (await OrderApi.getById(cookies.get("price-cookie"))).data.totalPrice;
 
-        }
-        return ("0 :-");
-    }
     function addCookieOrderId(id) {
         cookies.set("order-id", id)
     }
@@ -36,11 +43,12 @@ function PaymentPage() {
     }
 
     return (
-        <div>
-            <h2>{getPriceCookie()}</h2>
-            <PaymentForm onSubmit={onSubmit} />
-            {addCookieOrderId()}
-        </div>
+        <>
+            <div>
+                <h2>{price}</h2>
+                <PaymentForm onSubmit={onSubmit} />
+            </div>
+        </>
     )
 }
 

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import OrderApi from '../../apis/OrderApi';
-import PizzaApi from '../../apis/PizzaApi';
-import UserApi from '../../apis/UserApi';
+import { OrderApi, PizzaApi, UserApi } from '../../apis/index';
 import CheckoutMenuItem from '../../components/checkout/CheckoutMenuItem';
 
 const cookies = new Cookies();
@@ -52,7 +50,7 @@ function CheckoutPage() {
             purchaseArray: purchaseArray,
             totalPrice: "0 kr"
         }
-        
+
         order = (await OrderApi.postOrder(order));
         cookies.set("price-cookie", order.data.id);
         history.push("/payment");
