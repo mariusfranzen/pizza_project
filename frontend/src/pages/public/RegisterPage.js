@@ -76,8 +76,8 @@ const RegisterForm = () => {
         >
             {(props) => (
                 <div className='registerPage'>
-                <Form>
-                   
+                    <Form>
+
                         <label htmlFor="email"></label>
                         <Field
                             className='field'
@@ -88,20 +88,20 @@ const RegisterForm = () => {
                         {props.errors.email ? (
                             <div className='errors'>{props.errors.email}</div>
                         ) : null}
-                    
-                    
+
+
                         <label htmlFor="phoneNumber"></label>
-                        <Field 
+                        <Field
                             className='field'
                             type="text"
                             name="phoneNumber"
-                            placeholder="070-1234567"
+                            placeholder="0701234567"
                         />
                         {props.errors.phoneNumber ? (
                             <div className='errors'>{props.errors.phoneNumber}</div>
                         ) : null}
-                    
-                    
+
+
                         <label htmlFor="password"></label>
                         <Field
                             className='field'
@@ -112,10 +112,10 @@ const RegisterForm = () => {
                         {props.errors.password ? (
                             <div className='errors'>{props.errors.password}</div>
                         ) : null}
-                    
-                    
+
+
                         <label htmlFor="passwordAgain"></label>
-                        <Field 
+                        <Field
                             className='field'
                             type="password"
                             name="passwordAgain"
@@ -124,9 +124,9 @@ const RegisterForm = () => {
                         {props.errors.passwordAgain ? (
                             <div className='errors'>{props.errors.passwordAgain}</div>
                         ) : null}
-                   
-                    <button type="submit">Register</button>
-                </Form>
+
+                        <button type="submit">Register</button>
+                    </Form>
                 </div>
             )}
         </Formik>
