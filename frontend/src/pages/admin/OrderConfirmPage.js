@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class OrderConfirmPage extends Component {
-    render() {
-        return (
-            <div>
-                <h1>OrderConfirmPage</h1>
-            </div>
-        )
-    }
+function OrderConfirmPage() {
+    return (
+        <div>
+
+        </div>
+    )
 }
 
 export default OrderConfirmPage
+

@@ -28,8 +28,6 @@ function App() {
 					<Route path="/admin/print-info" exact component={InfoPrintPage} />
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
 					<Route path="/admin/processed-orders" exact component={ProcessedOrdersPage} />
-
-					ProcessedOrdersPage
 				</Switch>
 			</div>
 			<Footer />
