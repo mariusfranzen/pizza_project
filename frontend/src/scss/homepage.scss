@@ -1,3 +1,6 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
 .home {
     display: flex;
     flex-direction: row;
@@ -5,25 +8,20 @@
     align-items: center;
 
     .textHomePage {
-        background-color: hotpink;
+       
+       
         font-style: italic;
         display: flex;
         flex-flow: row wrap;
         width: 30%;
 
 
-        .svg {
-            background-color: rgb(0, 255, 64);
-            display: flex;
-            margin-left: 5rem;
-            padding-top: -20rem;
-
-        }
+       
 
 
         h1 {
 
-            background-color: khaki;
+           
             font-size: 2rem;
 
         }
@@ -31,7 +29,7 @@
 
 
         p {
-            background-color: lightblue;
+           
             font-size: 1rem;
             font-weight: bold;
             text-align: left;
