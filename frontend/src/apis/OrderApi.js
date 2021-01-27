@@ -9,6 +9,10 @@ export class OrderApi extends Component {
         return axios.get(`${OrderUrl}/approve`);
     }
 
+    getById(id) {
+        return axios.get(`${OrderUrl}/id?id=` + id);
+    }
+
     postOrder(order) {
         return axios.post(`${OrderUrl}/add`, order);
     }
