@@ -5,7 +5,7 @@ import Logo from "../../../images/pizza-logo.jpg";
 import { Icons8ShoppingCart } from "../../../images/icons/index";
 import Cookies from "universal-cookie";
 import UserApi from "../../../apis/UserApi";
-import useToggle from '../../hooks/useToggle';
+import useToggle from "../../hooks/useToggle";
 
 const cookies = new Cookies();
 
@@ -21,21 +21,26 @@ function Navbar() {
 	const [cookie, setCookie] = useState(null);
 	const [isOpen, toggleOpen] = useToggle();
 	useEffect(() => {
-		if (cookie) {
+		async function cookieCheck() {
 			let authCookie = cookies.get("auth");
-			let val = validateJwtCookie(authCookie);
-			setCookie(val);
-			if (val.data.authorization === "USER") {
-				setLoggedIn(true);
-			} else if (val.data.authorization === ("ADMIN" || "OWNER")) {
-				setAdmin(true);
-			} else {
-				setLoggedIn(false);
-				setAdmin(false);
+			if (authCookie) {
+				let val =  await UserApi.validateJwt(authCookie)
+				setCookie(val);
+				console.log(val);
+				if (val.data.authorization === "USER") {
+					setLoggedIn(true);
+				} else if (val.data.authorization === "OWNER" || val.data.authorization === "ADMIN") {
+					setLoggedIn(true);
+					setAdmin(true);
+				} else {
+					setLoggedIn(false);
+					setAdmin(false);
+				}
 			}
 		}
 
-	}, [cookie, isOpen]);
+		cookieCheck();
+	}, []);
 
 	function cartClick() {
 		history.push("/checkout");

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Field, Form, Formik } from "formik";
 import Cookies from "universal-cookie";
+import { useHistory } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -34,6 +35,8 @@ const validate = (values) => {
 };
 
 const LoginForm = () => {
+    let history = useHistory();
+
     return (
         <Formik
             initialValues={{
@@ -64,6 +67,8 @@ const LoginForm = () => {
                     cookies.set("auth", loginValidation.data, {
                         expires: date,
                     });
+                    alert("You are logged in!")
+                    history.go(0)
                 }
             }}
             validate={validate}
