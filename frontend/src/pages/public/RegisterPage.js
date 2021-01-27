@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserApi from "../../apis/UserApi";
 import { Field, Form, Formik } from "formik";
+import { useHistory } from "react-router-dom";
 
 export class RegisterPage extends Component {
     render() {
@@ -45,6 +46,8 @@ const validate = (values) => {
 };
 
 const RegisterForm = () => {
+    let history = useHistory();
+
     return (
         <Formik
             initialValues={{
@@ -66,6 +69,7 @@ const RegisterForm = () => {
                     console.log("Error. Check log for more details.");
                 } else if (postUser.data === "SUCCESS") {
                     console.log("User saved! Please log in.");
+                    history.push("/login");
                 }
             }}
             validate={validate}

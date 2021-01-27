@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
+import { useHistory } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-export class LogoutPage extends Component {
-    render() {
-        cookies.remove("auth");
-        return (
-            <div>
-                You are being logged out...
-            </div>
-        )
-    }
+function LogoutPage() {
+    let history = useHistory();
+
+    cookies.remove("auth");
+    history.push("/");
+
+    return(
+        <div>
+            You are being logged out...
+        </div>
+    )
 }
 
 export default LogoutPage
