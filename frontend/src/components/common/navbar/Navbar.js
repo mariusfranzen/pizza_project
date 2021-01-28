@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { NavBurger, NavMenu } from "./index";
-import Logo from "../../../images/pizza-logo.jpg";
+import Logo from "../../../images/pizza-logo.png";
 import { Icons8ShoppingCart } from "../../../images/icons/index";
 import Cookies from "universal-cookie";
 import UserApi from "../../../apis/UserApi";
@@ -46,7 +46,7 @@ function Navbar() {
 
 	return (
 		<nav className="mainNav">
-			<img src={Logo} alt="logo" className="logo" onClick={homeClick} />
+			<img className="logo" src={Logo} alt="logo" className="logo" onClick={homeClick} />
 			<nav className="rightGroup">
 				<img src={Icons8ShoppingCart} alt="cart" className="cart" onClick={cartClick} />
 				<NavBurger isOpen={isOpen} isLoggedIn={isLoggedIn} menuClick={toggleOpen} />

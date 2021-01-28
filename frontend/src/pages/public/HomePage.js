@@ -3,11 +3,14 @@ import { HomeInfo } from "../../components/common/index";
 import PizzaMenu from '../../components/home/PizzaMenu';
 
 
+
+
+
 export class HomePage extends Component {
     render() {
         return (
             <div className="home">
-
+           
                 <HomeInfo />
                 <PizzaMenu />
 

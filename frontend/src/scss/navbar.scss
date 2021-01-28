@@ -23,10 +23,13 @@
 
     .logo {
         
-        height: 50px;
-        width: 50px;
-        margin: 15px;
-        cursor: pointer;
+        display: flex;
+        height: 110px;
+        width: 110px;
+        margin-top: -1rem ;
+        margin-left: 1rem;
+        
+        
 
     }
 }
