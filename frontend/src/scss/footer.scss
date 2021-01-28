@@ -1,20 +1,33 @@
 .footer{
     overflow: hidden;
     position: fixed;
-    display: inline;
+    display: flex;
     background-color: #333;
     bottom: 0;
     height: 5vh;
     width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
     .contentFooter{
+        width: 33%;
         margin-top: 1.5vh;
         bottom: 49%;
-        color: white;
-        .contactFooter{    
-        float: right;    
-        }
-        
-        
+        color: white;      
     }
+    .logFooter{
+        text-decoration: none;
+        text-align: center;
+        width: 33%;
+        margin-top: 1.5vh;
+        bottom: 49%;
+        color: white; 
+    }
+    .contactFooter{ 
+        text-align: right;
+        width: 33%;
+        margin-top: 1.5vh;
+        bottom: 49%;
+        color: white;   
+        }
 }
 

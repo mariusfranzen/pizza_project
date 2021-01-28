@@ -10,6 +10,9 @@ function LogoutPage() {
     cookies.remove("auth");
     history.push("/");
 
+
+    // Vill lägga in utloggning som en funktion i navbaren
+
     return (
         <div>
             You are being logged out...
