@@ -2,6 +2,7 @@
 @import "./fonts.scss";
 
 .mainNav {
+    background-image: $mainColor;
     background-color: $mainColor;
     height: 5rem;
     top: 0;
@@ -22,11 +23,14 @@
     }
 
     .logo {
-        border-radius: 30%;
-        height: 50px;
-        width: 50px;
-        margin: 15px;
-        cursor: pointer;
+        
+        display: flex;
+        height: 110px;
+        width: 110px;
+        margin-top: -1rem ;
+        margin-left: 1rem;
+        
+        
 
     }
 }

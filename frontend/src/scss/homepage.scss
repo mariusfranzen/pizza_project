@@ -6,34 +6,29 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-image: url("../images/pizza-logo.png");
 
     .textHomePage {
-       
-       
-        font-style: italic;
         display: flex;
         flex-flow: row wrap;
-        width: 30%;
-
-
-       
-
+        width: 40%;
+        align-items: baseline;
 
         h1 {
-
-           
             font-size: 2rem;
+            text-align: center;
+            font-family: "Trirong", serif;
+            color:#884546;
 
         }
 
-
-
         p {
-           
+        
             font-size: 1rem;
-            font-weight: bold;
-            text-align: left;
-
+            font-family: 'Imbue', serif;
+            font-style: italic;
+            
+            
         }
 
 
