@@ -25,6 +25,7 @@ function App() {
 					<Route path="/admin/add-ingredient" exact component={AddIngredientPage} />
 					<Route path="/admin/add-item" exact component={AddItemPage} />
 					<Route path="/admin/edit-home" exact component={EditHomePage} />
+					<Route path="/admin/edit-pizza" exact component={EditPizzaPage} />
 					<Route path="/admin/print-info" exact component={InfoPrintPage} />
 					<Route path="/admin/incomming-orders" exact component={OrderConfirmPage} />
 					<Route path="/admin/processed-orders" exact component={ProcessedOrdersPage} />

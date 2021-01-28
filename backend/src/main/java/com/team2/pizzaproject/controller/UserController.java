@@ -98,16 +98,14 @@ public class UserController {
 
     @PostMapping(path = "/validate-jwt")
     @ResponseBody
-    public UserModel validateJwt(@RequestParam String jwt) {
+    public Object validateJwt(@RequestParam String jwt) {
         try {
             Algorithm algorithm = Algorithm.HMAC512(Objects.requireNonNull(env.getProperty("secret")));
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer(env.getProperty("issuer"))
                     .build();
-            UserModel user = new UserModel();
-            user.setId(JWT.decode(jwt).getSubject());
-            user.setEmail(JWT.decode(jwt).getClaim("email").asString());
-            user.setAuthorization(AuthorizationEnum.valueOf(JWT.decode(jwt).getClaim("auth").asString()));
+            Optional<UserModel> user = userRepository.findById(JWT.decode(jwt).getSubject());
+            user.get().setHashedPassword(new byte[0]);
             return user;
         } catch (JWTVerificationException e) {
             LOGGER.log(Level.WARNING, "Invalid JWT token: " + e.getMessage());

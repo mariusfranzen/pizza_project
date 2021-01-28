@@ -1,32 +1,9 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import UserApi from "../../apis/UserApi";
 import { Formik, Field, Form } from "formik";
+import Cookie from "universal-cookie";
 
-export class UserPage extends Component {
-    constructor() {
-        super();
-        this.state = {
-            initialUser: {},
-        };
-    }
-    async componentDidMount() {
-        console.log("asd");
-        await UserApi.getUserById("5ffeb12a95a55750db3378a5").then(
-            async (result) => {
-                await this.setState({ initialUser: result.data });
-                console.log(result);
-            }
-        );
-    }
-
-    render() {
-        return (
-            <div className="form">
-                <EditUser initialUser={this.state.initialUser} />
-            </div>
-        );
-    }
-}
+const cookies = new Cookie();
 
 const validate = (values) => {
     const errors = {};
@@ -78,23 +55,30 @@ const validate = (values) => {
     return errors;
 };
 
-const EditUser = (props) => {
+function UserPage() {
+
+    const [user, setUser] = useState("");
+    useEffect(() => {
+        async function getUser() {
+            let lUser = (await UserApi.validateJwt(cookies.get("auth"))).data;
+            console.log(lUser)
+            setUser(lUser);
+        }
+        getUser();
+    }, [])
     return (
         <Formik
+            enableReinitialize
             initialValues={{
-                email: props.initialUser ? props.initialUser.email : "",
+                email: user.email,
                 password: "",
                 newPassword: "",
                 passwordAgain: "",
-                phonenumber: props.initialUser
-                    ? props.initialUser.phonenumber
-                    : "",
-                firstName: props.initialUser ? props.initialUser.firstName : "",
-                lastName: props.initialUser ? props.initialUser.lastName : "",
-                dateOfBirth: props.initialUser
-                    ? props.initialUser.dateOfBirth
-                    : "",
-                adress: props.initialUser ? props.initialUser.adress : "",
+                phoneNumber: user.phoneNumber,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                dateOfBirth: user.dateOfBirth,
+                adress: user.adress,
             }}
             onSubmit={(values) => {
                 let user = {
@@ -257,5 +241,6 @@ const EditUser = (props) => {
             )}
         </Formik>
     );
-};
+}
+
 export default UserPage;
