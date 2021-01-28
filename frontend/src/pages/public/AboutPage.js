@@ -21,7 +21,9 @@ function AboutPage() {
                 <h3>Telefonnummer</h3>
                 <p>076-1789283</p>
                 <h3>Email</h3>
-                <p>Anderion1984@gmail.com</p>
+                <a href="mailto:Anderion1984@gmail.com">
+                    <p>Anderion1984@gmail.com</p>
+                </a>
             </div>
         </div>
     )

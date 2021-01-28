@@ -67,8 +67,17 @@ const LoginForm = () => {
                     cookies.set("auth", loginValidation.data, {
                         expires: date,
                     });
-                    alert("You are logged in!")
-                    history.go(0)
+                    const authCheck = UserApi.validateJwt(loginValidation.data)
+                    console.log((await authCheck).data)
+                    if ((await authCheck).data.authorization === "OWNER" || (await authCheck).data.authorization === "ADMIN") {
+                        alert("You are logged in!")
+                        history.push("/admin")
+                        history.go(0)
+                    } else {
+                        alert("You are logged in!")
+                        history.push("/")
+                        history.go(0)
+                    }
                 }
             }}
             validate={validate}
