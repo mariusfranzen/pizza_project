@@ -35,9 +35,9 @@ function PaymentPage() {
     }
 
 
-    function addCookieOrderId(id) {
-        cookies.set("order-id", id)
-    }
+    // function addCookieOrderId(id) {
+    //     cookies.set("order-id", id)
+    // }
     function clearPriceCookie() {
         cookies.remove("price-cookie");
     }
