@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HomeInfo } from "../../components/common/index";
 import PizzaMenu from '../../components/home/PizzaMenu';
+import Logo from "../../images/pizza-logo.png";
 
 
 
@@ -12,6 +13,7 @@ export class HomePage extends Component {
             <div className="home">
            
                 <HomeInfo />
+               
                 <PizzaMenu />
 
             </div>
