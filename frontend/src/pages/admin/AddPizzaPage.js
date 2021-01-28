@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Field, Form, Formik } from 'formik';
-import PizzaApi from "../../apis/PizzaApi"
+import { PizzaApi, IngredienApi } from "../../apis/index"
 import { useHistory } from 'react-router-dom';
 
 export class AddPizzaPage extends Component {
@@ -52,39 +52,39 @@ const AddPizzaForm = () => {
 
         {(props) => (
             <div className='addpizzapage'>
-            <Form>
-                
-                <Field className='input' type="text" name="name" placeholder="name" />
-                {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
-                <Field className='input'  type="text"  name="price" placeholder="price"/>
-                {props.errors.price ? <div className='errors'>{props.errors.price}</div> : null}
+                <Form>
 
-                <div className='ingredients'>Ingredients</div>
-                <div className='label' role="group">
-                    <label>
-                        Ost
+                    <Field className='input' type="text" name="name" placeholder="name" />
+                    {props.errors.name ? <div className='errors'>{props.errors.name}</div> : null}
+                    <Field className='input' type="text" name="price" placeholder="price" />
+                    {props.errors.price ? <div className='errors'>{props.errors.price}</div> : null}
+
+                    <div className='ingredients'>Ingredients</div>
+                    <div className='label' role="group">
+                        <label>
+                            Ost
                         <Field type="checkbox" name="ingredientArray" value="ost" />
-                    </label>
-                    <label>
-                        Tomatsås
+                        </label>
+                        <label>
+                            Tomatsås
                         <Field type="checkbox" name="ingredientArray" value="tomatsås" />
-                    </label>
-                    <label>
-                        Skinka
+                        </label>
+                        <label>
+                            Skinka
                         <Field type="checkbox" name="ingredientArray" value="skinka" />
-                    </label>
-                    <label>
-                        Champinjoner
+                        </label>
+                        <label>
+                            Champinjoner
                         <Field type="checkbox" name="ingredientArray" value="champinjoner" />
-                    </label>
-                    <label>
-                        Oxfilé
+                        </label>
+                        <label>
+                            Oxfilé
                         <Field type="checkbox" name="ingredientArray" value="oxfilé" />
-                    </label>
-                </div>
-                <Field className='description' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
-                <button type="submit">Add Pizza</button>
-            </Form>
+                        </label>
+                    </div>
+                    <Field className='description' as="textarea" name="description" placeholder="Enter description" maxLength="255" />
+                    <button type="submit">Add Pizza</button>
+                </Form>
             </div>
         )}
     </Formik>)
