@@ -11,7 +11,7 @@ export class Button extends Component {
     }
     render() {
         return (
-            <button clasName={this.state.className} onClick={this.state.clicked}>{this.state.title}</button>
+            <button className={this.state.className} onClick={this.state.clicked}>{this.state.title}</button>
         )
     }
 }

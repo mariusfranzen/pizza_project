@@ -9,10 +9,6 @@ import useToggle from "../../hooks/useToggle";
 
 const cookies = new Cookies();
 
-async function validateJwtCookie(jwt) {
-	await UserApi.validateJwt(jwt);
-}
-
 function Navbar() {
 	let history = useHistory();
 
@@ -24,7 +20,7 @@ function Navbar() {
 		async function cookieCheck() {
 			let authCookie = cookies.get("auth");
 			if (authCookie) {
-				let val =  await UserApi.validateJwt(authCookie)
+				let val = await UserApi.validateJwt(authCookie)
 				setCookie(val);
 				console.log(val);
 				if (val.data.authorization === "USER") {
