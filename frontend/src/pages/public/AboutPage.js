@@ -2,8 +2,8 @@ import React from 'react'
 
 function AboutPage() {
     return (
-        <div>
-            <div>
+        <div className='aboutContainer'>
+            <div className='aboutInfo'>
                 <h1>Information about out pizzeria</h1>
                 <p>Eiusmod quis enim laboris aliqua nulla dolore eiusmod minim nostrud aute mollit
                 pariatur aliqua elit. Proident do do pariatur magna tempor voluptate voluptate
@@ -14,13 +14,13 @@ function AboutPage() {
                 laborum ea id est aliqua ullamco nostrud incididunt. Nostrud ea nostrud incididunt
                     tempor cupidatat in.</p>
             </div>
-            <div>
-                <h1>Kontakt Information</h1>
-                <h3>Adress</h3>
+            <div className='aboutContact'>
+                <h1>Kontakt Information </h1>
+                <h3>Adress:</h3>
                 <p>Björkallen 1, 86040 Indal</p>
-                <h3>Telefonnummer</h3>
+                <h3>Telefonnummer:</h3>
                 <p>076-1789283</p>
-                <h3>Email</h3>
+                <h3>Email:</h3>
                 <p>Anderion1984@gmail.com</p>
             </div>
         </div>

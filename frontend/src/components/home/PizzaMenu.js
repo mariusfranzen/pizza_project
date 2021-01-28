@@ -29,7 +29,7 @@ export class PizzaMenu extends Component {
                     console.log(pizza)
                     return(
                         <MenuItem 
-                          
+                            
                             key={index}
                             menuId={pizza.menuId}
                             name={pizza.name}
