@@ -50,7 +50,8 @@ function CheckoutPage() {
 		let order = {
 			user: (await user).data,
 			purchaseArray: purchaseArray,
-			totalPrice: "0 kr",
+            totalPrice: "0 kr",
+            isTakeaway: isTakeaway
 		};
 
 		order = await OrderApi.postOrder(order);
