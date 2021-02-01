@@ -4,6 +4,9 @@ import Cookies from 'universal-cookie';
 import { OrderApi, PizzaApi, UserApi } from '../../apis/index';
 import CheckoutMenuItem from '../../components/checkout/CheckoutMenuItem';
 
+// krachar om vi försöker lägga till mer än ett föremål av samma från meny
+
+
 const cookies = new Cookies();
 
 function CheckoutPage() {
@@ -62,8 +65,10 @@ function CheckoutPage() {
                 {pizzaArray.map((pizza, index) => {
                     return (
                         <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
+
                     )
                 })}
+                <textarea />
                 <button onClick={submitPurchase}>Bekräfta köp</button>
             </div>
         )
