@@ -14,7 +14,7 @@ export class MenuPage extends Component {
 
     async componentDidMount() {
         let pizzas = PizzaApi.getAllPizzas();
-        this.setState({pizzaArray: (await pizzas).data})
+        this.setState({ pizzaArray: (await pizzas).data })
     }
 
     pizzaList = () => {
@@ -23,14 +23,15 @@ export class MenuPage extends Component {
                 {this.state.pizzaArray.map((pizza, index) => {
                     return (
                         <>
-                        <MenuItem
-                            key={index}
-                            id={pizza.id}
-                            menuId={pizza.menuId}
-                            name={pizza.name}
-                            ingredientArray={pizza.ingredientArray}
-                            price={pizza.price}
-                            description={pizza.description} />
+                            <MenuItem
+                                key={index}
+                                id={pizza.id}
+                                menuId={pizza.menuId}
+                                name={pizza.name}
+                                ingredientArray={pizza.ingredientArray}
+                                price={pizza.price}
+                                description={pizza.description}
+                                hasButton={true} />
                         </>
                     )
                 })}

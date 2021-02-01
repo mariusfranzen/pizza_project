@@ -4,6 +4,9 @@ import Cookies from 'universal-cookie';
 import { OrderApi, PizzaApi, UserApi } from '../../apis/index';
 import CheckoutMenuItem from '../../components/checkout/CheckoutMenuItem';
 
+// krachar om vi försöker lägga till mer än ett föremål av samma från meny
+
+
 const cookies = new Cookies();
 
 function CheckoutPage() {
@@ -11,6 +14,7 @@ function CheckoutPage() {
 
     const [pizzaArray, setPizzaArray] = useState([]);
     const [purchaseArray, setPurchaseArray] = useState([]);
+    const [orderComment, setOrderComment] = useState("");
     useEffect(() => {
         async function pizzaSorting() {
             let cookie = cookies.get("cart");
@@ -47,6 +51,7 @@ function CheckoutPage() {
         let user = UserApi.getUserByEmail((await decryptAuth).data.email)
         let order = {
             user: (await user).data,
+            orderComment: orderComment,
             purchaseArray: purchaseArray,
             totalPrice: "0 kr"
         }
@@ -56,14 +61,20 @@ function CheckoutPage() {
         history.push("/payment");
     }
 
+    function handleCommentChange(event) {
+        setOrderComment(event.target.value);
+    }
+
     if (pizzaArray.length > 0) {
         return (
             <div className="checkoutMenu">
                 {pizzaArray.map((pizza, index) => {
                     return (
                         <CheckoutMenuItem key={index} pizza={pizza.pizza} amount={pizza.amount} />
+
                     )
                 })}
+                <textarea value={orderComment} onChange={handleCommentChange} />
                 <button onClick={submitPurchase}>Bekräfta köp</button>
             </div>
         )
