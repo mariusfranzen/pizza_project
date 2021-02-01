@@ -20,16 +20,20 @@ public class OrderModel {
     @Field("orderComment")
     private String orderComment;
 
+    @Field("isTakeaway")
+    private boolean isTakeaway;
+
     @Field("totalPrice")
     private String totalPrice;
 
     public OrderModel() {
     }
 
-    public OrderModel(UserModel user, String[] purchaseArray, String orderComment, String totalPrice) {
+    public OrderModel(UserModel user, String[] purchaseArray, String orderComment, boolean isTakeaway, String totalPrice) {
         this.user = user;
         this.purchaseArray = purchaseArray;
         this.orderComment = orderComment;
+        this.isTakeaway = isTakeaway;
         this.totalPrice = totalPrice;
     }
 
@@ -65,6 +69,14 @@ public class OrderModel {
         this.orderComment = orderComment;
     }
 
+    public boolean isTakeaway() {
+        return isTakeaway;
+    }
+
+    public void setTakeaway(boolean takeaway) {
+        isTakeaway = takeaway;
+    }
+
     public String getTotalPrice() {
         return totalPrice;
     }
@@ -80,6 +92,7 @@ public class OrderModel {
                 .append("user", user)
                 .append("purchaseArray", purchaseArray)
                 .append("orderComment", orderComment)
+                .append("isTakeaway", isTakeaway)
                 .append("totalPrice", totalPrice)
                 .toString();
     }

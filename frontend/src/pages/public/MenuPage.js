@@ -23,15 +23,15 @@ export class MenuPage extends Component {
                 {this.state.pizzaArray.map((pizza, index) => {
                     return (
                         <>
-                            <MenuItem
-                                key={index}
-                                id={pizza.id}
-                                menuId={pizza.menuId}
-                                name={pizza.name}
-                                ingredientArray={pizza.ingredientArray}
-                                price={pizza.price}
-                                description={pizza.description}
-                                hasButton={true} />
+                        <MenuItem
+                            key={index}
+                            id={pizza.id}
+                            menuId={pizza.menuId}
+                            name={pizza.name}
+                            ingredientArray={pizza.ingredientArray}
+                            price={pizza.price}
+                            description={pizza.description}
+                            hasButton={true} />
                         </>
                     )
                 })}
