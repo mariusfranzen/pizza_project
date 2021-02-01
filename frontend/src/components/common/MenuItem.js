@@ -23,9 +23,6 @@ export class MenuItem extends Component {
 	}
 
 	async componentDidMount() {
-		if (!this.state.hasButton) {
-			this.setState({ hasButton: true });
-		}
 		let allIngredients = await IngredientApi.getAllIngredients();
 		let names = [];
 		let nameString = "";
