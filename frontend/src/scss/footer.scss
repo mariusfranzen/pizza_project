@@ -1,33 +1,43 @@
+@import "./colors.scss";
+@import "./fonts.scss";
 .footer{
+    
     overflow: hidden;
     position: fixed;
     display: flex;
-    background-color: #333;
+    background-color:$mainColor;
     bottom: 0;
     height: 5vh;
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     .contentFooter{
+        font-size: 1rem;
         width: 33%;
-        margin-top: 1.5vh;
+        margin-top: 1vh;
         bottom: 49%;
-        color: white;      
+        color: white;
+        font-family: "Trirong", serif;      
     }
     .logFooter{
+        font-size: 1rem;
         text-decoration: none;
         text-align: center;
         width: 33%;
-        margin-top: 1.5vh;
+        margin-top: 1vh;
         bottom: 49%;
         color: white; 
+        font-family: "Trirong", serif;
+        
     }
     .contactFooter{ 
+        font-size: 1rem;
         text-align: right;
         width: 33%;
-        margin-top: 1.5vh;
+        margin-top: 1vh;
         bottom: 49%;
-        color: white;   
+        color: white;  
+        font-family: "Trirong", serif; 
         }
 }
 

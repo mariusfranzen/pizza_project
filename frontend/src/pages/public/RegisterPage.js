@@ -101,7 +101,6 @@ const RegisterForm = () => {
                             <div className='errors'>{props.errors.phoneNumber}</div>
                         ) : null}
 
-
                         <label htmlFor="password"></label>
                         <Field
                             className='field'
@@ -124,7 +123,6 @@ const RegisterForm = () => {
                         {props.errors.passwordAgain ? (
                             <div className='errors'>{props.errors.passwordAgain}</div>
                         ) : null}
-
                         <button type="submit">Register</button>
                     </Form>
                 </div>

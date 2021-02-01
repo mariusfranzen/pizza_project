@@ -20,7 +20,7 @@ function AboutPage() {
                 <p>Björkallen 1, 86040 Indal</p>
                 <h3>Telefonnummer:</h3>
                 <p>076-1789283</p>
-                <h3>Email</h3>
+                <h3>Email:</h3>
                 <a href="mailto:Anderion1984@gmail.com">
                     <p>Anderion1984@gmail.com</p>
                 </a>
