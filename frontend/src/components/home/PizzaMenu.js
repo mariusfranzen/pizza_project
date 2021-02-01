@@ -35,7 +35,8 @@ export class PizzaMenu extends Component {
                             name={pizza.name}
                             ingredientArray={pizza.ingredientArray}
                             price={pizza.price}
-                            description={pizza.description} />
+                            description={pizza.description}
+                            hasButton={false} />
                     )
                 })}
             </>
