@@ -31,7 +31,7 @@ function CheckoutPage() {
                         realIdArray.push(id);
                         localArray.push({ pizza: (await PizzaApi.getPizzaById(id)).data, amount: 1 });
                     } else {
-                        let index = localArray.findIndex(pizza => pizza.pizza.data.id === id);
+                        let index  = localArray.findIndex(pizza => pizza.pizza.data.id === id);
                         localArray[index].amount += 1
                     }
                 }
