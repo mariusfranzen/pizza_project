@@ -14,6 +14,7 @@ function CheckoutPage() {
 
     const [pizzaArray, setPizzaArray] = useState([]);
     const [purchaseArray, setPurchaseArray] = useState([]);
+    const [orderComment, setOrderComment] = useState("");
     useEffect(() => {
         async function pizzaSorting() {
             let cookie = cookies.get("cart");
@@ -50,6 +51,7 @@ function CheckoutPage() {
         let user = UserApi.getUserByEmail((await decryptAuth).data.email)
         let order = {
             user: (await user).data,
+            orderComment: orderComment,
             purchaseArray: purchaseArray,
             totalPrice: "0 kr"
         }
@@ -57,6 +59,10 @@ function CheckoutPage() {
         order = (await OrderApi.postOrder(order));
         cookies.set("price-cookie", order.data.id);
         history.push("/payment");
+    }
+
+    function handleCommentChange(event) {
+        setOrderComment(event.target.value);
     }
 
     if (pizzaArray.length > 0) {
@@ -68,7 +74,7 @@ function CheckoutPage() {
 
                     )
                 })}
-                <textarea />
+                <textarea value={orderComment} onChange={handleCommentChange} />
                 <button onClick={submitPurchase}>Bekräfta köp</button>
             </div>
         )

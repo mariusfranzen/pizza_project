@@ -29,13 +29,13 @@ export class PizzaMenu extends Component {
                     console.log(pizza)
                     return (
                         <MenuItem
-
                             key={index}
                             menuId={pizza.menuId}
                             name={pizza.name}
                             ingredientArray={pizza.ingredientArray}
                             price={pizza.price}
-                            description={pizza.description} />
+                            description={pizza.description}
+                            hasButton={true} />
                     )
                 })}
             </>
