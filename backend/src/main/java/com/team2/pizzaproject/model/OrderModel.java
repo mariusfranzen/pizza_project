@@ -17,15 +17,19 @@ public class OrderModel {
     @Field("purchaseArray")
     private String[] purchaseArray;
 
+    @Field("orderComment")
+    private String orderComment;
+
     @Field("totalPrice")
     private String totalPrice;
 
     public OrderModel() {
     }
 
-    public OrderModel(UserModel user, String[] purchaseArray, String totalPrice) {
+    public OrderModel(UserModel user, String[] purchaseArray, String orderComment, String totalPrice) {
         this.user = user;
         this.purchaseArray = purchaseArray;
+        this.orderComment = orderComment;
         this.totalPrice = totalPrice;
     }
 
@@ -53,6 +57,14 @@ public class OrderModel {
         this.purchaseArray = purchaseArray;
     }
 
+    public String getOrderComment() {
+        return orderComment;
+    }
+
+    public void setOrderComment(String orderComment) {
+        this.orderComment = orderComment;
+    }
+
     public String getTotalPrice() {
         return totalPrice;
     }
@@ -67,6 +79,7 @@ public class OrderModel {
                 .append("id", id)
                 .append("user", user)
                 .append("purchaseArray", purchaseArray)
+                .append("orderComment", orderComment)
                 .append("totalPrice", totalPrice)
                 .toString();
     }
