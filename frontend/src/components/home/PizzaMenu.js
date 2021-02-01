@@ -18,18 +18,17 @@ export class PizzaMenu extends Component {
         array.push((await PizzaApi.getPizzaByMenuId(3)).data);
         array.push((await PizzaApi.getPizzaByMenuId(4)).data);
         array.push((await PizzaApi.getPizzaByMenuId(5)).data);
-        this.setState({pizzaArray: array});
+        this.setState({ pizzaArray: array });
     }
 
     pizzaList = () => {
-        return(
-            
+        return (
+
             <>
                 {this.state.pizzaArray.map((pizza, index) => {
                     console.log(pizza)
-                    return(
-                        <MenuItem 
-                          
+                    return (
+                        <MenuItem
                             key={index}
                             menuId={pizza.menuId}
                             name={pizza.name}
@@ -40,7 +39,7 @@ export class PizzaMenu extends Component {
                     )
                 })}
             </>
-            
+
         )
     }
 

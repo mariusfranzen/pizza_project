@@ -1,0 +1,56 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+.aboutContainer{
+    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    
+    
+    
+    .aboutInfo{
+        align-items: baseline;
+        max-width: 50%;
+
+        h1{
+            color:#884546;
+            font-size: 2rem;
+            text-align: center;
+            font-family: "Trirong", serif;
+            text-shadow: 1px 1px 2px #000000;
+        }
+
+
+        p{
+            font-style: italic;
+            max-width: max-content;
+            font-family: 'Imbue', serif;
+        }
+
+    }
+    .aboutContact{
+       
+        margin: 1rem 1rem;
+        min-width: 30%;
+
+        h1{
+            font-size: 1.5rem;
+            color:#884546;
+            font-family: "Trirong", serif;
+            text-shadow: 1px 1px 2px #000000;
+        }
+        h3{
+
+            font-weight: bold;
+        }
+        p{
+            font-style: italic;
+            font-family: 'Imbue', serif;
+            
+        }
+    }
+
+
+
+}

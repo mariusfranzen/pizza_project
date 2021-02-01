@@ -14,7 +14,7 @@ export class MenuPage extends Component {
 
     async componentDidMount() {
         let pizzas = PizzaApi.getAllPizzas();
-        this.setState({pizzaArray: (await pizzas).data})
+        this.setState({ pizzaArray: (await pizzas).data })
     }
 
     pizzaList = () => {

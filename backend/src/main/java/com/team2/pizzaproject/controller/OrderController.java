@@ -43,6 +43,7 @@ public class OrderController {
     @PostMapping(path = "/add")
     @ResponseBody
     public OrderModel addOrder(@RequestBody OrderModel order) {
+        LOGGER.log(Level.INFO, "Order saved");
         return orderRepository.save(order);
     }
 

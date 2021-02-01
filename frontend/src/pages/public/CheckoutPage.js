@@ -5,6 +5,9 @@ import { OrderApi, PizzaApi, UserApi } from "../../apis/index";
 import CheckoutMenuItem from "../../components/checkout/CheckoutMenuItem";
 import Switch from "react-switch";
 
+// krachar om vi försöker lägga till mer än ett föremål av samma från meny
+
+
 const cookies = new Cookies();
 
 function CheckoutPage() {
@@ -13,6 +16,7 @@ function CheckoutPage() {
 	const [pizzaArray, setPizzaArray] = useState([]);
 	const [purchaseArray, setPurchaseArray] = useState([]);
 	const [isTakeaway, setTakeaway] = useState(false);
+    const [orderComment, setOrderComment] = useState("");
 	useEffect(() => {
 		async function pizzaSorting() {
 			let cookie = cookies.get("cart");
@@ -44,24 +48,29 @@ function CheckoutPage() {
 		pizzaSorting();
 	}, []);
 
-	async function submitPurchase() {
-		let decryptAuth = UserApi.validateJwt(cookies.get("auth"));
-		let user = UserApi.getUserByEmail((await decryptAuth).data.email);
-		let order = {
-			user: (await user).data,
-			purchaseArray: purchaseArray,
+    async function submitPurchase() {
+        let decryptAuth = UserApi.validateJwt(cookies.get("auth"));
+        let user = UserApi.getUserByEmail((await decryptAuth).data.email)
+        let order = {
+            user: (await user).data,
+            orderComment: orderComment,
+            purchaseArray: purchaseArray,
             totalPrice: "0 kr",
             isTakeaway: isTakeaway
-		};
+        }
 
 		order = await OrderApi.postOrder(order);
 		cookies.set("price-cookie", order.data.id);
 		history.push("/payment");
 	}
 
-	function isTakeawayChange(checked) {
+	function handleTakeawayChange(checked) {
 		setTakeaway(checked);
-	}
+    }
+    
+    function handleCommentChange(event) {
+        setOrderComment(event.target.value);
+    }
 
 	if (pizzaArray.length > 0) {
 		return (
@@ -72,9 +81,10 @@ function CheckoutPage() {
 				<div>
 					<div className="rowGroup">
 						<p>Äta här</p>
-						<Switch checked={isTakeaway} onChange={isTakeawayChange} uncheckedIcon={false} checkedIcon={false} onColor="#0B7C09" offColor="#0B7C09" />
+						<Switch checked={isTakeaway} onChange={handleTakeawayChange} uncheckedIcon={false} checkedIcon={false} onColor="#0B7C09" offColor="#0B7C09" />
 						<p>Takeaway</p>
 					</div>
+                    <textarea value={orderComment} onChange={handleCommentChange} />
 					<button onClick={submitPurchase}>Bekräfta köp</button>
 				</div>
 			</div>

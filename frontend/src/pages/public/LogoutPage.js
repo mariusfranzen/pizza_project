@@ -10,6 +10,7 @@ function LogoutPage() {
     cookies.remove("auth");
     history.push("/");
 
+
     return (
         <div>
             You are being logged out...

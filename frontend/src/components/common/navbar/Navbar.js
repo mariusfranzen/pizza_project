@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { NavBurger, NavMenu } from "./index";
-import Logo from "../../../images/pizza-logo.jpg";
+import Logo from "../../../images/pizza-logo.png";
 import { Icons8ShoppingCart } from "../../../images/icons/index";
 import Cookies from "universal-cookie";
 import UserApi from "../../../apis/UserApi";
 import useToggle from "../../hooks/useToggle";
 
 const cookies = new Cookies();
-
-async function validateJwtCookie(jwt) {
-	await UserApi.validateJwt(jwt);
-}
 
 function Navbar() {
 	let history = useHistory();
@@ -24,7 +20,7 @@ function Navbar() {
 		async function cookieCheck() {
 			let authCookie = cookies.get("auth");
 			if (authCookie) {
-				let val =  await UserApi.validateJwt(authCookie)
+				let val = await UserApi.validateJwt(authCookie)
 				setCookie(val);
 				console.log(val);
 				if (val.data.authorization === "USER") {
@@ -51,7 +47,7 @@ function Navbar() {
 
 	return (
 		<nav className="mainNav">
-			<img src={Logo} alt="logo" className="logo" onClick={homeClick} />
+			<img className="logo" src={Logo} alt="logo" className="logo" onClick={homeClick} />
 			<nav className="rightGroup">
 				<img src={Icons8ShoppingCart} alt="cart" className="cart" onClick={cartClick} />
 				<NavBurger isOpen={isOpen} isLoggedIn={isLoggedIn} menuClick={toggleOpen} />
